@@ -68,7 +68,7 @@ export function AIComparison() {
   const typingDone = typedLength >= GENERIC_RESPONSE.length;
 
   return (
-    <section id="comparison" className="py-24 md:py-32 bg-planara-dark">
+    <section id="comparison" className="py-16 md:py-22 bg-planara-dark">
       <div className="container mx-auto px-6 max-w-5xl" ref={ref}>
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
           Not Another Chatbot
@@ -91,39 +91,37 @@ export function AIComparison() {
         {/* Side by side */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
           {/* Left: Generic AI */}
-          <div className="rounded-lg overflow-hidden border border-white/10">
+          <div className="rounded-lg overflow-hidden border border-white/10 flex flex-col">
             <div className="bg-white/[0.04] border-b border-white/[0.06] px-4 py-2.5 flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-white/10" />
               <span className="text-[11px] font-mono text-white/30">
                 Generic AI Assistant
               </span>
             </div>
-            <div className="bg-[#0B0E14] px-5 py-5 min-h-[320px]">
-              <p className="text-sm text-white/50 leading-relaxed font-mono">
+            <div className="bg-[#0B0E14] px-5 py-5 flex-1 flex flex-col">
+              <p className="text-sm text-white/50 leading-relaxed font-mono flex-1">
                 {GENERIC_RESPONSE.slice(0, typedLength)}
                 {!typingDone && (
                   <span className="inline-block w-2 h-4 bg-white/40 ml-0.5 animate-pulse" />
                 )}
               </p>
               {typingDone && (
-                <div className="mt-6 pt-4 border-t border-white/5">
-                  <p className="text-[11px] font-mono text-white/20">
-                    No citations. No parts. No safety warnings. No structure.
-                  </p>
-                </div>
+                <p className="text-[11px] font-mono text-white/20 mt-6">
+                  No citations. No parts. No safety warnings. No structure.
+                </p>
               )}
             </div>
           </div>
 
           {/* Right: Planara */}
-          <div className="rounded-lg overflow-hidden border border-planara-teal/30">
+          <div className="rounded-lg overflow-hidden border border-planara-teal/30 flex flex-col">
             <div className="bg-planara-teal/[0.06] border-b border-planara-teal/20 px-4 py-2.5 flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-planara-teal/40" />
               <span className="text-[11px] font-mono text-planara-teal/70">
                 Planara Service Intelligence
               </span>
             </div>
-            <div className="bg-[#0B0E14] px-5 py-5 min-h-[320px]">
+            <div className="bg-[#0B0E14] px-5 py-5 flex-1">
               {/* Spec table */}
               <div
                 className={cn(

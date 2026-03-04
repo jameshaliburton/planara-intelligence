@@ -27,7 +27,7 @@ const stats = [
 
 export function Problem() {
   return (
-    <section id="problem" className="py-24 md:py-32 bg-white border-b border-planara-border">
+    <section id="problem" className="py-16 md:py-22 bg-white border-b border-planara-border">
       <div className="container mx-auto px-6 max-w-5xl">
         <ScrollReveal>
           <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">

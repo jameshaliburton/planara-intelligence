@@ -9,7 +9,7 @@ const otherLogos = ["Google", "Apple", "Uber", "Disney", "Goldman Sachs", "Samsu
 
 export function SocialProof() {
   return (
-    <section id="social-proof" className="py-24 md:py-32 bg-planara-dark">
+    <section id="social-proof" className="py-16 md:py-22 bg-planara-dark">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
           Why Planara

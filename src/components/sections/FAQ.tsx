@@ -39,7 +39,7 @@ export function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-planara-navy">
+    <section id="faq" className="py-16 md:py-22 bg-planara-navy">
       <div className="container mx-auto px-6 max-w-3xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
           Common Questions

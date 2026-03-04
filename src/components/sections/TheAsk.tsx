@@ -1,6 +1,6 @@
 export function TheAsk() {
   return (
-    <section id="the-ask" className="py-24 md:py-32 bg-white border-b border-planara-border">
+    <section id="the-ask" className="py-16 md:py-22 bg-white border-b border-planara-border">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="max-w-2xl">
           <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">

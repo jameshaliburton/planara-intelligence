@@ -31,7 +31,7 @@ const OWNER_QUERIES = [
 
 export function DemoPreview() {
   return (
-    <section id="demos" className="py-24 md:py-32 bg-planara-light">
+    <section id="demos" className="py-16 md:py-22 bg-planara-light">
       <div className="container mx-auto px-6 max-w-5xl">
         <ScrollReveal>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">

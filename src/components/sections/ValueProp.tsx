@@ -2,7 +2,7 @@ import { MapPin } from "@phosphor-icons/react/dist/ssr";
 
 export function ValueProp() {
   return (
-    <section id="value-prop" className="py-24 md:py-32 bg-planara-dark">
+    <section id="value-prop" className="py-16 md:py-22 bg-planara-dark">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
           One Platform, Two Paths

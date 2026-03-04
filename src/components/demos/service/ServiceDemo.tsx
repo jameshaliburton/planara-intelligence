@@ -78,7 +78,7 @@ export function ServiceDemo({ standalone = false }: { standalone?: boolean }) {
   }
 
   return (
-    <section id="service-demo" className={standalone ? "min-h-screen bg-planara-navy" : "py-16 md:py-24 bg-planara-navy"}>
+    <section id="service-demo" className={standalone ? "min-h-screen bg-planara-navy" : "py-12 md:py-16 bg-planara-navy"}>
       {standalone ? (
         <div className="container mx-auto max-w-6xl px-4 md:px-6 pt-4 mb-4">
           <a

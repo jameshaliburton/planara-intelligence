@@ -46,7 +46,7 @@ const phases = [
 
 export function Engagement() {
   return (
-    <section id="engagement" className="py-24 md:py-32 bg-planara-navy">
+    <section id="engagement" className="py-16 md:py-22 bg-planara-navy">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
           Engagement Model
