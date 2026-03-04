@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, FileText, ArrowRight } from "lucide-react";
+import { X, FileText, ArrowRight, Check, Download, Loader2 } from "lucide-react";
 
 export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const [open, setOpen] = useState(false);
@@ -19,7 +19,7 @@ export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light"
         }
       >
         <FileText
-          className={isDark ? "w-5 h-5 text-planara-teal" : "w-5 h-5 text-planara-teal"}
+          className="w-5 h-5 text-planara-teal"
           strokeWidth={1.5}
         />
         <div className="text-left">
@@ -47,9 +47,7 @@ export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light"
 
 function WhitePaperModal({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -65,7 +63,7 @@ function WhitePaperModal({ onClose }: { onClose: () => void }) {
     };
   }, [onClose]);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
 
@@ -74,11 +72,27 @@ function WhitePaperModal({ onClose }: { onClose: () => void }) {
       return;
     }
 
-    // Integration stub: email capture → CRM / email marketing
-    // POST /api/integrations/whitepaper/download
-    // { email, name, company, asset: "100b-documentation-problem" }
-    console.log("White paper download:", { email, name, company });
-    setSubmitted(true);
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/whitepaper", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+    } catch {
+      setError("Network error. Please try again.");
+      setStatus("error");
+    }
   }
 
   return (
@@ -110,7 +124,26 @@ function WhitePaperModal({ onClose }: { onClose: () => void }) {
         </div>
 
         <div className="p-6">
-          {!submitted ? (
+          {status === "success" ? (
+            <div className="text-center py-6">
+              <div className="w-12 h-12 bg-planara-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="w-6 h-6 text-planara-teal" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-bold text-planara-dark mb-2">
+                Check your inbox
+              </h3>
+              <p className="text-sm text-planara-muted leading-relaxed">
+                We&apos;ve sent the white paper to{" "}
+                <span className="font-medium text-planara-dark">{email}</span>.
+              </p>
+              <button
+                onClick={onClose}
+                className="mt-6 px-4 py-2 text-sm text-planara-muted hover:text-planara-dark transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          ) : (
             <>
               <h3 className="text-lg font-bold text-planara-dark mb-2">
                 The $100B Documentation Problem in Equipment Manufacturing
@@ -125,24 +158,14 @@ function WhitePaperModal({ onClose }: { onClose: () => void }) {
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Work email *"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status === "error") setStatus("idle");
+                  }}
+                  placeholder="Work email"
                   required
-                  className="w-full border border-planara-border rounded-sm px-4 py-2.5 text-sm text-planara-dark placeholder:text-planara-muted/50 focus:outline-none focus:border-planara-teal/50"
-                />
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Name"
-                  className="w-full border border-planara-border rounded-sm px-4 py-2.5 text-sm text-planara-dark placeholder:text-planara-muted/50 focus:outline-none focus:border-planara-teal/50"
-                />
-                <input
-                  type="text"
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  placeholder="Company"
-                  className="w-full border border-planara-border rounded-sm px-4 py-2.5 text-sm text-planara-dark placeholder:text-planara-muted/50 focus:outline-none focus:border-planara-teal/50"
+                  disabled={status === "sending"}
+                  className="w-full border border-planara-border rounded-sm px-4 py-2.5 text-sm text-planara-dark placeholder:text-planara-muted/50 focus:outline-none focus:border-planara-teal/50 disabled:opacity-50"
                 />
 
                 {error && (
@@ -151,35 +174,34 @@ function WhitePaperModal({ onClose }: { onClose: () => void }) {
 
                 <button
                   type="submit"
-                  className="w-full px-4 py-2.5 bg-planara-dark text-white text-sm font-medium rounded-sm hover:bg-planara-dark/90 transition-colors"
+                  disabled={status === "sending"}
+                  className="w-full px-4 py-2.5 bg-planara-dark text-white text-sm font-medium rounded-sm hover:bg-planara-dark/90 transition-colors disabled:opacity-70 flex items-center justify-center gap-2"
                 >
-                  Download White Paper
+                  {status === "sending" ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" strokeWidth={1.5} />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send to my inbox"
+                  )}
                 </button>
               </form>
 
-              <p className="text-[11px] text-planara-muted/50 mt-4">
-                We&apos;ll send the PDF to your email. No spam, no sequences.
-              </p>
-            </>
-          ) : (
-            <div className="text-center py-6">
-              <div className="w-12 h-12 bg-planara-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FileText className="w-6 h-6 text-planara-teal" strokeWidth={1.5} />
+              <div className="mt-4 pt-4 border-t border-planara-border flex items-center justify-between">
+                <p className="text-[11px] text-planara-muted/50">
+                  No spam, no sequences.
+                </p>
+                <a
+                  href="/PLANARA_manufacturing_intelligence_whitepaper.pdf"
+                  download
+                  className="flex items-center gap-1.5 text-xs text-planara-muted hover:text-planara-dark transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" strokeWidth={1.5} />
+                  Or download directly
+                </a>
               </div>
-              <h3 className="text-lg font-bold text-planara-dark mb-2">
-                Check your inbox
-              </h3>
-              <p className="text-sm text-planara-muted leading-relaxed">
-                We&apos;re sending the white paper to{" "}
-                <span className="font-medium text-planara-dark">{email}</span>.
-              </p>
-              <button
-                onClick={onClose}
-                className="mt-6 px-4 py-2 text-sm text-planara-muted hover:text-planara-dark transition-colors"
-              >
-                Close
-              </button>
-            </div>
+            </>
           )}
         </div>
       </div>
