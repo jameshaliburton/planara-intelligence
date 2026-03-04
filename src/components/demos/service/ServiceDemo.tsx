@@ -3,11 +3,13 @@
 import { useState } from "react";
 import {
   AlertTriangle,
+  ArrowLeft,
   BookOpen,
   ChevronRight,
   ClipboardList,
   Gauge,
   Package,
+  RotateCcw,
   Search,
   Send,
   ShieldAlert,
@@ -50,6 +52,11 @@ export function ServiceDemo() {
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState<ServiceQueryResponse | null>(null);
   const [loading, setLoading] = useState(false);
+
+  function handleReset() {
+    setQuery("");
+    setResponse(null);
+  }
 
   async function handleQuery(q: string) {
     const searchQuery = q || query;
@@ -119,20 +126,27 @@ export function ServiceDemo() {
             </button>
           </div>
 
-          {/* Suggested queries */}
-          {!response && (
-            <div className="flex flex-wrap gap-2 mb-8">
-              {SUGGESTED_QUERIES.map((q) => (
-                <button
-                  key={q}
-                  onClick={() => handleQuery(q)}
-                  className="text-xs font-mono px-3 py-1.5 bg-white/[0.04] border border-white/10 rounded-sm text-white/50 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-          )}
+          {/* Suggested queries — always visible */}
+          <div className="flex flex-wrap items-center gap-2 mb-8">
+            {response && (
+              <button
+                onClick={handleReset}
+                className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 bg-white/[0.06] border border-white/15 rounded-sm text-white/60 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
+              >
+                <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+                Reset
+              </button>
+            )}
+            {SUGGESTED_QUERIES.filter((q) => q !== query).map((q) => (
+              <button
+                key={q}
+                onClick={() => handleQuery(q)}
+                className="text-xs font-mono px-3 py-1.5 bg-white/[0.04] border border-white/10 rounded-sm text-white/50 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
 
           {/* Loading */}
           {loading && (
@@ -157,6 +171,17 @@ export function ServiceDemo() {
               {response.citations.length > 0 && (
                 <CitationBar citations={response.citations} />
               )}
+
+              {/* Bottom reset */}
+              <div className="flex items-center gap-3 pt-2">
+                <button
+                  onClick={handleReset}
+                  className="flex items-center gap-1.5 text-xs font-mono text-white/30 hover:text-planara-teal transition-colors"
+                >
+                  <RotateCcw className="w-3 h-3" strokeWidth={1.5} />
+                  Try another query
+                </button>
+              </div>
             </div>
           )}
 

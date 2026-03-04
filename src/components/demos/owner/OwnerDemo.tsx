@@ -3,6 +3,7 @@
 import { useState } from "react";
 import {
   Anchor,
+  ArrowLeft,
   Calendar,
   ChevronRight,
   Clock,
@@ -51,6 +52,11 @@ export function OwnerDemo() {
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState<OwnerQueryResponse | null>(null);
   const [loading, setLoading] = useState(false);
+
+  function handleReset() {
+    setQuery("");
+    setResponse(null);
+  }
 
   async function handleQuery(q: string) {
     const searchQuery = q || query;
@@ -200,6 +206,31 @@ export function OwnerDemo() {
                           {response.citation.source} — {response.citation.section}
                         </p>
                       )}
+                    </div>
+                  </div>
+
+                  {/* Try another query */}
+                  <div className="pt-2 space-y-3">
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={handleReset}
+                        className="flex items-center gap-1.5 text-xs text-planara-muted hover:text-planara-blue transition-colors"
+                      >
+                        <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+                        Back
+                      </button>
+                      <span className="text-xs text-planara-muted/40">or try:</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {SUGGESTED_QUERIES.filter((q) => q !== query).map((q) => (
+                        <button
+                          key={q}
+                          onClick={() => handleQuery(q)}
+                          className="text-left text-xs px-3 py-1.5 bg-planara-light border border-planara-border rounded-full hover:border-planara-blue/40 transition-colors text-planara-muted"
+                        >
+                          {q}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
