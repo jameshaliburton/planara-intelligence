@@ -25,17 +25,15 @@ export function ValueProp() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px">
             {/* Track A */}
             <div className="relative pr-0 md:pr-8">
-              {/* You are here */}
-              <div className="flex items-center gap-1.5 mb-4">
-                <MapPin className="w-3.5 h-3.5 text-planara-teal" strokeWidth={2} />
-                <span className="text-[10px] font-mono uppercase tracking-wider text-planara-teal font-medium">
+              <div className="flex items-center gap-2 mb-1.5">
+                <p className="text-[10px] font-mono uppercase tracking-wider text-white/30">
+                  Track A
+                </p>
+                <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-planara-teal/70">
+                  <MapPin className="w-3 h-3" strokeWidth={2} />
                   You are here
                 </span>
               </div>
-
-              <p className="text-[10px] font-mono uppercase tracking-wider text-planara-teal/40 mb-1.5">
-                Track A
-              </p>
               <h3 className="text-base font-semibold text-white mb-3">
                 Purpose-Built Tools
               </h3>
@@ -46,7 +44,7 @@ export function ValueProp() {
                 and telemetry. No vendor negotiation, no IT approval needed,
                 deployed in weeks.
               </p>
-              <p className="text-xs font-mono text-planara-teal/40">
+              <p className="text-xs font-mono text-white/30">
                 Most clients start here
               </p>
 
@@ -56,21 +54,19 @@ export function ValueProp() {
 
             {/* Track B */}
             <div className="pl-0 md:pl-8 mt-8 md:mt-0">
-              <div className="h-[26px] mb-4" /> {/* Align with Track A marker */}
-
-              <p className="text-[10px] font-mono uppercase tracking-wider text-white/20 mb-1.5">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-white/30 mb-1.5">
                 Track B
               </p>
-              <h3 className="text-base font-semibold text-white/40 mb-3">
+              <h3 className="text-base font-semibold text-white mb-3">
                 Embedded Intelligence
               </h3>
-              <p className="text-sm text-white/25 leading-relaxed mb-4">
+              <p className="text-sm text-white/50 leading-relaxed mb-4">
                 For organizations that want AI capabilities inside their
                 existing DMS, service tools, or customer portals. Requires
                 API access and vendor cooperation. Deeper integration,
                 longer timeline — add when the ROI justifies the effort.
               </p>
-              <p className="text-xs font-mono text-white/15">
+              <p className="text-xs font-mono text-white/30">
                 Add later when proven
               </p>
             </div>
@@ -79,10 +75,10 @@ export function ValueProp() {
           {/* Connector lines into platform */}
           <div className="hidden md:grid grid-cols-2 gap-px mt-6 mb-0">
             <div className="flex justify-center pr-8">
-              <div className="w-px h-8 border-l border-dashed border-planara-teal/25" />
+              <div className="w-px h-8 border-l border-dashed border-white/[0.12]" />
             </div>
             <div className="flex justify-center pl-8">
-              <div className="w-px h-8 border-l border-dashed border-white/[0.08]" />
+              <div className="w-px h-8 border-l border-dashed border-white/[0.12]" />
             </div>
           </div>
 

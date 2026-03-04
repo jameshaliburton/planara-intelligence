@@ -61,23 +61,16 @@ export function Engagement() {
           We build a working prototype from your documentation in 1-2 weeks, free.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {phases.map((phase, i) => (
-            <div
-              key={phase.phase}
-              className={
-                phase.highlight
-                  ? "border border-planara-teal/30 rounded-sm p-6 bg-planara-teal/[0.05]"
-                  : "border border-white/10 rounded-sm p-6 bg-white/[0.02]"
-              }
-            >
+            <div key={phase.phase} className="pt-4 border-t border-white/[0.08]">
               <div className="flex items-center gap-2 mb-1">
                 <p className="text-xs font-mono uppercase tracking-wider text-white/40">
                   Phase {i + 1}
                 </p>
                 {phase.highlight && (
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-planara-teal bg-planara-teal/10 px-1.5 py-0.5 rounded-sm">
-                    Start here
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-planara-teal/70">
+                    — Start here
                   </span>
                 )}
               </div>
@@ -100,7 +93,7 @@ export function Engagement() {
                     className="flex items-start gap-2 text-sm text-white/60"
                   >
                     <ArrowRight
-                      className="w-3.5 h-3.5 text-planara-teal shrink-0 mt-0.5"
+                      className="w-3.5 h-3.5 text-white/25 shrink-0 mt-0.5"
                       strokeWidth={1.5}
                     />
                     {item}
