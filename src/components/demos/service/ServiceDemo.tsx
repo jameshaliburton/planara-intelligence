@@ -490,7 +490,7 @@ function PartsCard({ parts }: { parts: PartInfo[] }) {
               </span>
               {/* Integration stub: parts ordering */}
               <button
-                onClick={() => showIntegrationToast("Integration point: Connects to dealer parts inventory (CDK/Lightspeed) via API")}
+                onClick={() => showIntegrationToast("In production, this creates a parts order in your DMS (CDK, Lightspeed, DealerSocket)")}
                 className="text-xs font-mono text-planara-teal hover:text-planara-teal/80 transition-colors"
               >
                 Order
@@ -509,7 +509,7 @@ function WorkOrderButton({ text }: { text: string }) {
   return (
     <button
       className="flex items-center gap-2 px-5 py-3 bg-planara-blue text-white text-sm font-medium rounded-sm hover:bg-planara-blue/90 transition-colors w-full md:w-auto"
-      onClick={() => showIntegrationToast("Integration point: Generates pre-filled work order in DMS")}
+      onClick={() => showIntegrationToast("In production, this generates a pre-filled work order in your DMS")}
     >
       <ClipboardList className="w-4 h-4" strokeWidth={1.5} />
       {text}

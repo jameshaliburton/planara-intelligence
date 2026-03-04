@@ -127,7 +127,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
             </div>
             {/* Integration stub: click-to-call */}
             <button
-              onClick={() => showIntegrationToast("Integration point: Click-to-call via dealer phone system")}
+              onClick={() => showIntegrationToast("In production, this initiates a click-to-call via the dealer phone system")}
               className="flex items-center gap-1.5 text-sm text-planara-blue hover:text-planara-blue/80 transition-colors"
             >
               <Phone className="w-4 h-4" strokeWidth={1.5} />
@@ -361,10 +361,10 @@ function ActionButton({ action }: { action: OwnerAction }) {
   const Icon = icons[action.type] ?? ChevronRight;
 
   const toastMessages: Record<string, string> = {
-    schedule: "Integration point: Creates appointment in dealer scheduling system",
-    call: "Integration point: Click-to-call via dealer phone system",
-    order: "Integration point: Connects to dealer parts inventory via API",
-    dealer: "Integration point: Opens directions in dealer locator",
+    schedule: "In production, this creates an appointment in your dealer scheduling system (CDK, Lightspeed, DealerSocket)",
+    call: "In production, this initiates a click-to-call via the dealer phone system",
+    order: "In production, this creates a parts order in your DMS (CDK, Lightspeed, DealerSocket)",
+    dealer: "In production, this opens directions in the dealer locator",
   };
 
   return (
@@ -395,14 +395,14 @@ function DealerCard() {
           <div className="flex gap-2">
             {/* Integration stub: DMS directions */}
             <button
-              onClick={() => showIntegrationToast("Integration point: Opens directions in dealer locator")}
+              onClick={() => showIntegrationToast("In production, this opens directions in the dealer locator")}
               className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors"
             >
               <MapPin className="w-4 h-4" strokeWidth={1.5} />
             </button>
             {/* Integration stub: click-to-call */}
             <button
-              onClick={() => showIntegrationToast("Integration point: Click-to-call via dealer phone system")}
+              onClick={() => showIntegrationToast("In production, this initiates a click-to-call via the dealer phone system")}
               className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors"
             >
               <Phone className="w-4 h-4" strokeWidth={1.5} />
