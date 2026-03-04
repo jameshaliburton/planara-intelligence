@@ -7,6 +7,7 @@ import { Integration } from "@/components/sections/Integration";
 import { ValueProp } from "@/components/sections/ValueProp";
 import { Engagement } from "@/components/sections/Engagement";
 import { TheAsk } from "@/components/sections/TheAsk";
+import { FAQ } from "@/components/sections/FAQ";
 import { Credentials } from "@/components/sections/Credentials";
 import { IntegrationToastProvider } from "@/components/IntegrationToast";
 
@@ -23,6 +24,7 @@ export default function Home() {
         <ValueProp />
         <Engagement />
         <TheAsk />
+        <FAQ />
         <Credentials />
       </main>
     </IntegrationToastProvider>
