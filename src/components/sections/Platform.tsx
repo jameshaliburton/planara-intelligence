@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { FileText, Brain, Wifi, Wrench, Anchor } from "lucide-react";
+import { FileText, Brain, Wifi, Wrench, Anchor, BarChart3 } from "lucide-react";
 
 export function Platform() {
   return (
     <section id="platform" className="py-24 md:py-32 bg-planara-navy">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
-          One Platform, Two Products
+          One Platform, Three Outcomes
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 max-w-3xl">
           Documentation and telemetry in.
@@ -15,8 +15,9 @@ export function Platform() {
         </h2>
         <p className="text-lg text-white/60 max-w-2xl mb-16 leading-relaxed">
           Planara ingests equipment documentation and connects to live
-          telemetry, then delivers context-aware intelligence through two
-          purpose-built interfaces.
+          telemetry, then delivers context-aware intelligence through
+          purpose-built interfaces. Deploy as standalone tools or embed
+          via API into existing systems.
         </p>
 
         {/* Architecture flow */}
@@ -89,32 +90,41 @@ export function Platform() {
           {/* Output column */}
           <div className="space-y-4">
             <p className="text-xs font-mono uppercase tracking-wider text-white/40 mb-3">
-              Products
+              Outcomes
             </p>
             <Link
               href="/demo/service"
-              className="block border border-white/10 rounded-sm p-5 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
+              className="block border border-white/10 rounded-sm p-4 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
             >
-              <Wrench className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <Wrench className="w-5 h-5 text-planara-teal mb-2" strokeWidth={1.5} />
               <p className="text-sm font-semibold text-white group-hover:text-planara-teal transition-colors">
                 Service Intelligence
               </p>
-              <p className="text-sm text-white/50 mt-1">
-                For technicians and service operations. Dense, procedural, safety-first.
+              <p className="text-xs text-white/50 mt-1">
+                For technicians. Dense, procedural, safety-first.
               </p>
             </Link>
             <Link
               href="/demo/owner"
-              className="block border border-white/10 rounded-sm p-5 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
+              className="block border border-white/10 rounded-sm p-4 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
             >
-              <Anchor className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <Anchor className="w-5 h-5 text-planara-teal mb-2" strokeWidth={1.5} />
               <p className="text-sm font-semibold text-white group-hover:text-planara-teal transition-colors">
-                Owner &amp; Dealer Portal
+                Owner Intelligence
               </p>
-              <p className="text-sm text-white/50 mt-1">
-                For owners and dealers. Conversational, actionable, white-labeled.
+              <p className="text-xs text-white/50 mt-1">
+                For owners and dealers. Conversational, white-labeled.
               </p>
             </Link>
+            <div className="border border-white/10 rounded-sm p-4 bg-white/[0.03]">
+              <BarChart3 className="w-5 h-5 text-planara-teal mb-2" strokeWidth={1.5} />
+              <p className="text-sm font-semibold text-white">
+                OEM Intelligence
+              </p>
+              <p className="text-xs text-white/50 mt-1">
+                Fleet-wide failure patterns, doc gaps, warranty validation.
+              </p>
+            </div>
           </div>
         </div>
       </div>

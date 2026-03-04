@@ -35,7 +35,7 @@ export function DemoPreview() {
           See It in Action
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-          Two products. One platform.
+          Three outcomes. One platform.
         </h2>
         <p className="text-lg text-planara-muted max-w-2xl mb-16 leading-relaxed">
           Built from real Yamaha F300 documentation. Try the live demos to see
@@ -194,7 +194,7 @@ export function DemoPreview() {
             {/* Card text */}
             <div className="mt-5">
               <h3 className="text-lg font-bold text-planara-dark mb-1.5">
-                Owner &amp; Dealer Portal
+                Owner Intelligence
               </h3>
               <p className="text-sm text-planara-muted leading-relaxed mb-3">
                 For boat owners and dealers. Conversational, actionable,

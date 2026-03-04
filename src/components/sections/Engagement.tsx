@@ -19,7 +19,7 @@ const phases = [
   {
     phase: "Pilot",
     timeline: "4-8 weeks",
-    price: "$25-50K",
+    price: "Production deployment",
     detail:
       "Production-grade deployment with real users. Telemetry integration, DMS connection, measured outcomes.",
     items: [

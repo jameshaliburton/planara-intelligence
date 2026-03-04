@@ -98,7 +98,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
               Product 2
             </p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-3">
-              Owner &amp; Dealer Portal
+              Owner Intelligence
             </h2>
             <p className="text-lg text-planara-muted max-w-2xl leading-relaxed">
               For boat owners and their dealers. White-labeled, warm, premium.

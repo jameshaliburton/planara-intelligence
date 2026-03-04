@@ -14,9 +14,15 @@ export function SocialProof() {
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
           Why Planara
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-16 max-w-3xl">
-          Built for manufacturing. Proven at scale.
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 max-w-3xl">
+          Deployed at Ford Manufacturing.
+          <br />
+          Airbus manufacturing experience.
         </h2>
+        <p className="text-lg text-white/50 max-w-2xl mb-16 leading-relaxed">
+          We&apos;ve shipped products used by billions. Now we&apos;re applying
+          that at manufacturing scale.
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {stats.map((stat) => (
@@ -61,10 +67,15 @@ export function SocialProof() {
         {/* Footer */}
         <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold text-white">Planara</p>
-            <p className="text-xs text-white/30 mt-1">
-              Manufacturing Intelligence
+            <p className="text-sm font-semibold text-white">
+              Built for Yamaha Marine. Powered by Planara.
             </p>
+            <a
+              href="mailto:hello@planara.com"
+              className="text-xs text-white/30 hover:text-planara-teal transition-colors mt-1 inline-block"
+            >
+              Other equipment lines? hello@planara.com
+            </a>
           </div>
           <p className="text-xs text-white/20">
             &copy; {new Date().getFullYear()} Planara. All rights reserved.
