@@ -8,18 +8,17 @@ import {
   Wrench,
   Store,
   BarChart3,
-  Layers,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const tabs = [
   {
     id: "service",
-    label: "Service Operations",
+    label: "Service Ops",
     icon: Wrench,
-    headline: "From question to work order in one interaction.",
+    headline: "Instant answers backed by your documentation.",
     description:
-      "Planara embeds intelligence directly into the technician workflow. No new tools to learn — it surfaces the right information inside the systems they already use.",
+      "Technicians get instant answers backed by your documentation. Parts are identified, work orders pre-filled, safety warnings surfaced — all from a single question.",
     flow: [
       { step: "Technician asks a question", detail: "Natural language query about a specific symptom, procedure, or spec" },
       { step: "Planara retrieves from docs + telemetry", detail: "RAG pipeline searches manuals, cross-references live engine data from Siren Marine" },
@@ -32,9 +31,9 @@ const tabs = [
     id: "dealer",
     label: "Dealer Network",
     icon: Store,
-    headline: "Every dealer interaction becomes a service opportunity.",
+    headline: "Owner questions become service revenue.",
     description:
-      "White-labeled owner portal that drives service revenue back to the dealer. Owners get answers, dealers get appointments.",
+      "Dealers offer a branded self-service portal that turns owner questions into service appointments and parts orders. New revenue channel, zero additional staff.",
     flow: [
       { step: "Owner asks about their boat", detail: "Self-service portal with their vessel, their dealer, their service history" },
       { step: "Planara answers in plain language", detail: "Conversational responses sourced from manufacturer documentation — not generic AI" },
@@ -47,9 +46,9 @@ const tabs = [
     id: "oem",
     label: "OEM Intelligence",
     icon: BarChart3,
-    headline: "Turn service data into product intelligence.",
+    headline: "Fleet-wide intelligence that feeds product development.",
     description:
-      "Aggregate query patterns across the fleet to identify what technicians and owners actually struggle with — then feed that back into product and documentation.",
+      "See what your fleet is actually experiencing. Failure patterns, documentation gaps, warranty validation — intelligence that feeds back into product development.",
     flow: [
       { step: "Fleet-wide failure pattern analysis", detail: "Identify recurring issues across models, years, and operating conditions" },
       { step: "Warranty claim validation", detail: "Cross-reference claims against documentation and telemetry to flag anomalies" },
@@ -68,33 +67,15 @@ export function Integration() {
     <section id="integration" className="py-24 md:py-32 bg-white border-b border-planara-border">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-          Integration &amp; Technology
+          What It Delivers
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-          Plugs into the systems you already use.
+          Intelligence for every role in your ecosystem.
         </h2>
         <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
-          Every CTA in the demos above maps to a real integration point.
-          Planara connects to telemetry, dealer management, parts catalogs,
-          and service operations out of the box.
+          One platform serves technicians, dealers, and OEM product teams —
+          each with tools designed for how they actually work.
         </p>
-
-        {/* Seamless integration callout */}
-        <div className="border border-planara-teal/20 rounded-sm p-6 bg-planara-teal/[0.03] mb-12">
-          <div className="flex items-start gap-4">
-            <Layers className="w-5 h-5 text-planara-teal shrink-0 mt-0.5" strokeWidth={1.5} />
-            <div>
-              <p className="text-base font-semibold text-planara-dark mb-1">
-                Planara doesn&apos;t replace your existing software. It makes it intelligent.
-              </p>
-              <p className="text-sm text-planara-muted leading-relaxed">
-                No new tools to learn. Planara embeds into dealer management systems,
-                service tools, and customer portals your teams already use — adding an
-                intelligence layer on top of existing workflows.
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* Tabs */}
         <div className="flex gap-1 border-b border-planara-border mb-8">
@@ -165,7 +146,7 @@ export function Integration() {
           </div>
         </div>
 
-        {/* RAG architecture footnote */}
+        {/* Technical footnote */}
         <div className="border-t border-planara-border pt-8">
           <div className="flex items-start gap-4">
             <div className="flex items-center gap-2 shrink-0">
