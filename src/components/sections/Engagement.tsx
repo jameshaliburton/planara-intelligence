@@ -5,28 +5,27 @@ const phases = [
   {
     phase: "Prototype",
     timeline: "1-2 weeks",
-    price: "Free",
+    price: "",
     detail:
-      "Working prototype from your documentation. Prove the value before committing budget.",
+      "Working prototype from your documentation. Ingest 2-3 manuals, configure one use case, live demo with your data.",
     items: [
       "Ingest 2-3 manuals",
       "Configure one use case",
       "Live demo with your data",
-      "No cost, no commitment",
     ],
     highlight: true,
   },
   {
     phase: "Pilot",
     timeline: "4-8 weeks",
-    price: "Production deployment",
+    price: "",
     detail:
-      "Production-grade deployment with real users. Telemetry integration, DMS connection, measured outcomes.",
+      "Production deployment with real users. Full documentation library, telemetry integration, DMS connection, measured outcomes.",
     items: [
       "Full documentation library",
       "Telemetry integration",
       "DMS & parts catalog connection",
-      "User feedback & iteration",
+      "Measured outcomes",
     ],
     highlight: false,
   },
@@ -57,8 +56,8 @@ export function Engagement() {
           Start with proof. Scale with confidence.
         </h2>
         <p className="text-lg text-white/50 max-w-2xl mb-16 leading-relaxed">
-          No multi-year contracts. No six-figure pilots to prove the concept.
-          We build a working prototype from your documentation in 1-2 weeks, free.
+          We build a working prototype from your documentation to prove the
+          value before you commit.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -78,9 +77,11 @@ export function Engagement() {
                 {phase.phase}
               </h3>
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-sm font-mono text-planara-teal">
-                  {phase.price}
-                </span>
+                {phase.price && (
+                  <span className="text-sm font-mono text-planara-teal">
+                    {phase.price}
+                  </span>
+                )}
                 <span className="text-xs text-white/30">{phase.timeline}</span>
               </div>
               <p className="text-sm text-white/50 leading-relaxed mb-4">
