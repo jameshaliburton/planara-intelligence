@@ -96,3 +96,9 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
