@@ -32,6 +32,7 @@ import type {
   ServiceChecklistItem,
 } from "@/types";
 import { cn } from "@/lib/utils";
+import { useIntegrationToast } from "@/components/IntegrationToast";
 
 const SUGGESTED_QUERIES = [
   "What oil does the F300 require?",
@@ -361,18 +362,7 @@ function ContentBlock({ block }: { block: ServiceContentBlock }) {
       return <PartsCard parts={block.parts ?? []} />;
 
     case "work-order-cta":
-      return (
-        <button
-          className="flex items-center gap-2 px-5 py-3 bg-planara-blue text-white text-sm font-medium rounded-sm hover:bg-planara-blue/90 transition-colors w-full md:w-auto"
-          onClick={() => {
-            /* Integration stub: work order creation */
-          }}
-        >
-          <ClipboardList className="w-4 h-4" strokeWidth={1.5} />
-          {block.text}
-          <ChevronRight className="w-4 h-4 ml-auto" strokeWidth={1.5} />
-        </button>
-      );
+      return <WorkOrderButton text={block.text ?? ""} />;
 
     case "service-checklist":
       return <ServiceChecklist items={block.checklist ?? []} />;
@@ -451,6 +441,8 @@ function ProcedureList({ steps }: { steps: ProcedureStep[] }) {
 }
 
 function PartsCard({ parts }: { parts: PartInfo[] }) {
+  const { showIntegrationToast } = useIntegrationToast();
+
   return (
     <div className="border border-white/10 rounded-sm">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
@@ -486,7 +478,10 @@ function PartsCard({ parts }: { parts: PartInfo[] }) {
                 {part.inStock ? "In Stock" : "Backorder"}
               </span>
               {/* Integration stub: parts ordering */}
-              <button className="text-xs font-mono text-planara-teal hover:text-planara-teal/80 transition-colors">
+              <button
+                onClick={() => showIntegrationToast("Integration point: Connects to dealer parts inventory (CDK/Lightspeed) via API")}
+                className="text-xs font-mono text-planara-teal hover:text-planara-teal/80 transition-colors"
+              >
                 Order
               </button>
             </div>
@@ -494,6 +489,21 @@ function PartsCard({ parts }: { parts: PartInfo[] }) {
         ))}
       </div>
     </div>
+  );
+}
+
+function WorkOrderButton({ text }: { text: string }) {
+  const { showIntegrationToast } = useIntegrationToast();
+
+  return (
+    <button
+      className="flex items-center gap-2 px-5 py-3 bg-planara-blue text-white text-sm font-medium rounded-sm hover:bg-planara-blue/90 transition-colors w-full md:w-auto"
+      onClick={() => showIntegrationToast("Integration point: Generates pre-filled work order in DMS")}
+    >
+      <ClipboardList className="w-4 h-4" strokeWidth={1.5} />
+      {text}
+      <ChevronRight className="w-4 h-4 ml-auto" strokeWidth={1.5} />
+    </button>
   );
 }
 

@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import type { OwnerQueryResponse, OwnerAction } from "@/types";
 import { cn } from "@/lib/utils";
+import { useIntegrationToast } from "@/components/IntegrationToast";
 
 const SUGGESTED_QUERIES = [
   "When is my next service due?",
@@ -52,6 +53,7 @@ export function OwnerDemo() {
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState<OwnerQueryResponse | null>(null);
   const [loading, setLoading] = useState(false);
+  const { showIntegrationToast } = useIntegrationToast();
 
   function handleReset() {
     setQuery("");
@@ -113,7 +115,10 @@ export function OwnerDemo() {
               </div>
             </div>
             {/* Integration stub: click-to-call */}
-            <button className="flex items-center gap-1.5 text-sm text-planara-blue hover:text-planara-blue/80 transition-colors">
+            <button
+              onClick={() => showIntegrationToast("Integration point: Click-to-call via dealer phone system")}
+              className="flex items-center gap-1.5 text-sm text-planara-blue hover:text-planara-blue/80 transition-colors"
+            >
               <Phone className="w-4 h-4" strokeWidth={1.5} />
               <span className="hidden sm:inline">Call</span>
             </button>
@@ -335,6 +340,7 @@ function VesselCard() {
 }
 
 function ActionButton({ action }: { action: OwnerAction }) {
+  const { showIntegrationToast } = useIntegrationToast();
   const icons: Record<string, typeof Calendar> = {
     schedule: Calendar,
     call: Phone,
@@ -343,13 +349,17 @@ function ActionButton({ action }: { action: OwnerAction }) {
   };
   const Icon = icons[action.type] ?? ChevronRight;
 
+  const toastMessages: Record<string, string> = {
+    schedule: "Integration point: Creates appointment in dealer scheduling system",
+    call: "Integration point: Click-to-call via dealer phone system",
+    order: "Integration point: Connects to dealer parts inventory via API",
+    dealer: "Integration point: Opens directions in dealer locator",
+  };
+
   return (
-    // Integration stub: action endpoint
     <button
       className="flex items-center gap-2 px-4 py-2.5 bg-planara-blue text-white text-sm font-medium rounded-full hover:bg-planara-blue/90 transition-colors"
-      onClick={() => {
-        /* Integration stub: ${action.endpoint} */
-      }}
+      onClick={() => showIntegrationToast(toastMessages[action.type] ?? `Integration point: ${action.endpoint}`)}
     >
       <Icon className="w-4 h-4" strokeWidth={1.5} />
       {action.label}
@@ -358,6 +368,8 @@ function ActionButton({ action }: { action: OwnerAction }) {
 }
 
 function DealerCard() {
+  const { showIntegrationToast } = useIntegrationToast();
+
   return (
     <div className="bg-white border-x border-planara-border border-b px-6 py-5">
       <div className="bg-planara-light border border-planara-border rounded-lg p-4">
@@ -371,11 +383,17 @@ function DealerCard() {
           </div>
           <div className="flex gap-2">
             {/* Integration stub: DMS directions */}
-            <button className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors">
+            <button
+              onClick={() => showIntegrationToast("Integration point: Opens directions in dealer locator")}
+              className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors"
+            >
               <MapPin className="w-4 h-4" strokeWidth={1.5} />
             </button>
             {/* Integration stub: click-to-call */}
-            <button className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors">
+            <button
+              onClick={() => showIntegrationToast("Integration point: Click-to-call via dealer phone system")}
+              className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors"
+            >
               <Phone className="w-4 h-4" strokeWidth={1.5} />
             </button>
           </div>

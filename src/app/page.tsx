@@ -8,20 +8,23 @@ import { ValueProp } from "@/components/sections/ValueProp";
 import { Engagement } from "@/components/sections/Engagement";
 import { TheAsk } from "@/components/sections/TheAsk";
 import { Credentials } from "@/components/sections/Credentials";
+import { IntegrationToastProvider } from "@/components/IntegrationToast";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <Problem />
-      <Platform />
-      <ServiceDemo />
-      <OwnerDemo />
-      <Integration />
-      <ValueProp />
-      <Engagement />
-      <TheAsk />
-      <Credentials />
-    </main>
+    <IntegrationToastProvider>
+      <main className="min-h-screen">
+        <Hero />
+        <Problem />
+        <Platform />
+        <ServiceDemo />
+        <OwnerDemo />
+        <Integration />
+        <ValueProp />
+        <Engagement />
+        <TheAsk />
+        <Credentials />
+      </main>
+    </IntegrationToastProvider>
   );
 }

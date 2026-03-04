@@ -83,3 +83,16 @@ body {
   background-color: var(--color-planara-navy);
   color: #FFFFFF;
 }
+
+/* ── Keyframes ── */
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
