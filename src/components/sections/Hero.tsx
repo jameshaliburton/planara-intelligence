@@ -44,12 +44,21 @@ export function Hero() {
           Planara solves it.
         </p>
 
-        <a
-          href="#platform"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
-        >
-          See how it works
-        </a>
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href="#platform"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
+          >
+            See how it works
+          </a>
+          <a
+            href="/PLANARA_manufacturing_intelligence_whitepaper.pdf"
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
+          >
+            Read the white paper
+          </a>
+        </div>
       </div>
 
       {/* Scroll indicator */}
