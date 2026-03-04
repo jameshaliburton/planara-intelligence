@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/*
+ * Planara Design System
+ * Source of truth: planara.com + reference-site design tokens
+ * Colors stored as HSL for composability with opacity modifiers
+ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Planara brand */
+  --color-planara-dark: #131820;
+  --color-planara-navy: #0F1729;
+  --color-planara-teal: #43CED6;
+  --color-planara-blue: #2E95F5;
+  --color-planara-muted: #627084;
+  --color-planara-light: #F8FAFC;
+  --color-planara-border: #E2E5EA;
+
+  /* Semantic aliases */
+  --color-primary: #131820;
+  --color-primary-foreground: #FFFFFF;
+  --color-accent: #43CED6;
+  --color-accent-foreground: #FFFFFF;
+  --color-cta: #2E95F5;
+  --color-cta-foreground: #FFFFFF;
+  --color-muted: #627084;
+  --color-muted-foreground: #627084;
+  --color-border: #E2E5EA;
+  --color-destructive: #EF4444;
+
+  /* Safety levels (service demo) */
+  --color-safety-caution: #F59E0B;
+  --color-safety-warning: #F97316;
+  --color-safety-danger: #EF4444;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Border radius — tight, modern */
+  --radius: 0.375rem;
+  --radius-sm: 0.25rem;
+  --radius-lg: 0.5rem;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #131820;
+}
+
+/* ── Base ── */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Utilities ── */
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility grid-pattern {
+  background-image:
+    linear-gradient(to right, var(--color-planara-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-planara-border) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@utility section-dark {
+  background-color: var(--color-planara-dark);
+  color: #FFFFFF;
+}
+
+@utility section-navy {
+  background-color: var(--color-planara-navy);
+  color: #FFFFFF;
+}
