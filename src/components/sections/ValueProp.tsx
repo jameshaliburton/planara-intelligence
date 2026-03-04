@@ -11,9 +11,9 @@ export function ValueProp() {
           Build what you need. Integrate when you can.
         </h2>
         <p className="text-lg text-white/50 max-w-2xl mb-4 leading-relaxed">
-          Not every organization can modify their vendor software — and they
-          shouldn&apos;t have to. Planara supports both purpose-built tools and
-          embedded intelligence, running on the same platform.
+          Deploy as standalone tools or embed via API into existing systems.
+          Planara supports both purpose-built tools and embedded intelligence,
+          running on the same platform.
         </p>
         <p className="text-sm text-white/35 mb-16 leading-relaxed max-w-2xl">
           Planara doesn&apos;t replace your existing software. It makes it intelligent.
@@ -39,7 +39,7 @@ export function ValueProp() {
               </h3>
               <p className="text-sm text-white/50 leading-relaxed mb-4">
                 Planara builds tailored applications for your specific use
-                cases — the two demos on this page are examples. Standalone,
+                cases — the demos are examples. Standalone,
                 branded to your dealer network, running on your documentation
                 and telemetry. No vendor negotiation, no IT approval needed,
                 deployed in weeks.
@@ -99,17 +99,6 @@ export function ValueProp() {
             </div>
           </div>
 
-          {/* Annotation */}
-          <div className="mt-10 flex items-start gap-3">
-            <MapPin className="w-4 h-4 text-planara-teal shrink-0 mt-0.5" strokeWidth={1.5} />
-            <p className="text-sm text-white/50 leading-relaxed">
-              <span className="text-white/80 font-medium">
-                This demo was built in under 2 weeks from a single owner&apos;s manual.
-              </span>{" "}
-              No integrations, no IT project, no vendor approvals. A working
-              prototype that proves the value before you commit to anything.
-            </p>
-          </div>
         </div>
       </div>
     </section>

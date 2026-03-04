@@ -6,7 +6,7 @@ export function Platform() {
     <section id="platform" className="py-24 md:py-32 bg-planara-navy">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
-          One Platform, Three Outcomes
+          How It Works
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 max-w-3xl">
           Documentation and telemetry in.
@@ -14,9 +14,7 @@ export function Platform() {
           Intelligence out.
         </h2>
         <p className="text-lg text-white/60 max-w-2xl mb-16 leading-relaxed">
-          Planara ingests equipment documentation and connects to live
-          telemetry, then delivers context-aware intelligence through
-          purpose-built interfaces.
+          The same platform powers all three outcomes. Here&apos;s what&apos;s underneath.
         </p>
 
         {/* Architecture flow */}
@@ -100,7 +98,7 @@ export function Platform() {
                 Service Intelligence
               </p>
               <p className="text-sm text-white/50 mt-1">
-                For technicians and service operations. Dense, procedural, safety-first.
+                Structured query interface with telemetry-aware responses, citation tracking, and DMS integration.
               </p>
             </Link>
             <Link
@@ -112,7 +110,7 @@ export function Platform() {
                 Owner Intelligence
               </p>
               <p className="text-sm text-white/50 mt-1">
-                For owners and dealers. Conversational, actionable, white-labeled.
+                Dealer-branded conversational portal with equipment-specific context and service CTAs.
               </p>
             </Link>
             <div className="border border-white/10 rounded-sm p-5 bg-white/[0.03]">
@@ -121,56 +119,70 @@ export function Platform() {
                 OEM Intelligence
               </p>
               <p className="text-sm text-white/50 mt-1">
-                For product and documentation teams. Fleet-wide patterns, documentation gaps, quality feedback loop.
+                Fleet analytics dashboard surfacing failure patterns, documentation gaps, and product feedback.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Flywheel */}
+        {/* Intelligence Loop */}
         <div className="mt-16 border border-white/10 rounded-sm p-6 bg-white/[0.02]">
-          <p className="text-xs font-mono uppercase tracking-wider text-planara-teal/60 mb-4">
-            The Intelligence Flywheel
+          <p className="text-xs font-mono uppercase tracking-wider text-planara-teal/60 mb-6">
+            The Intelligence Loop
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {[
-              { step: "Service interactions generate field data", detail: "Every query, diagnosis, and repair becomes structured intelligence" },
-              { step: "OEM identifies patterns and gaps", detail: "Fleet-wide failure patterns, documentation gaps, warranty anomalies" },
-              { step: "Documentation improves", detail: "Technical writing teams get data-driven feedback on what to fix" },
-              { step: "Better outcomes for owners and technicians", detail: "More accurate answers, fewer misdiagnoses, faster resolution" },
-            ].map((item, i) => (
-              <div key={item.step} className="relative">
-                <div className="flex items-start gap-3">
-                  <span className="text-xs font-mono text-planara-teal shrink-0 mt-0.5">
-                    {i + 1}
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-white/80 mb-1">
-                      {item.step}
-                    </p>
-                    <p className="text-xs text-white/35 leading-relaxed">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-                {i < 3 && (
-                  <ArrowRight
-                    className="hidden md:block absolute -right-3 top-3 w-4 h-4 text-white/15 z-10"
-                    strokeWidth={1.5}
-                  />
-                )}
-              </div>
-            ))}
+          <div className="grid grid-cols-2 gap-px max-w-2xl mx-auto">
+            {/* Top-left: Service interactions */}
+            <div className="relative p-4 border border-white/[0.06] rounded-tl-sm">
+              <p className="text-sm font-medium text-white/80 mb-1">
+                Service interactions generate field data
+              </p>
+              <p className="text-xs text-white/35 leading-relaxed">
+                Every query, diagnosis, and repair becomes structured intelligence
+              </p>
+              {/* Arrow right */}
+              <ArrowRight className="absolute -right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-planara-teal/40 z-10" strokeWidth={2} />
+            </div>
+            {/* Top-right: OEM identifies */}
+            <div className="relative p-4 border border-white/[0.06] rounded-tr-sm">
+              <p className="text-sm font-medium text-white/80 mb-1">
+                OEM identifies patterns
+              </p>
+              <p className="text-xs text-white/35 leading-relaxed">
+                Fleet-wide failure patterns, documentation gaps, warranty anomalies
+              </p>
+              {/* Arrow down */}
+              <svg className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-4 h-4 text-planara-teal/40 z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </div>
+            {/* Bottom-left: Better outcomes */}
+            <div className="relative p-4 border border-white/[0.06] rounded-bl-sm">
+              <p className="text-sm font-medium text-white/80 mb-1">
+                Better outcomes
+              </p>
+              <p className="text-xs text-white/35 leading-relaxed">
+                More accurate answers, fewer misdiagnoses, faster resolution
+              </p>
+              {/* Arrow up */}
+              <svg className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-4 h-4 text-planara-teal/40 z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
+            </div>
+            {/* Bottom-right: Documentation improves */}
+            <div className="relative p-4 border border-white/[0.06] rounded-br-sm">
+              <p className="text-sm font-medium text-white/80 mb-1">
+                Documentation improves
+              </p>
+              <p className="text-xs text-white/35 leading-relaxed">
+                Technical writing teams get data-driven feedback
+              </p>
+              {/* Arrow left */}
+              <svg className="absolute -left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-planara-teal/40 z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </div>
           </div>
-          <p className="text-[10px] font-mono text-white/20 mt-4 text-right">
-            Cycle repeats — each iteration improves the next
-          </p>
         </div>
-
-        {/* Deploy line */}
-        <p className="text-sm text-white/40 mt-8 text-center">
-          Deploy as standalone tools or embed via API into existing systems.
-        </p>
       </div>
     </section>
   );

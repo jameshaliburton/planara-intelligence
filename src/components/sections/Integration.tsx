@@ -67,14 +67,14 @@ export function Integration() {
     <section id="integration" className="py-24 md:py-32 bg-white border-b border-planara-border">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-          What It Delivers
+          Three Outcomes, One Platform
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-          Intelligence for every role in your ecosystem.
+          What your teams actually get.
         </h2>
         <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
-          One platform serves technicians, dealers, and OEM product teams —
-          each with tools designed for how they actually work.
+          One platform serves three audiences. Each gets intelligence shaped
+          for how they actually work.
         </p>
 
         {/* Tabs */}

@@ -39,11 +39,11 @@ export function DemoPreview() {
             See It in Action
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-            Three outcomes. One platform.
+            See it working.
           </h2>
           <p className="text-lg text-planara-muted max-w-2xl mb-16 leading-relaxed">
-            Built from real Yamaha F300 documentation. Try the live demos to see
-            how the same intelligence serves different users.
+            Built from real Yamaha F300 documentation. Click through to see how
+            the same intelligence platform serves different users.
           </p>
         </ScrollReveal>
 
