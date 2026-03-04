@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Search,
   Clock,
@@ -12,6 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const SERVICE_QUERIES = [
   "What oil does the F300 require?",
@@ -31,21 +34,23 @@ export function DemoPreview() {
   return (
     <section id="demos" className="py-24 md:py-32 bg-planara-light">
       <div className="container mx-auto px-6 max-w-5xl">
-        <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-          See It in Action
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-          Three outcomes. One platform.
-        </h2>
-        <p className="text-lg text-planara-muted max-w-2xl mb-16 leading-relaxed">
-          Built from real Yamaha F300 documentation. Try the live demos to see
-          how the same intelligence serves different users.
-        </p>
+        <ScrollReveal>
+          <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
+            See It in Action
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
+            Three outcomes. One platform.
+          </h2>
+          <p className="text-lg text-planara-muted max-w-2xl mb-16 leading-relaxed">
+            Built from real Yamaha F300 documentation. Try the live demos to see
+            how the same intelligence serves different users.
+          </p>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Service Intelligence Card */}
-          <div>
-            <div className="rounded-lg overflow-hidden border border-planara-border shadow-lg">
+          <div className="group/card transition-transform duration-200 hover:-translate-y-1">
+            <div className="rounded-lg overflow-hidden border border-planara-border shadow-lg group-hover/card:shadow-xl transition-shadow duration-200">
               {/* App chrome — title bar */}
               <div className="bg-[#1A1E27] border-b border-white/[0.06] px-4 py-2.5 flex items-center gap-3 pointer-events-none">
                 <div className="flex items-center gap-1.5">
@@ -129,9 +134,9 @@ export function DemoPreview() {
             </div>
           </div>
 
-          {/* Owner Portal Card */}
-          <div>
-            <div className="rounded-lg overflow-hidden border border-planara-border shadow-lg bg-white">
+          {/* Owner Intelligence Card */}
+          <div className="group/card transition-transform duration-200 hover:-translate-y-1">
+            <div className="rounded-lg overflow-hidden border border-planara-border shadow-lg group-hover/card:shadow-xl transition-shadow duration-200 bg-white">
               {/* Dealer header */}
               <div className="px-5 py-3.5 flex items-center justify-between border-b border-planara-border pointer-events-none">
                 <div className="flex items-center gap-2.5">
