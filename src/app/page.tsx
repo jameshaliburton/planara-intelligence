@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
+import { AIComparison } from "@/components/sections/AIComparison";
 import { Platform } from "@/components/sections/Platform";
 import { DemoPreview } from "@/components/sections/DemoPreview";
 import { Integration } from "@/components/sections/Integration";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <Problem />
+      <AIComparison />
       <Platform />
       <DemoPreview />
       <Integration />
