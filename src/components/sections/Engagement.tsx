@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import { WhitePaperCTA } from "@/components/WhitePaperModal";
 
 const phases = [
   {
@@ -105,10 +104,6 @@ export function Engagement() {
           ))}
         </div>
 
-        {/* White paper CTA */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <WhitePaperCTA variant="dark" />
-        </div>
       </div>
     </section>
   );

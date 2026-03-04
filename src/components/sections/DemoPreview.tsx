@@ -35,15 +35,12 @@ export function DemoPreview() {
     <section id="demos" className="py-24 md:py-32 bg-planara-light">
       <div className="container mx-auto px-6 max-w-5xl">
         <ScrollReveal>
-          <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-            See It in Action
-          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-            See it working.
+            Built from Yamaha F300 documentation.
           </h2>
           <p className="text-lg text-planara-muted max-w-2xl mb-16 leading-relaxed">
-            Built from real Yamaha F300 documentation. Click through to see how
-            the same intelligence platform serves different users.
+            Click through to see how the same intelligence platform serves
+            different users.
           </p>
         </ScrollReveal>
 

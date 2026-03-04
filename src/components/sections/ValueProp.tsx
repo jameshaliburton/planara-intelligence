@@ -41,8 +41,8 @@ export function ValueProp() {
                 Planara builds tailored applications for your specific use
                 cases — the demos are examples. Standalone,
                 branded to your dealer network, running on your documentation
-                and telemetry. No vendor negotiation, no IT approval needed,
-                deployed in weeks.
+                and telemetry — deployed without IT approval or vendor
+                negotiation.
               </p>
               <p className="text-xs font-mono text-white/30">
                 Most clients start here
