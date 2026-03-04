@@ -1,5 +1,3 @@
-import { MapPin } from "lucide-react";
-
 export function ValueProp() {
   return (
     <section id="value-prop" className="py-24 md:py-32 bg-planara-dark">
@@ -10,104 +8,46 @@ export function ValueProp() {
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 max-w-3xl">
           Build what you need. Integrate when you can.
         </h2>
-        <p className="text-lg text-white/50 max-w-2xl mb-4 leading-relaxed">
+        <p className="text-lg text-white/50 max-w-2xl mb-16 leading-relaxed">
           Not every organization can modify their vendor software — and they
           shouldn&apos;t have to. Planara supports both purpose-built tools and
           embedded intelligence, running on the same platform.
         </p>
-        <p className="text-sm text-white/35 mb-16 leading-relaxed max-w-2xl">
-          Planara doesn&apos;t replace your existing software. It makes it intelligent.
-        </p>
 
-        {/* Architecture diagram */}
-        <div className="max-w-4xl mx-auto">
-          {/* Track labels */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px">
-            {/* Track A */}
-            <div className="relative pr-0 md:pr-8">
-              <div className="flex items-center gap-2 mb-1.5">
-                <p className="text-[10px] font-mono uppercase tracking-wider text-white/30">
-                  Track A
-                </p>
-                <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-planara-teal/70">
-                  <MapPin className="w-3 h-3" strokeWidth={2} />
-                  You are here
-                </span>
-              </div>
-              <h3 className="text-base font-semibold text-white mb-3">
-                Purpose-Built Tools
-              </h3>
-              <p className="text-sm text-white/50 leading-relaxed mb-4">
-                Planara builds tailored applications for your specific use
-                cases — the two demos on this page are examples. Standalone,
-                branded to your dealer network, running on your documentation
-                and telemetry. No vendor negotiation, no IT approval needed,
-                deployed in weeks.
-              </p>
-              <p className="text-xs font-mono text-white/30">
-                Most clients start here
-              </p>
-
-              {/* Connector line */}
-              <div className="hidden md:block absolute right-0 top-0 bottom-0 w-px bg-white/[0.06]" />
-            </div>
-
-            {/* Track B */}
-            <div className="pl-0 md:pl-8 mt-8 md:mt-0">
-              <p className="text-[10px] font-mono uppercase tracking-wider text-white/30 mb-1.5">
-                Track B
-              </p>
-              <h3 className="text-base font-semibold text-white mb-3">
-                Embedded Intelligence
-              </h3>
-              <p className="text-sm text-white/50 leading-relaxed mb-4">
-                For organizations that want AI capabilities inside their
-                existing DMS, service tools, or customer portals. Requires
-                API access and vendor cooperation. Deeper integration,
-                longer timeline — add when the ROI justifies the effort.
-              </p>
-              <p className="text-xs font-mono text-white/30">
-                Add later when proven
-              </p>
-            </div>
-          </div>
-
-          {/* Connector lines into platform */}
-          <div className="hidden md:grid grid-cols-2 gap-px mt-6 mb-0">
-            <div className="flex justify-center pr-8">
-              <div className="w-px h-8 border-l border-dashed border-white/[0.12]" />
-            </div>
-            <div className="flex justify-center pl-8">
-              <div className="w-px h-8 border-l border-dashed border-white/[0.12]" />
-            </div>
-          </div>
-
-          {/* Mobile connector */}
-          <div className="md:hidden flex justify-center mt-6 mb-0">
-            <div className="w-px h-6 border-l border-dashed border-white/10" />
-          </div>
-
-          {/* Platform foundation */}
-          <div className="border-t border-white/[0.08] pt-4 pb-1">
-            <div className="flex items-baseline justify-between flex-wrap gap-3">
-              <p className="text-xs font-mono uppercase tracking-wider text-white/25">
-                Planara Intelligence Platform
-              </p>
-              <p className="text-[11px] font-mono text-white/15">
-                RAG Pipeline &middot; Doc Ingestion &middot; Telemetry &middot; Multi-model
-              </p>
-            </div>
-          </div>
-
-          {/* Annotation */}
-          <div className="mt-10 flex items-start gap-3">
-            <MapPin className="w-4 h-4 text-planara-teal shrink-0 mt-0.5" strokeWidth={1.5} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px max-w-4xl">
+          {/* Track A */}
+          <div className="relative pr-0 md:pr-8">
+            <p className="text-[10px] font-mono uppercase tracking-wider text-white/30 mb-1.5">
+              Track A
+            </p>
+            <h3 className="text-base font-semibold text-white mb-3">
+              Purpose-Built Tools
+            </h3>
             <p className="text-sm text-white/50 leading-relaxed">
-              <span className="text-white/80 font-medium">
-                This demo was built in under 2 weeks from a single owner&apos;s manual.
-              </span>{" "}
-              No integrations, no IT project, no vendor approvals. A working
-              prototype that proves the value before you commit to anything.
+              Planara builds tailored applications for your specific use
+              cases — the two demos on this page are examples. Standalone,
+              branded to your dealer network, running on your documentation
+              and telemetry. No vendor negotiation, no IT approval needed,
+              deployed in weeks.
+            </p>
+
+            {/* Divider */}
+            <div className="hidden md:block absolute right-0 top-0 bottom-0 w-px bg-white/[0.06]" />
+          </div>
+
+          {/* Track B */}
+          <div className="pl-0 md:pl-8 mt-8 md:mt-0">
+            <p className="text-[10px] font-mono uppercase tracking-wider text-white/30 mb-1.5">
+              Track B
+            </p>
+            <h3 className="text-base font-semibold text-white mb-3">
+              Embedded Intelligence
+            </h3>
+            <p className="text-sm text-white/50 leading-relaxed">
+              For organizations that want AI capabilities inside their
+              existing DMS, service tools, or customer portals. Requires
+              API access and vendor cooperation. Deeper integration,
+              longer timeline — add when the ROI justifies the effort.
             </p>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FileText, Brain, Wifi, Wrench, Anchor } from "lucide-react";
 
 export function Platform() {
@@ -90,8 +91,8 @@ export function Platform() {
             <p className="text-xs font-mono uppercase tracking-wider text-white/40 mb-3">
               Products
             </p>
-            <a
-              href="#service-demo"
+            <Link
+              href="/demo/service"
               className="block border border-white/10 rounded-sm p-5 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
             >
               <Wrench className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
@@ -101,9 +102,9 @@ export function Platform() {
               <p className="text-sm text-white/50 mt-1">
                 For technicians and service operations. Dense, procedural, safety-first.
               </p>
-            </a>
-            <a
-              href="#owner-demo"
+            </Link>
+            <Link
+              href="/demo/owner"
               className="block border border-white/10 rounded-sm p-5 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
             >
               <Anchor className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
@@ -113,7 +114,7 @@ export function Platform() {
               <p className="text-sm text-white/50 mt-1">
                 For owners and dealers. Conversational, actionable, white-labeled.
               </p>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

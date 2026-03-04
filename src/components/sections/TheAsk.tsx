@@ -60,7 +60,7 @@ export function TheAsk() {
           </div>
 
           <a
-            href="mailto:j@planara.com"
+            href="mailto:eric@planara.com"
             className="inline-flex items-center gap-2 px-6 py-3 bg-planara-dark text-white font-semibold rounded-sm hover:bg-planara-dark/90 transition-colors"
           >
             Let&apos;s talk

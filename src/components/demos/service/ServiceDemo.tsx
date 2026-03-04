@@ -49,7 +49,7 @@ const TELEMETRY = {
   fuelLevel: 68,
 };
 
-export function ServiceDemo() {
+export function ServiceDemo({ standalone = false }: { standalone?: boolean }) {
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState<ServiceQueryResponse | null>(null);
   const [loading, setLoading] = useState(false);
@@ -79,21 +79,32 @@ export function ServiceDemo() {
   }
 
   return (
-    <section id="service-demo" className="py-16 md:py-24 bg-planara-navy">
-      {/* Section intro */}
-      <div className="container mx-auto max-w-5xl px-6 mb-10">
-        <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
-          Product 1
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
-          Service Intelligence
-        </h2>
-        <p className="text-lg text-white/50 max-w-2xl leading-relaxed">
-          For certified service technicians. Dense, procedural,
-          information-forward. Every response is backed by manual citations
-          and cross-referenced with live telemetry.
-        </p>
-      </div>
+    <section id="service-demo" className={standalone ? "min-h-screen bg-planara-navy" : "py-16 md:py-24 bg-planara-navy"}>
+      {standalone ? (
+        <div className="container mx-auto max-w-6xl px-4 md:px-6 pt-4 mb-4">
+          <a
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-white/40 hover:text-planara-teal transition-colors"
+          >
+            <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+            Back to overview
+          </a>
+        </div>
+      ) : (
+        <div className="container mx-auto max-w-5xl px-6 mb-10">
+          <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
+            Product 1
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+            Service Intelligence
+          </h2>
+          <p className="text-lg text-white/50 max-w-2xl leading-relaxed">
+            For certified service technicians. Dense, procedural,
+            information-forward. Every response is backed by manual citations
+            and cross-referenced with live telemetry.
+          </p>
+        </div>
+      )}
 
       {/* App chrome frame */}
       <div className="container mx-auto max-w-6xl px-4 md:px-6">

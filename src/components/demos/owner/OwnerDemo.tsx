@@ -49,7 +49,7 @@ const DEALER = {
   hours: "Mon-Fri 7:30 AM - 5:00 PM",
 };
 
-export function OwnerDemo() {
+export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState<OwnerQueryResponse | null>(null);
   const [loading, setLoading] = useState(false);
@@ -80,26 +80,37 @@ export function OwnerDemo() {
   }
 
   return (
-    <section id="owner-demo" className="bg-planara-light">
-      {/* Section intro */}
-      <div className="bg-white border-b border-planara-border py-16 px-6">
-        <div className="container mx-auto max-w-5xl">
-          <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-            Product 2
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-3">
-            Owner &amp; Dealer Portal
-          </h2>
-          <p className="text-lg text-planara-muted max-w-2xl leading-relaxed">
-            For boat owners and their dealers. White-labeled, warm, premium.
-            Every answer drives action — schedule service, order parts, call
-            your dealer.
-          </p>
+    <section id="owner-demo" className={standalone ? "min-h-screen bg-planara-light" : "bg-planara-light"}>
+      {standalone ? (
+        <div className="container mx-auto max-w-2xl px-6 pt-6 mb-2">
+          <a
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-planara-muted hover:text-planara-blue transition-colors"
+          >
+            <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+            Back to overview
+          </a>
         </div>
-      </div>
+      ) : (
+        <div className="bg-white border-b border-planara-border py-16 px-6">
+          <div className="container mx-auto max-w-5xl">
+            <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
+              Product 2
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-3">
+              Owner &amp; Dealer Portal
+            </h2>
+            <p className="text-lg text-planara-muted max-w-2xl leading-relaxed">
+              For boat owners and their dealers. White-labeled, warm, premium.
+              Every answer drives action — schedule service, order parts, call
+              your dealer.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Demo container */}
-      <div className="py-8 px-6">
+      <div className={standalone ? "py-4 px-6" : "py-8 px-6"}>
         <div className="container mx-auto max-w-2xl">
           {/* Dealer branded header */}
           <div className="bg-white rounded-t-lg border border-planara-border px-6 py-4 flex items-center justify-between">
