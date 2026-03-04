@@ -57,9 +57,11 @@ export function Platform() {
               <Brain className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
               <p className="text-sm font-semibold text-white">Planara RAG Pipeline</p>
               <p className="text-sm text-white/50 mt-1 leading-relaxed">
-                Contextual retrieval across documentation, cross-referenced
-                with live equipment telemetry. Returns structured,
-                citation-backed responses.
+                Generic AI tools return paragraphs. Manufacturing needs
+                structured output — safety warnings, spec tables, parts lists
+                with SKUs, step-by-step procedures — all with citations back to
+                the source document and page. Every response is shaped by who&apos;s
+                asking and what the equipment is actually doing right now.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {["Document parsing", "Semantic search", "Telemetry fusion", "Citation tracking"].map(

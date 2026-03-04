@@ -18,7 +18,7 @@ const tabs = [
     icon: Wrench,
     headline: "Instant answers backed by your documentation.",
     description:
-      "Technicians get instant answers backed by your documentation. Parts are identified, work orders pre-filled, safety warnings surfaced — all from a single question.",
+      "Technicians get instant answers backed by your documentation. Parts are identified, work orders pre-filled, safety warnings surfaced — all from a single question. General-purpose AI assistants can summarize a PDF. They can't cross-reference your documentation with live telemetry, check parts inventory, or generate a pre-filled work order. Manufacturing intelligence doesn't end at the answer — it starts there.",
     flow: [
       { step: "Technician asks a question", detail: "Natural language query about a specific symptom, procedure, or spec" },
       { step: "Planara retrieves from docs + telemetry", detail: "RAG pipeline searches manuals, cross-references live engine data from Siren Marine" },
