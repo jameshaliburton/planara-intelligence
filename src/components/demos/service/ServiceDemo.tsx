@@ -78,117 +78,139 @@ export function ServiceDemo() {
   }
 
   return (
-    <section id="service-demo" className="bg-[#0B0E14]">
+    <section id="service-demo" className="py-16 md:py-24 bg-planara-navy">
       {/* Section intro */}
-      <div className="bg-planara-dark border-b border-white/5 py-16 px-6">
-        <div className="container mx-auto max-w-5xl">
-          <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
-            Product 1
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
-            Service Intelligence
-          </h2>
-          <p className="text-lg text-white/50 max-w-2xl leading-relaxed">
-            For certified service technicians. Dense, procedural,
-            information-forward. Every response is backed by manual citations
-            and cross-referenced with live telemetry.
-          </p>
-        </div>
+      <div className="container mx-auto max-w-5xl px-6 mb-10">
+        <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
+          Product 1
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+          Service Intelligence
+        </h2>
+        <p className="text-lg text-white/50 max-w-2xl leading-relaxed">
+          For certified service technicians. Dense, procedural,
+          information-forward. Every response is backed by manual citations
+          and cross-referenced with live telemetry.
+        </p>
       </div>
 
-      {/* Demo container */}
-      <div className="border border-white/5">
-        {/* Telemetry bar */}
-        <TelemetryBar />
-
-        {/* Main demo area */}
-        <div className="container mx-auto max-w-5xl px-6 py-8">
-          {/* Search input */}
-          <div className="relative mb-6">
-            <Search
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30"
-              strokeWidth={1.5}
-            />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleQuery(query)}
-              placeholder="Ask about the Yamaha F300..."
-              className="w-full bg-white/[0.04] border border-white/10 rounded-sm pl-11 pr-12 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-planara-teal/50 font-mono"
-            />
-            <button
-              onClick={() => handleQuery(query)}
-              disabled={loading || !query.trim()}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-white/30 hover:text-planara-teal disabled:opacity-30 transition-colors"
-            >
-              <Send className="w-4 h-4" strokeWidth={1.5} />
-            </button>
-          </div>
-
-          {/* Suggested queries — always visible */}
-          <div className="flex flex-wrap items-center gap-2 mb-8">
-            {response && (
-              <button
-                onClick={handleReset}
-                className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 bg-white/[0.06] border border-white/15 rounded-sm text-white/60 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
-              >
-                <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
-                Reset
-              </button>
-            )}
-            {SUGGESTED_QUERIES.filter((q) => q !== query).map((q) => (
-              <button
-                key={q}
-                onClick={() => handleQuery(q)}
-                className="text-xs font-mono px-3 py-1.5 bg-white/[0.04] border border-white/10 rounded-sm text-white/50 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
-              >
-                {q}
-              </button>
-            ))}
-          </div>
-
-          {/* Loading */}
-          {loading && (
-            <div className="flex items-center gap-3 text-white/40 text-sm font-mono py-8">
-              <div className="w-4 h-4 border-2 border-planara-teal/30 border-t-planara-teal rounded-full animate-spin" />
-              Querying documentation...
+      {/* App chrome frame */}
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
+        <div className="rounded-lg overflow-hidden border border-white/[0.08] shadow-2xl shadow-black/40">
+          {/* Title bar */}
+          <div className="bg-[#1A1E27] border-b border-white/[0.06] px-4 py-2.5 flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+              <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+              <div className="w-3 h-3 rounded-full bg-[#28C840]" />
             </div>
-          )}
+            <div className="flex-1 flex items-center justify-center">
+              <span className="text-[11px] font-mono text-white/30">
+                Planara Service Intelligence v1.0 — Yamaha F300CA
+              </span>
+            </div>
+            <div className="w-[52px]" />
+          </div>
 
-          {/* Response */}
-          {response && !loading && (
-            <div className="space-y-6">
-              {/* Safety warning */}
-              {response.safety && <SafetyBanner warning={response.safety} />}
+          {/* Telemetry bar — more prominent */}
+          <TelemetryBar />
 
-              {/* Content blocks */}
-              {response.content.map((block, i) => (
-                <ContentBlock key={i} block={block} />
-              ))}
-
-              {/* Citations */}
-              {response.citations.length > 0 && (
-                <CitationBar citations={response.citations} />
-              )}
-
-              {/* Bottom reset */}
-              <div className="flex items-center gap-3 pt-2">
+          {/* Main demo area */}
+          <div className="bg-[#0B0E14] min-h-[520px] px-6 md:px-10 py-8">
+            {/* Search input */}
+            <div className="max-w-4xl mx-auto">
+              <div className="relative mb-6">
+                <Search
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30"
+                  strokeWidth={1.5}
+                />
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleQuery(query)}
+                  placeholder="Ask about the Yamaha F300..."
+                  className="w-full bg-white/[0.04] border border-white/10 rounded-sm pl-11 pr-12 py-3.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-planara-teal/50 font-mono"
+                />
                 <button
-                  onClick={handleReset}
-                  className="flex items-center gap-1.5 text-xs font-mono text-white/30 hover:text-planara-teal transition-colors"
+                  onClick={() => handleQuery(query)}
+                  disabled={loading || !query.trim()}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-white/30 hover:text-planara-teal disabled:opacity-30 transition-colors"
                 >
-                  <RotateCcw className="w-3 h-3" strokeWidth={1.5} />
-                  Try another query
+                  <Send className="w-4 h-4" strokeWidth={1.5} />
                 </button>
               </div>
-            </div>
-          )}
 
-          {/* Demo label */}
-          <p className="text-[11px] font-mono text-white/20 mt-8 pb-4">
-            Demo — built from Yamaha F300 documentation (LIT-18626-12-51)
-          </p>
+              {/* Suggested queries — always visible */}
+              <div className="flex flex-wrap items-center gap-2 mb-8">
+                {response && (
+                  <button
+                    onClick={handleReset}
+                    className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 bg-white/[0.06] border border-white/15 rounded-sm text-white/60 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
+                  >
+                    <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+                    Reset
+                  </button>
+                )}
+                {SUGGESTED_QUERIES.filter((q) => q !== query).map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => handleQuery(q)}
+                    className="text-xs font-mono px-3 py-1.5 bg-white/[0.04] border border-white/10 rounded-sm text-white/50 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+
+              {/* Loading */}
+              {loading && (
+                <div className="flex items-center gap-3 text-white/40 text-sm font-mono py-12">
+                  <div className="w-4 h-4 border-2 border-planara-teal/30 border-t-planara-teal rounded-full animate-spin" />
+                  Querying documentation...
+                </div>
+              )}
+
+              {/* Response */}
+              {response && !loading && (
+                <div className="space-y-6">
+                  {/* Safety warning */}
+                  {response.safety && <SafetyBanner warning={response.safety} />}
+
+                  {/* Content blocks */}
+                  {response.content.map((block, i) => (
+                    <ContentBlock key={i} block={block} />
+                  ))}
+
+                  {/* Citations */}
+                  {response.citations.length > 0 && (
+                    <CitationBar citations={response.citations} />
+                  )}
+
+                  {/* Bottom reset */}
+                  <div className="flex items-center gap-3 pt-2">
+                    <button
+                      onClick={handleReset}
+                      className="flex items-center gap-1.5 text-xs font-mono text-white/30 hover:text-planara-teal transition-colors"
+                    >
+                      <RotateCcw className="w-3 h-3" strokeWidth={1.5} />
+                      Try another query
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Status bar */}
+          <div className="bg-[#1A1E27] border-t border-white/[0.06] px-4 py-1.5 flex items-center justify-between">
+            <span className="text-[10px] font-mono text-white/20">
+              Demo — built from Yamaha F300 documentation (LIT-18626-12-51)
+            </span>
+            <span className="text-[10px] font-mono text-white/20">
+              Vessel: Reel Therapy — 2023 Canyon 326
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -235,21 +257,25 @@ function TelemetryBar() {
   ];
 
   return (
-    <div className="bg-white/[0.02] border-b border-white/5 px-6 py-3">
-      <div className="container mx-auto max-w-5xl flex items-center gap-2 overflow-x-auto">
-        <Droplets
-          className="w-3.5 h-3.5 text-planara-teal shrink-0"
-          strokeWidth={1.5}
-        />
-        <span className="text-[11px] font-mono uppercase tracking-wider text-white/30 mr-4 shrink-0">
-          Live Telemetry
-        </span>
+    <div className="bg-[#0D1117] border-b border-white/[0.06] px-6 md:px-10 py-3.5">
+      <div className="flex items-center gap-3 overflow-x-auto">
+        <div className="flex items-center gap-2 shrink-0 mr-2">
+          <Droplets
+            className="w-4 h-4 text-planara-teal"
+            strokeWidth={1.5}
+          />
+          <span className="text-[11px] font-mono uppercase tracking-wider text-planara-teal/70">
+            Live Telemetry
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+        </div>
+        <div className="w-px h-5 bg-white/10 shrink-0" />
         <div className="flex items-center gap-6">
           {items.map((item) => (
             <div key={item.label} className="flex items-center gap-2 shrink-0">
               <item.icon
                 className={cn(
-                  "w-3.5 h-3.5",
+                  "w-4 h-4",
                   item.alert ? "text-safety-warning" : "text-white/30"
                 )}
                 strokeWidth={1.5}
@@ -259,12 +285,12 @@ function TelemetryBar() {
               </span>
               <span
                 className={cn(
-                  "text-sm font-mono font-medium",
-                  item.alert ? "text-safety-warning" : "text-white/80"
+                  "text-sm font-mono font-semibold",
+                  item.alert ? "text-safety-warning" : "text-white/90"
                 )}
               >
                 {item.value}
-                <span className="text-white/30 ml-0.5">{item.unit}</span>
+                <span className="text-white/30 ml-0.5 font-normal">{item.unit}</span>
               </span>
             </div>
           ))}
