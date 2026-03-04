@@ -4,6 +4,7 @@ import { Platform } from "@/components/sections/Platform";
 import { ServiceDemo } from "@/components/demos/service/ServiceDemo";
 import { OwnerDemo } from "@/components/demos/owner/OwnerDemo";
 import { Integration } from "@/components/sections/Integration";
+import { ValueProp } from "@/components/sections/ValueProp";
 import { Engagement } from "@/components/sections/Engagement";
 import { TheAsk } from "@/components/sections/TheAsk";
 import { Credentials } from "@/components/sections/Credentials";
@@ -17,6 +18,7 @@ export default function Home() {
       <ServiceDemo />
       <OwnerDemo />
       <Integration />
+      <ValueProp />
       <Engagement />
       <TheAsk />
       <Credentials />
