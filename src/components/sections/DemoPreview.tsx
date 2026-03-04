@@ -1,18 +1,17 @@
 "use client";
 
 import {
-  Search,
+  MagnifyingGlass,
   Clock,
   Gauge,
   Thermometer,
-  Battery,
-  Fuel,
-  Droplets,
+  BatteryMedium,
+  Drop,
   Anchor,
   Phone,
   MapPin,
   ArrowRight,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
@@ -63,7 +62,7 @@ export function DemoPreview() {
               {/* Telemetry bar */}
               <div className="bg-[#0D1117] border-b border-white/[0.06] px-4 py-2.5 pointer-events-none">
                 <div className="flex items-center gap-2 overflow-hidden">
-                  <Droplets className="w-3 h-3 text-planara-teal shrink-0" strokeWidth={1.5} />
+                  <Drop className="w-3 h-3 text-planara-teal shrink-0" />
                   <span className="text-[9px] font-mono uppercase tracking-wider text-planara-teal/60 shrink-0">
                     Live
                   </span>
@@ -73,11 +72,11 @@ export function DemoPreview() {
                       { icon: Clock, value: "847 hrs" },
                       { icon: Gauge, value: "58 psi" },
                       { icon: Thermometer, value: "172°F" },
-                      { icon: Battery, value: "12.4V" },
-                      { icon: Fuel, value: "68%" },
+                      { icon: BatteryMedium, value: "12.4V" },
+                      { icon: Drop, value: "68%" },
                     ].map((item) => (
                       <div key={item.value} className="flex items-center gap-1 shrink-0">
-                        <item.icon className="w-3 h-3 text-white/25" strokeWidth={1.5} />
+                        <item.icon className="w-3 h-3 text-white/25" />
                         <span className="text-[10px] font-mono text-white/50">{item.value}</span>
                       </div>
                     ))}
@@ -90,7 +89,7 @@ export function DemoPreview() {
                 <div className="px-5 pt-5">
                   {/* Search input */}
                   <div className="relative mb-4">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/20" strokeWidth={1.5} />
+                    <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/20" />
                     <div className="w-full bg-white/[0.04] border border-white/10 rounded-sm pl-9 pr-4 py-2.5 text-xs text-white/25 font-mono">
                       Ask about the Yamaha F300...
                     </div>
@@ -126,7 +125,7 @@ export function DemoPreview() {
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-planara-blue hover:text-planara-blue/80 transition-colors"
               >
                 Try the live demo
-                <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -138,14 +137,14 @@ export function DemoPreview() {
               <div className="px-5 py-3.5 flex items-center justify-between border-b border-planara-border pointer-events-none">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-planara-navy flex items-center justify-center">
-                    <Anchor className="w-4 h-4 text-white" strokeWidth={1.5} />
+                    <Anchor className="w-4 h-4 text-white" weight="duotone" />
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-planara-dark">Newport Marine</p>
                     <p className="text-[10px] text-planara-muted">Your certified Yamaha dealer</p>
                   </div>
                 </div>
-                <Phone className="w-4 h-4 text-planara-blue" strokeWidth={1.5} />
+                <Phone className="w-4 h-4 text-planara-blue" />
               </div>
 
               {/* Vessel card mini */}
@@ -156,7 +155,7 @@ export function DemoPreview() {
                     <p className="text-[10px] text-planara-muted">2023 Grady-White Canyon 326</p>
                   </div>
                   <div className="flex items-center gap-1 text-[10px] text-planara-muted">
-                    <MapPin className="w-3 h-3" strokeWidth={1.5} />
+                    <MapPin className="w-3 h-3" />
                     Newport, RI
                   </div>
                 </div>
@@ -207,7 +206,7 @@ export function DemoPreview() {
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-planara-blue hover:text-planara-blue/80 transition-colors"
               >
                 Try the live demo
-                <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

@@ -3,12 +3,12 @@
 import { useState } from "react";
 import {
   ArrowRight,
-  Plug,
-  Server,
+  PlugsConnected,
+  HardDrives,
   Wrench,
-  Store,
-  BarChart3,
-} from "lucide-react";
+  Storefront,
+  ChartLineUp,
+} from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
 const tabs = [
@@ -30,7 +30,7 @@ const tabs = [
   {
     id: "dealer",
     label: "Dealer Network",
-    icon: Store,
+    icon: Storefront,
     headline: "Owner questions become service revenue.",
     description:
       "Dealers offer a branded self-service portal that turns owner questions into service appointments and parts orders. New revenue channel, zero additional staff.",
@@ -45,7 +45,7 @@ const tabs = [
   {
     id: "oem",
     label: "OEM Intelligence",
-    icon: BarChart3,
+    icon: ChartLineUp,
     headline: "Fleet-wide intelligence that feeds product development.",
     description:
       "See what your fleet is actually experiencing. Failure patterns, documentation gaps, warranty validation — intelligence that feeds back into product development.",
@@ -90,7 +90,7 @@ export function Integration() {
                   : "border-transparent text-planara-muted hover:text-planara-dark"
               )}
             >
-              <tab.icon className="w-4 h-4" strokeWidth={1.5} />
+              <tab.icon className="w-4 h-4" weight="duotone" />
               <span className="hidden sm:inline">{tab.label}</span>
             </button>
           ))}
@@ -123,7 +123,6 @@ export function Integration() {
                 {i < active.flow.length - 1 && (
                   <ArrowRight
                     className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-planara-border z-10"
-                    strokeWidth={1.5}
                   />
                 )}
               </div>
@@ -150,8 +149,8 @@ export function Integration() {
         <div className="border-t border-planara-border pt-8">
           <div className="flex items-start gap-4">
             <div className="flex items-center gap-2 shrink-0">
-              <Plug className="w-4 h-4 text-planara-muted/40" strokeWidth={1.5} />
-              <Server className="w-4 h-4 text-planara-muted/40" strokeWidth={1.5} />
+              <PlugsConnected className="w-4 h-4 text-planara-muted/40" />
+              <HardDrives className="w-4 h-4 text-planara-muted/40" weight="duotone" />
             </div>
             <div>
               <p className="text-xs font-mono uppercase tracking-wider text-planara-muted/50 mb-1">

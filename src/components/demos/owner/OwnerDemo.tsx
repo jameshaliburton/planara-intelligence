@@ -4,21 +4,21 @@ import { useState } from "react";
 import {
   Anchor,
   ArrowLeft,
-  Calendar,
-  ChevronRight,
+  CalendarBlank,
+  CaretRight,
   Clock,
   Gauge,
   Lightbulb,
   MapPin,
-  MessageCircle,
+  ChatCircle,
   Phone,
-  Send,
-  ShoppingBag,
+  PaperPlaneTilt,
+  ShoppingCart,
   Thermometer,
-  Battery,
-  Fuel,
+  BatteryMedium,
+  Drop,
   BookOpen,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import type { OwnerQueryResponse, OwnerAction } from "@/types";
 import { cn } from "@/lib/utils";
 import { useIntegrationToast } from "@/components/IntegrationToast";
@@ -87,7 +87,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
             href="/"
             className="inline-flex items-center gap-1.5 text-xs font-mono text-planara-muted hover:text-planara-blue transition-colors"
           >
-            <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+            <ArrowLeft className="w-3 h-3" />
             Back to overview
           </a>
         </div>
@@ -116,7 +116,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
           <div className="bg-white rounded-t-lg border border-planara-border px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-planara-navy flex items-center justify-center">
-                <Anchor className="w-5 h-5 text-white" strokeWidth={1.5} />
+                <Anchor className="w-5 h-5 text-white" weight="duotone" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-planara-dark">
@@ -130,7 +130,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
               onClick={() => showIntegrationToast("In production, this initiates a click-to-call via the dealer phone system")}
               className="flex items-center gap-1.5 text-sm text-planara-blue hover:text-planara-blue/80 transition-colors"
             >
-              <Phone className="w-4 h-4" strokeWidth={1.5} />
+              <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">Call</span>
             </button>
           </div>
@@ -185,9 +185,8 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
                   {/* Bot response */}
                   <div className="flex gap-3">
                     <div className="w-8 h-8 rounded-full bg-planara-light border border-planara-border flex items-center justify-center shrink-0">
-                      <MessageCircle
+                      <ChatCircle
                         className="w-4 h-4 text-planara-muted"
-                        strokeWidth={1.5}
                       />
                     </div>
                     <div className="flex-1 space-y-3">
@@ -202,7 +201,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
                         <div className="flex items-start gap-2 px-4 py-3 bg-amber-50 border border-amber-200/50 rounded-lg">
                           <Lightbulb
                             className="w-4 h-4 text-amber-500 shrink-0 mt-0.5"
-                            strokeWidth={1.5}
+                            weight="duotone"
                           />
                           <p className="text-sm text-amber-800">
                             {response.tip}
@@ -218,7 +217,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
                       {/* Citation */}
                       {response.citation && (
                         <p className="flex items-center gap-1.5 text-xs text-planara-muted">
-                          <BookOpen className="w-3 h-3" strokeWidth={1.5} />
+                          <BookOpen className="w-3 h-3" weight="duotone" />
                           {response.citation.source} — {response.citation.section}
                         </p>
                       )}
@@ -232,7 +231,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
                         onClick={handleReset}
                         className="flex items-center gap-1.5 text-xs text-planara-muted hover:text-planara-blue transition-colors"
                       >
-                        <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+                        <ArrowLeft className="w-3 h-3" />
                         Back
                       </button>
                       <span className="text-xs text-planara-muted/40">or try:</span>
@@ -272,7 +271,7 @@ export function OwnerDemo({ standalone = false }: { standalone?: boolean }) {
                   disabled={loading || !query.trim()}
                   className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-planara-blue disabled:opacity-30 hover:text-planara-blue/80 transition-colors"
                 >
-                  <Send className="w-4 h-4" strokeWidth={1.5} />
+                  <PaperPlaneTilt className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -301,8 +300,8 @@ function VesselCard() {
     { icon: Clock, label: "Hours", value: `${VESSEL.hours}`, alert: VESSEL.hours > 800 },
     { icon: Gauge, label: "Oil", value: `${VESSEL.oilPressure} psi` },
     { icon: Thermometer, label: "Coolant", value: `${VESSEL.coolantTemp}°F` },
-    { icon: Battery, label: "Battery", value: `${VESSEL.battery}V` },
-    { icon: Fuel, label: "Fuel", value: `${VESSEL.fuel}%` },
+    { icon: BatteryMedium, label: "Battery", value: `${VESSEL.battery}V` },
+    { icon: Drop, label: "Fuel", value: `${VESSEL.fuel}%` },
   ];
 
   return (
@@ -317,7 +316,7 @@ function VesselCard() {
             <p className="text-sm text-planara-muted">{VESSEL.engines}</p>
           </div>
           <div className="flex items-center gap-1.5 text-xs text-planara-muted">
-            <MapPin className="w-3.5 h-3.5" strokeWidth={1.5} />
+            <MapPin className="w-3.5 h-3.5" />
             {VESSEL.location}
           </div>
         </div>
@@ -331,7 +330,6 @@ function VesselCard() {
                   "w-3.5 h-3.5",
                   item.alert ? "text-amber-500" : "text-planara-muted/50"
                 )}
-                strokeWidth={1.5}
               />
               <span className="text-xs text-planara-muted">{item.label}</span>
               <span
@@ -352,13 +350,13 @@ function VesselCard() {
 
 function ActionButton({ action }: { action: OwnerAction }) {
   const { showIntegrationToast } = useIntegrationToast();
-  const icons: Record<string, typeof Calendar> = {
-    schedule: Calendar,
+  const icons: Record<string, typeof CalendarBlank> = {
+    schedule: CalendarBlank,
     call: Phone,
-    order: ShoppingBag,
+    order: ShoppingCart,
     dealer: MapPin,
   };
-  const Icon = icons[action.type] ?? ChevronRight;
+  const Icon = icons[action.type] ?? CaretRight;
 
   const toastMessages: Record<string, string> = {
     schedule: "In production, this creates an appointment in your dealer scheduling system (CDK, Lightspeed, DealerSocket)",
@@ -372,7 +370,7 @@ function ActionButton({ action }: { action: OwnerAction }) {
       className="flex items-center gap-2 px-4 py-2.5 bg-planara-blue text-white text-sm font-medium rounded-full hover:bg-planara-blue/90 transition-colors"
       onClick={() => showIntegrationToast(toastMessages[action.type] ?? `Integration point: ${action.endpoint}`)}
     >
-      <Icon className="w-4 h-4" strokeWidth={1.5} />
+      <Icon className="w-4 h-4" />
       {action.label}
     </button>
   );
@@ -398,14 +396,14 @@ function DealerCard() {
               onClick={() => showIntegrationToast("In production, this opens directions in the dealer locator")}
               className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors"
             >
-              <MapPin className="w-4 h-4" strokeWidth={1.5} />
+              <MapPin className="w-4 h-4" />
             </button>
             {/* Integration stub: click-to-call */}
             <button
               onClick={() => showIntegrationToast("In production, this initiates a click-to-call via the dealer phone system")}
               className="p-2 text-planara-muted hover:text-planara-blue border border-planara-border rounded-lg transition-colors"
             >
-              <Phone className="w-4 h-4" strokeWidth={1.5} />
+              <Phone className="w-4 h-4" />
             </button>
           </div>
         </div>

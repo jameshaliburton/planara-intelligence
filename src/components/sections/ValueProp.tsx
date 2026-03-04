@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { MapPin } from "@phosphor-icons/react/dist/ssr";
 
 export function ValueProp() {
   return (
@@ -30,7 +30,7 @@ export function ValueProp() {
                   Track A
                 </p>
                 <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-planara-teal/70">
-                  <MapPin className="w-3 h-3" strokeWidth={2} />
+                  <MapPin className="w-3 h-3" />
                   You are here
                 </span>
               </div>

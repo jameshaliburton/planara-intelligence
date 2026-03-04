@@ -1,4 +1,4 @@
-import { FileText, ArrowRight } from "lucide-react";
+import { FileDoc, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light" }) {
@@ -14,9 +14,9 @@ export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light"
             : "flex items-center gap-3 px-5 py-3 border border-planara-border rounded-sm bg-planara-light hover:border-planara-teal/30 transition-colors group"
         }
       >
-        <FileText
+        <FileDoc
           className="w-5 h-5 text-planara-teal"
-          strokeWidth={1.5}
+          weight="duotone"
         />
         <div className="text-left">
           <p className={isDark ? "text-sm font-medium text-white" : "text-sm font-medium text-planara-dark"}>
@@ -32,7 +32,6 @@ export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light"
               ? "w-4 h-4 text-white/20 group-hover:text-planara-teal ml-auto transition-colors"
               : "w-4 h-4 text-planara-muted/40 group-hover:text-planara-teal ml-auto transition-colors"
           }
-          strokeWidth={1.5}
         />
       </Link>
       <a

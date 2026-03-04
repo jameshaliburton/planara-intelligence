@@ -1,4 +1,4 @@
-import { FileText, Brain, Wifi, Wrench, Anchor, BarChart3, ArrowRight } from "lucide-react";
+import { FileDoc, Brain, Broadcast, Wrench, Anchor, ChartLineUp, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 export function Platform() {
@@ -25,14 +25,14 @@ export function Platform() {
               Inputs
             </p>
             <div className="border border-white/10 rounded-sm p-5 bg-white/[0.03]">
-              <FileText className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <FileDoc className="w-5 h-5 text-planara-teal mb-3" weight="duotone" />
               <p className="text-sm font-semibold text-white">Documentation</p>
               <p className="text-sm text-white/50 mt-1">
                 Service manuals, technical bulletins, parts catalogs, wiring diagrams
               </p>
             </div>
             <div className="border border-white/10 rounded-sm p-5 bg-white/[0.03]">
-              <Wifi className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <Broadcast className="w-5 h-5 text-planara-teal mb-3" weight="duotone" />
               <p className="text-sm font-semibold text-white">Telemetry</p>
               <p className="text-sm text-white/50 mt-1">
                 Engine hours, oil pressure, coolant temp, battery, fuel level
@@ -53,7 +53,7 @@ export function Platform() {
               Intelligence Layer
             </p>
             <div className="border border-planara-teal/30 rounded-sm p-5 bg-planara-teal/[0.05]">
-              <Brain className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <Brain className="w-5 h-5 text-planara-teal mb-3" weight="duotone" />
               <p className="text-sm font-semibold text-white">Planara RAG Pipeline</p>
               <p className="text-sm text-white/50 mt-1 leading-relaxed">
                 Manufacturing needs structured output — safety warnings, spec
@@ -93,7 +93,7 @@ export function Platform() {
               href="/demo/service"
               className="block border border-white/10 rounded-sm p-5 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
             >
-              <Wrench className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <Wrench className="w-5 h-5 text-planara-teal mb-3" weight="duotone" />
               <p className="text-sm font-semibold text-white group-hover:text-planara-teal transition-colors">
                 Service Intelligence
               </p>
@@ -105,7 +105,7 @@ export function Platform() {
               href="/demo/owner"
               className="block border border-white/10 rounded-sm p-5 bg-white/[0.03] hover:border-planara-teal/30 transition-colors group"
             >
-              <Anchor className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <Anchor className="w-5 h-5 text-planara-teal mb-3" weight="duotone" />
               <p className="text-sm font-semibold text-white group-hover:text-planara-teal transition-colors">
                 Owner Intelligence
               </p>
@@ -114,7 +114,7 @@ export function Platform() {
               </p>
             </Link>
             <div className="border border-white/10 rounded-sm p-5 bg-white/[0.03]">
-              <BarChart3 className="w-5 h-5 text-planara-teal mb-3" strokeWidth={1.5} />
+              <ChartLineUp className="w-5 h-5 text-planara-teal mb-3" weight="duotone" />
               <p className="text-sm font-semibold text-white">
                 OEM Intelligence
               </p>
@@ -140,7 +140,7 @@ export function Platform() {
                 Every query, diagnosis, and repair becomes structured intelligence
               </p>
               {/* Arrow right */}
-              <ArrowRight className="absolute -right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-planara-teal/40 z-10" strokeWidth={2} />
+              <ArrowRight className="absolute -right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-planara-teal/40 z-10" />
             </div>
             {/* Top-right: OEM identifies */}
             <div className="relative p-4 border border-white/[0.06] rounded-tr-sm">

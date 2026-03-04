@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
-import { ArrowRight, Plug } from "lucide-react";
+import { ArrowRight, PlugsConnected } from "@phosphor-icons/react";
 
 interface Toast {
   id: number;
@@ -44,10 +44,10 @@ export function IntegrationToastProvider({ children }: { children: ReactNode }) 
             key={toast.id}
             className="flex items-start gap-3 px-4 py-3 bg-[#131820] border border-planara-teal/30 rounded-lg shadow-2xl shadow-black/50 pointer-events-auto animate-[toast-in_0.2s_ease-out] w-full"
           >
-            <Plug className="w-4 h-4 text-planara-teal shrink-0 mt-0.5" strokeWidth={1.5} />
+            <PlugsConnected className="w-4 h-4 text-planara-teal shrink-0 mt-0.5" />
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 mb-0.5">
-                <ArrowRight className="w-3 h-3 text-planara-teal" strokeWidth={2} />
+                <ArrowRight className="w-3 h-3 text-planara-teal" />
                 <span className="text-[10px] font-mono uppercase tracking-wider text-planara-teal">
                   Integration Point
                 </span>

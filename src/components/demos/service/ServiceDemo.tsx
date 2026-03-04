@@ -2,25 +2,24 @@
 
 import { useState } from "react";
 import {
-  AlertTriangle,
+  Warning,
   ArrowLeft,
   BookOpen,
-  ChevronRight,
-  ClipboardList,
+  CaretRight,
+  ClipboardText,
   Gauge,
   Package,
-  RotateCcw,
-  Search,
-  Send,
-  ShieldAlert,
+  ArrowCounterClockwise,
+  MagnifyingGlass,
+  PaperPlaneTilt,
+  ShieldWarning,
   Thermometer,
-  Droplets,
-  Battery,
-  Fuel,
+  Drop,
+  BatteryMedium,
   Clock,
   CheckCircle,
   Circle,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import type {
   ServiceQueryResponse,
   ServiceContentBlock,
@@ -86,7 +85,7 @@ export function ServiceDemo({ standalone = false }: { standalone?: boolean }) {
             href="/"
             className="inline-flex items-center gap-1.5 text-xs font-mono text-white/40 hover:text-planara-teal transition-colors"
           >
-            <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+            <ArrowLeft className="w-3 h-3" />
             Back to overview
           </a>
         </div>
@@ -132,9 +131,8 @@ export function ServiceDemo({ standalone = false }: { standalone?: boolean }) {
             {/* Search input */}
             <div className="max-w-4xl mx-auto">
               <div className="relative mb-6">
-                <Search
+                <MagnifyingGlass
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30"
-                  strokeWidth={1.5}
                 />
                 <input
                   type="text"
@@ -149,7 +147,7 @@ export function ServiceDemo({ standalone = false }: { standalone?: boolean }) {
                   disabled={loading || !query.trim()}
                   className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-white/30 hover:text-planara-teal disabled:opacity-30 transition-colors"
                 >
-                  <Send className="w-4 h-4" strokeWidth={1.5} />
+                  <PaperPlaneTilt className="w-4 h-4" />
                 </button>
               </div>
 
@@ -160,7 +158,7 @@ export function ServiceDemo({ standalone = false }: { standalone?: boolean }) {
                     onClick={handleReset}
                     className="flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 bg-white/[0.06] border border-white/15 rounded-sm text-white/60 hover:text-planara-teal hover:border-planara-teal/30 transition-colors"
                   >
-                    <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+                    <ArrowLeft className="w-3 h-3" />
                     Reset
                   </button>
                 )}
@@ -205,7 +203,7 @@ export function ServiceDemo({ standalone = false }: { standalone?: boolean }) {
                       onClick={handleReset}
                       className="flex items-center gap-1.5 text-xs font-mono text-white/30 hover:text-planara-teal transition-colors"
                     >
-                      <RotateCcw className="w-3 h-3" strokeWidth={1.5} />
+                      <ArrowCounterClockwise className="w-3 h-3" />
                       Try another query
                     </button>
                   </div>
@@ -253,14 +251,14 @@ function TelemetryBar() {
       alert: false,
     },
     {
-      icon: Battery,
+      icon: BatteryMedium,
       label: "Battery",
       value: `${TELEMETRY.batteryVoltage}`,
       unit: "V",
       alert: TELEMETRY.batteryVoltage < 12.2,
     },
     {
-      icon: Fuel,
+      icon: Drop,
       label: "Fuel",
       value: `${TELEMETRY.fuelLevel}`,
       unit: "%",
@@ -272,9 +270,8 @@ function TelemetryBar() {
     <div className="bg-[#0D1117] border-b border-white/[0.06] px-6 md:px-10 py-3.5">
       <div className="flex items-center gap-3 overflow-x-auto">
         <div className="flex items-center gap-2 shrink-0 mr-2">
-          <Droplets
+          <Drop
             className="w-4 h-4 text-planara-teal"
-            strokeWidth={1.5}
           />
           <span className="text-[11px] font-mono uppercase tracking-wider text-planara-teal/70">
             Live Telemetry
@@ -290,7 +287,6 @@ function TelemetryBar() {
                   "w-4 h-4",
                   item.alert ? "text-safety-warning" : "text-white/30"
                 )}
-                strokeWidth={1.5}
               />
               <span className="text-[11px] font-mono text-white/40">
                 {item.label}
@@ -326,7 +322,7 @@ function SafetyBanner({ warning }: { warning: SafetyWarning }) {
         colors[warning.level]
       )}
     >
-      <ShieldAlert className="w-5 h-5 shrink-0 mt-0.5" strokeWidth={1.5} />
+      <ShieldWarning className="w-5 h-5 shrink-0 mt-0.5" weight="duotone" />
       <div>
         <p className="text-xs font-mono uppercase tracking-wider mb-1">
           {warning.level}
@@ -358,7 +354,7 @@ function ContentBlock({ block }: { block: ServiceContentBlock }) {
           <div className="flex items-center gap-2 mb-4">
             <BookOpen
               className="w-4 h-4 text-planara-teal"
-              strokeWidth={1.5}
+              weight="duotone"
             />
             <span className="text-xs font-mono uppercase tracking-wider text-white/40">
               System Diagram
@@ -414,9 +410,8 @@ function ProcedureList({ steps }: { steps: ProcedureStep[] }) {
   return (
     <div className="space-y-0">
       <div className="flex items-center gap-2 mb-3">
-        <ClipboardList
+        <ClipboardText
           className="w-4 h-4 text-planara-teal"
-          strokeWidth={1.5}
         />
         <span className="text-xs font-mono uppercase tracking-wider text-white/40">
           Procedure
@@ -435,9 +430,9 @@ function ProcedureList({ steps }: { steps: ProcedureStep[] }) {
                 </p>
                 {step.warning && (
                   <p className="flex items-start gap-2 mt-2 text-xs text-safety-caution/80">
-                    <AlertTriangle
+                    <Warning
                       className="w-3.5 h-3.5 shrink-0 mt-0.5"
-                      strokeWidth={1.5}
+                      weight="duotone"
                     />
                     {step.warning}
                   </p>
@@ -457,7 +452,7 @@ function PartsCard({ parts }: { parts: PartInfo[] }) {
   return (
     <div className="border border-white/10 rounded-sm">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-        <Package className="w-4 h-4 text-planara-teal" strokeWidth={1.5} />
+        <Package className="w-4 h-4 text-planara-teal" weight="duotone" />
         <span className="text-xs font-mono uppercase tracking-wider text-white/40">
           Parts
         </span>
@@ -511,9 +506,9 @@ function WorkOrderButton({ text }: { text: string }) {
       className="flex items-center gap-2 px-5 py-3 bg-planara-blue text-white text-sm font-medium rounded-sm hover:bg-planara-blue/90 transition-colors w-full md:w-auto"
       onClick={() => showIntegrationToast("In production, this generates a pre-filled work order in your DMS")}
     >
-      <ClipboardList className="w-4 h-4" strokeWidth={1.5} />
+      <ClipboardText className="w-4 h-4" />
       {text}
-      <ChevronRight className="w-4 h-4 ml-auto" strokeWidth={1.5} />
+      <CaretRight className="w-4 h-4 ml-auto" />
     </button>
   );
 }
@@ -522,9 +517,8 @@ function ServiceChecklist({ items }: { items: ServiceChecklistItem[] }) {
   return (
     <div className="border border-white/10 rounded-sm">
       <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-        <ClipboardList
+        <ClipboardText
           className="w-4 h-4 text-planara-teal"
-          strokeWidth={1.5}
         />
         <span className="text-xs font-mono uppercase tracking-wider text-white/40">
           Service Checklist — 1,000 Hour Interval
@@ -540,12 +534,10 @@ function ServiceChecklist({ items }: { items: ServiceChecklistItem[] }) {
               {item.due ? (
                 <Circle
                   className="w-4 h-4 text-safety-warning"
-                  strokeWidth={1.5}
                 />
               ) : (
                 <CheckCircle
                   className="w-4 h-4 text-emerald-500/60"
-                  strokeWidth={1.5}
                 />
               )}
               <div>
@@ -654,9 +646,8 @@ function DiagramPlaceholder({ type, label }: { type: string; label: string }) {
               {item}
             </span>
             {i < config.items.length - 1 && (
-              <ChevronRight
+              <CaretRight
                 className="w-3 h-3 text-white/20"
-                strokeWidth={1.5}
               />
             )}
           </div>
@@ -669,7 +660,7 @@ function DiagramPlaceholder({ type, label }: { type: string; label: string }) {
 function CitationBar({ citations }: { citations: Citation[] }) {
   return (
     <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/5">
-      <BookOpen className="w-3.5 h-3.5 text-white/20" strokeWidth={1.5} />
+      <BookOpen className="w-3.5 h-3.5 text-white/20" weight="duotone" />
       <span className="text-[11px] font-mono uppercase tracking-wider text-white/20">
         Sources
       </span>

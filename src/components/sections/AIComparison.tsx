@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import {
   BookOpen,
   Lock,
-  MessageSquare,
+  ChatText,
   Package,
-  ShieldAlert,
-} from "lucide-react";
+  ShieldWarning,
+} from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
 const GENERIC_RESPONSE = `Based on my training data, Yamaha outboard motors typically use a 4-stroke marine engine oil. For the F300 model specifically, you should consult your owner's manual for the exact specifications, but generally Yamaha outboards use SAE 10W-30 or 10W-40 marine-grade oil. I'd recommend checking with your local Yamaha dealer or the official Yamaha website for the most up-to-date information, as requirements can vary by model year and operating conditions. It's important to use oil that meets the appropriate API and NMMA certifications for marine use.`;
@@ -82,7 +82,7 @@ export function AIComparison() {
 
         {/* Query bar */}
         <div className="flex items-center gap-2 mb-6 px-4 py-2.5 bg-white/[0.04] border border-white/10 rounded-sm max-w-xl">
-          <MessageSquare className="w-4 h-4 text-white/30" strokeWidth={1.5} />
+          <ChatText className="w-4 h-4 text-white/30" weight="duotone" />
           <span className="text-sm font-mono text-white/60">
             &quot;What oil does the F300 require?&quot;
           </span>
@@ -158,7 +158,7 @@ export function AIComparison() {
                 )}
               >
                 <div className="flex items-start gap-2 p-3 border border-safety-caution/30 bg-safety-caution/5 rounded-sm mb-4">
-                  <ShieldAlert className="w-3.5 h-3.5 text-safety-caution shrink-0 mt-0.5" strokeWidth={1.5} />
+                  <ShieldWarning className="w-3.5 h-3.5 text-safety-caution shrink-0 mt-0.5" weight="duotone" />
                   <p className="text-[11px] text-white/60 leading-relaxed">
                     Run engine to operating temperature before draining oil. Hot oil flows more completely. Use caution — oil and surfaces will be hot.
                   </p>
@@ -173,7 +173,7 @@ export function AIComparison() {
                 )}
               >
                 <div className="flex items-center gap-1.5 mb-2">
-                  <Package className="w-3 h-3 text-planara-teal" strokeWidth={1.5} />
+                  <Package className="w-3 h-3 text-planara-teal" weight="duotone" />
                   <span className="text-[10px] font-mono uppercase tracking-wider text-white/30">
                     Parts
                   </span>
@@ -202,7 +202,7 @@ export function AIComparison() {
                 )}
               >
                 <div className="flex items-center gap-1.5 pt-3 border-t border-white/5">
-                  <BookOpen className="w-3 h-3 text-white/20" strokeWidth={1.5} />
+                  <BookOpen className="w-3 h-3 text-white/20" weight="duotone" />
                   <span className="text-[10px] font-mono text-white/25">
                     Yamaha F300 Owner&apos;s Manual — Lubrication System, p.42
                   </span>
@@ -215,7 +215,7 @@ export function AIComparison() {
         {/* Differentiator statements */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
           <div className="flex items-start gap-3">
-            <BookOpen className="w-5 h-5 text-planara-teal shrink-0 mt-0.5" strokeWidth={1.5} />
+            <BookOpen className="w-5 h-5 text-planara-teal shrink-0 mt-0.5" weight="duotone" />
             <div>
               <p className="text-sm font-semibold text-white mb-1">
                 Full context, not general knowledge.
@@ -228,7 +228,7 @@ export function AIComparison() {
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <Lock className="w-5 h-5 text-planara-teal shrink-0 mt-0.5" strokeWidth={1.5} />
+            <Lock className="w-5 h-5 text-planara-teal shrink-0 mt-0.5" weight="duotone" />
             <div>
               <p className="text-sm font-semibold text-white mb-1">
                 Your IP stays yours.

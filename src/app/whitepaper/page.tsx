@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Download } from "lucide-react";
+import { ArrowLeft, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "The Intelligence Gap — Planara White Paper",
@@ -58,7 +58,7 @@ function DownloadBar() {
       download
       className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 rounded-sm bg-white/[0.03] hover:border-planara-teal/30 transition-colors text-sm text-white/60 hover:text-white"
     >
-      <Download className="w-4 h-4 text-planara-teal" strokeWidth={1.5} />
+      <DownloadSimple className="w-4 h-4 text-planara-teal" />
       Download PDF version
     </a>
   );
@@ -74,7 +74,7 @@ export default function WhitePaperPage() {
             href="/"
             className="inline-flex items-center gap-1.5 text-xs font-mono text-white/40 hover:text-planara-teal transition-colors"
           >
-            <ArrowLeft className="w-3 h-3" strokeWidth={1.5} />
+            <ArrowLeft className="w-3 h-3" />
             Back to overview
           </Link>
           <span className="text-xs font-mono text-white/20">

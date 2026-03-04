@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { CaretDown } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
 const questions = [
@@ -58,12 +58,11 @@ export function FAQ() {
                 <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors leading-relaxed">
                   {item.q}
                 </span>
-                <ChevronDown
+                <CaretDown
                   className={cn(
                     "w-4 h-4 text-planara-teal/60 shrink-0 mt-0.5 transition-transform duration-200",
                     openIndex === i && "rotate-180"
                   )}
-                  strokeWidth={1.5}
                 />
               </button>
               <div

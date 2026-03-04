@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 const phases = [
   {
@@ -94,7 +94,6 @@ export function Engagement() {
                   >
                     <ArrowRight
                       className="w-3.5 h-3.5 text-white/25 shrink-0 mt-0.5"
-                      strokeWidth={1.5}
                     />
                     {item}
                   </li>

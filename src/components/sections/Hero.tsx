@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown } from "@phosphor-icons/react/dist/ssr";
 
 export function Hero() {
   return (
@@ -65,7 +65,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
         aria-hidden="true"
       >
-        <ArrowDown className="w-5 h-5 animate-bounce" strokeWidth={1.5} />
+        <ArrowDown className="w-5 h-5 animate-bounce" />
       </div>
     </section>
   );
