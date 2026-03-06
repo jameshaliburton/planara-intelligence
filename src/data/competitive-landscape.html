@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planara — Competitive Landscape at the Knowledge Layer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0f14;
+    --bg-card: #151921;
+    --bg-card-alt: #1a1f2b;
+    --text: #e2e5ea;
+    --text-muted: #7a8294;
+    --text-dim: #4a5168;
+    --teal: #43CED6;
+    --teal-dim: rgba(67,206,214,0.15);
+    --teal-glow: rgba(67,206,214,0.08);
+    --red: #e05252;
+    --red-dim: rgba(224,82,82,0.15);
+    --amber: #e0a852;
+    --amber-dim: rgba(224,168,82,0.15);
+    --green: #52e08a;
+    --green-dim: rgba(82,224,138,0.15);
+    --border: #252a36;
+    --max-w: 1100px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { overflow-x: hidden; }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; width: 100%; }
+
+  /* Header */
+  header {
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 64px;
+  }
+  header .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  header .subtitle {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 640px;
+  }
+  header .meta {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+  }
+
+  /* Sections */
+  section { margin-bottom: 80px; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  p { color: var(--text-muted); margin-bottom: 16px; }
+  p.tight { margin-bottom: 8px; }
+
+  /* Key Insight Callout */
+  .insight {
+    border-left: 3px solid var(--teal);
+    padding: 16px 20px;
+    background: var(--teal-glow);
+    margin: 24px 0;
+  }
+  .insight p { color: var(--text); margin: 0; font-weight: 500; font-size: 15px; }
+
+  /* Landscape Map (SVG) */
+  .diagram-container {
+    margin: 40px 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  .diagram-container svg { display: block; margin: 0 auto; }
+
+  /* Competitor Cards */
+  .tier { margin-bottom: 48px; }
+  .tier-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .tier-badge {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .tier-badge.direct { background: var(--red-dim); color: var(--red); }
+  .tier-badge.adjacent { background: var(--amber-dim); color: var(--amber); }
+  .tier-badge.horizontal { background: var(--teal-dim); color: var(--teal); }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .card .name {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .card .tagline {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .card .desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .card .stats {
+    font-size: 12px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+  .card .stats span { display: inline-block; margin-right: 16px; }
+  .card .stats strong { color: var(--text-muted); }
+
+  .coverage-dots {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .coverage-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+  }
+  .coverage-dots .dot.active { background: var(--teal); border-color: var(--teal); }
+  .coverage-dots .dot.partial { background: var(--amber); border-color: var(--amber); }
+  .coverage-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Value chain comparison table */
+  .chain-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+    table-layout: auto;
+  }
+  .chain-table th {
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .chain-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .chain-table tr:last-child td { border-bottom: none; }
+  .chain-table .company-name { color: var(--text); font-weight: 500; white-space: nowrap; }
+  .chain-table .yes { color: var(--teal); font-weight: 500; }
+  .chain-table .partial { color: var(--amber); }
+  .chain-table .no { color: var(--text-dim); }
+  .chain-table .planara-row { background: var(--teal-glow); }
+  .chain-table .planara-row .company-name { color: var(--teal); }
+
+  /* Yamaha opportunity */
+  .yamaha-grid {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    gap: 0;
+    align-items: start;
+    margin: 32px 0;
+    max-width: 100%;
+  }
+  .yamaha-col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    min-width: 0;
+  }
+  .yamaha-col h3 { font-size: 15px; margin-bottom: 12px; }
+  .yamaha-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .yamaha-col ul li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .yamaha-col ul li:last-child { border-bottom: none; }
+  .yamaha-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal);
+    font-size: 20px;
+    padding-top: 60px;
+  }
+  .yamaha-col.planara-col { border-color: var(--teal); background: var(--teal-glow); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    margin-top: 64px;
+  }
+  footer p { font-size: 12px; color: var(--text-dim); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header h1 { font-size: 28px; }
+    h2 { font-size: 22px; }
+    .yamaha-grid { grid-template-columns: 1fr; }
+    .yamaha-arrow { transform: rotate(90deg); padding: 12px 0; }
+    .card-grid { grid-template-columns: 1fr; }
+    .chain-table { font-size: 12px; }
+    .chain-table th, .chain-table td { padding: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <div class="label">Internal Strategy Document</div>
+  <h1>Competitive Landscape at the Knowledge Layer</h1>
+  <p class="subtitle">Where Planara sits in the manufacturing intelligence ecosystem — direct competitors, adjacent players, and the white space nobody owns.</p>
+  <div class="meta">Planara Manufacturing Intelligence · March 2026 · Confidential</div>
+</header>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 1: THE THESIS -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">The Thesis</div>
+  <h2>There are two layers of intelligence in manufacturing. One is well-served. The other isn't.</h2>
+  <p>The <strong style="color:var(--text)">machine data layer</strong> — sensor telemetry, predictive maintenance, OEE optimization — is a crowded market. MicroAI, Sight Machine, Uptake, Augury, and the edge computing ecosystem have this covered. The big platform players (PTC ThingWorx, Siemens MindSphere, GE Vernova) play here too.</p>
+  <p>The <strong style="color:var(--text)">knowledge layer</strong> — documentation intelligence, service knowledge, dealer enablement, owner self-service — is fragmented, underserved, and largely pre-AI. This is where Planara operates.</p>
+  <p>Several companies touch parts of this layer. Nobody connects it end-to-end across the full value chain: OEM → Dealer → Technician → Owner.</p>
+
+  <div class="insight">
+    <p>Planara is the intelligence layer. Not a platform that replaces existing tools — the layer that makes them smart. We ingest manufacturer documentation and telemetry, produce structured role-specific intelligence, and surface it wherever it's needed: in our own purpose-built interfaces, inside a DMS, alongside an owner app, or via API into any other system.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 1b: THE VALUE THESIS -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Why This Matters</div>
+  <h2>This isn't about intelligent manuals. It's about aftermarket revenue capture.</h2>
+  <p>Nobody buys a $350K boat because of a better manual. The purchase decision is already made. The question that matters is: once someone owns complex equipment, how does intelligence create value for three parties?</p>
+
+  <div class="diagram-container" style="padding:24px 32px;">
+    <svg width="820" height="420" viewBox="0 0 820 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="min-width:820px;">
+      <!-- Central intelligence layer -->
+      <rect x="260" y="170" width="300" height="80" rx="8" fill="rgba(67,206,214,0.12)" stroke="#43CED6" stroke-width="2"/>
+      <text x="410" y="200" text-anchor="middle" fill="#43CED6" font-family="DM Sans" font-size="13" font-weight="700">PLANARA INTELLIGENCE LAYER</text>
+      <text x="410" y="220" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Documentation + Telemetry + Service Context</text>
+      <text x="410" y="236" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="10">Every interaction is a data point and a revenue opportunity</text>
+
+      <!-- Owner (top) -->
+      <rect x="280" y="20" width="260" height="110" rx="6" fill="#151921" stroke="#252a36" stroke-width="1.5"/>
+      <text x="410" y="48" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="14" font-weight="600">Owner</text>
+      <text x="410" y="70" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Uptime, confidence, less friction</text>
+      <text x="410" y="90" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Proactive alerts, instant diagnosis</text>
+      <text x="410" y="110" text-anchor="middle" fill="#e0a852" font-family="DM Sans" font-size="11" font-weight="500">+ Verified service history = resale value</text>
+      <!-- Arrow owner to platform -->
+      <line x1="410" y1="130" x2="410" y2="168" stroke="#43CED6" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="480" y="154" fill="#43CED6" font-family="DM Sans" font-size="9">queries, behavior data</text>
+
+      <!-- Dealer (left) -->
+      <rect x="20" y="270" width="260" height="130" rx="6" fill="#151921" stroke="#252a36" stroke-width="1.5"/>
+      <text x="150" y="298" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="14" font-weight="600">Dealer</text>
+      <text x="150" y="320" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">More transactions, less friction</text>
+      <text x="150" y="340" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Pre-diagnosed service, auto parts ID</text>
+      <text x="150" y="360" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Branded portal = ongoing relationship</text>
+      <text x="150" y="380" text-anchor="middle" fill="#e0a852" font-family="DM Sans" font-size="11" font-weight="500">Every owner alert = potential revenue</text>
+      <!-- Arrow dealer to platform -->
+      <line x1="260" y1="290" x2="280" y2="250" stroke="#43CED6" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="230" y="258" fill="#43CED6" font-family="DM Sans" font-size="9">service data</text>
+
+      <!-- OEM (right) -->
+      <rect x="540" y="270" width="260" height="130" rx="6" fill="#151921" stroke="#252a36" stroke-width="1.5"/>
+      <text x="670" y="298" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="14" font-weight="600">OEM</text>
+      <text x="670" y="320" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Aftermarket capture through dealers</text>
+      <text x="670" y="340" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Product intelligence from field data</text>
+      <text x="670" y="360" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Documentation improvement signals</text>
+      <text x="670" y="380" text-anchor="middle" fill="#e0a852" font-family="DM Sans" font-size="11" font-weight="500">25% EBIT aftermarket vs 10% equipment</text>
+      <!-- Arrow OEM to platform -->
+      <line x1="540" y1="290" x2="540" y2="250" stroke="#43CED6" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="575" y="258" fill="#43CED6" font-family="DM Sans" font-size="9">fleet insights</text>
+    </svg>
+  </div>
+
+  <h3 style="margin-top:24px;">The revenue mechanics</h3>
+  <p>Today's aftermarket revenue capture chain is leaky. An owner notices a problem → calls the dealer (maybe) → dealer diagnoses from scratch → orders parts (maybe the right ones) → schedules return visit (maybe). At every step, friction causes drop-off. Owners defer service. Dealers miss opportunities. The OEM loses aftermarket revenue to inaction, independent shops, or third-party parts.</p>
+  <p>An intelligence layer tightens every link in that chain:</p>
+
+  <div class="diagram-container" style="padding:24px 32px;">
+    <table class="chain-table">
+      <thead>
+        <tr>
+          <th>Friction point (today)</th>
+          <th>With intelligence layer</th>
+          <th>Revenue impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Owner doesn't know service is due until something breaks</td>
+          <td>Proactive, telemetry-aware alerts: "847 hours, major service due at 1000. Newport Marine has availability."</td>
+          <td>Preventive service appointments that would have been missed. Earlier intervention = simpler, higher-margin work.</td>
+        </tr>
+        <tr>
+          <td>Owner calls dealer, describes problem poorly. Dealer guesses.</td>
+          <td>Owner interacts with intelligence first. Dealer receives pre-diagnosed context with telemetry data and probable cause.</td>
+          <td>Higher first-time fix rate. Fewer return visits. Right parts on first trip. More billable hours per appointment.</td>
+        </tr>
+        <tr>
+          <td>Owner doesn't know which parts to order or whether they're OEM-genuine.</td>
+          <td>Intelligence surfaces exact OEM part numbers, SKUs, prices, and stock status. "Order from your dealer" button.</td>
+          <td>OEM parts revenue captured instead of lost to aftermarket/third-party. Parts attached to every service interaction.</td>
+        </tr>
+        <tr>
+          <td>Owner relationship with dealer goes dormant between service visits.</td>
+          <td>Dealer-branded portal maintains year-round engagement: seasonal guidance, equipment tips, usage insights.</td>
+          <td>Dealer retention. Owner comes back to Newport Marine instead of shopping around. Lifetime customer value increases.</td>
+        </tr>
+        <tr>
+          <td>OEM has no visibility into owner behavior or field conditions.</td>
+          <td>Every query, alert, and service event flows back as structured data. Pattern detection across fleet.</td>
+          <td>Product improvement signals. Documentation gap identification. Warranty cost reduction through earlier intervention.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>There's also a secondary value that hasn't been explored yet: <strong style="color:var(--text)">verified equipment history as a resale asset.</strong> A complete, AI-documented service and condition history — not just "oil changed on date X" but structured diagnostic records, telemetry trends, and resolution documentation — is a differentiator at resale. It's Carfax for complex equipment, generated as a natural byproduct of the intelligence layer doing its job. This benefits the owner (higher resale price), the dealer (trade-in confidence), and the OEM (brand value tied to documented longevity).</p>
+
+  <div class="insight">
+    <p>The intelligence layer isn't the product. Aftermarket revenue capture is the product. The intelligence layer is the mechanism. Every proactive alert is a service appointment. Every diagnostic answer is a parts order. Every ongoing engagement is dealer retention. Documentation is the raw material — revenue is the output.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 2: POSITIONING MAP -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Market Positioning</div>
+  <h2>Where the players sit</h2>
+  <p>Two axes that matter: how much of the value chain a platform covers, and how intelligent the output is (static records vs. AI-powered contextual responses).</p>
+
+  <div class="diagram-container">
+    <svg width="820" height="520" viewBox="0 0 820 520" fill="none" xmlns="http://www.w3.org/2000/svg" style="min-width:820px;">
+      <!-- Axes -->
+      <line x1="100" y1="460" x2="780" y2="460" stroke="#252a36" stroke-width="1.5"/>
+      <line x1="100" y1="460" x2="100" y2="40" stroke="#252a36" stroke-width="1.5"/>
+      <!-- Axis labels -->
+      <text x="440" y="505" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="11" letter-spacing="2" text-transform="uppercase" font-weight="500">VALUE CHAIN COVERAGE</text>
+      <text x="40" y="250" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="11" letter-spacing="2" font-weight="500" transform="rotate(-90 40 250)">INTELLIGENCE DEPTH</text>
+      <!-- Axis tick labels -->
+      <text x="140" y="480" fill="#4a5168" font-family="DM Sans" font-size="10">Technician only</text>
+      <text x="620" y="480" fill="#4a5168" font-family="DM Sans" font-size="10">Full value chain</text>
+      <text x="106" y="440" fill="#4a5168" font-family="DM Sans" font-size="10">Static records</text>
+      <text x="106" y="60" fill="#4a5168" font-family="DM Sans" font-size="10">AI-powered</text>
+
+      <!-- Quadrant labels (faint) -->
+      <text x="250" y="120" fill="#252a36" font-family="DM Sans" font-size="22" font-weight="600">Point Solutions</text>
+      <text x="550" y="120" fill="#1a3535" font-family="DM Sans" font-size="22" font-weight="600">White Space</text>
+      <text x="250" y="380" fill="#252a36" font-family="DM Sans" font-size="22" font-weight="600">Legacy Tools</text>
+      <text x="520" y="380" fill="#252a36" font-family="DM Sans" font-size="22" font-weight="600">DMS Platforms</text>
+
+      <!-- Quadrant dividers (dashed) -->
+      <line x1="440" y1="40" x2="440" y2="460" stroke="#252a36" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="100" y1="250" x2="780" y2="250" stroke="#252a36" stroke-width="1" stroke-dasharray="4 4"/>
+
+      <!-- COMPETITORS -->
+      <!-- Neuron7 -->
+      <circle cx="240" cy="110" r="22" fill="rgba(224,82,82,0.2)" stroke="#e05252" stroke-width="1.5"/>
+      <text x="240" y="114" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="10" font-weight="600">N7</text>
+      <text x="240" y="148" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Neuron7</text>
+
+      <!-- Aquant -->
+      <circle cx="200" cy="155" r="18" fill="rgba(224,82,82,0.15)" stroke="#e05252" stroke-width="1.2"/>
+      <text x="200" y="159" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9" font-weight="500">AQ</text>
+      <text x="200" y="184" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Aquant</text>
+
+      <!-- ServiceMax AI -->
+      <circle cx="340" cy="170" r="26" fill="rgba(224,168,82,0.15)" stroke="#e0a852" stroke-width="1.5"/>
+      <text x="340" y="167" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9" font-weight="500">SMAX</text>
+      <text x="340" y="180" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="8">/PTC</text>
+      <text x="340" y="210" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">ServiceMax AI</text>
+
+      <!-- Dozuki -->
+      <circle cx="180" cy="310" r="18" fill="rgba(224,168,82,0.12)" stroke="#e0a852" stroke-width="1"/>
+      <text x="180" y="314" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9" font-weight="500">DZ</text>
+      <text x="180" y="340" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Dozuki</text>
+
+      <!-- Poka -->
+      <circle cx="230" cy="280" r="16" fill="rgba(224,168,82,0.12)" stroke="#e0a852" stroke-width="1"/>
+      <text x="230" y="284" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9" font-weight="500">PK</text>
+      <text x="230" y="308" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Poka/IFS</text>
+
+      <!-- Lightspeed DMS -->
+      <circle cx="520" cy="370" r="22" fill="rgba(74,81,104,0.2)" stroke="#4a5168" stroke-width="1"/>
+      <text x="520" y="374" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9" font-weight="500">LS</text>
+      <text x="520" y="400" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Lightspeed</text>
+
+      <!-- CDK -->
+      <circle cx="580" cy="400" r="20" fill="rgba(74,81,104,0.2)" stroke="#4a5168" stroke-width="1"/>
+      <text x="580" y="404" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9" font-weight="500">CDK</text>
+      <text x="580" y="430" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">CDK Global</text>
+
+      <!-- Shelf -->
+      <circle cx="310" cy="210" r="14" fill="rgba(67,206,214,0.1)" stroke="#43CED6" stroke-width="0.8" stroke-dasharray="3 3"/>
+      <text x="310" y="214" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="8" font-weight="500">SH</text>
+      <text x="310" y="234" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="9">Shelf.io</text>
+
+      <!-- Glean -->
+      <circle cx="350" cy="240" r="14" fill="rgba(67,206,214,0.1)" stroke="#43CED6" stroke-width="0.8" stroke-dasharray="3 3"/>
+      <text x="350" y="244" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="8" font-weight="500">GL</text>
+      <text x="350" y="264" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="9">Glean</text>
+
+      <!-- MyYamahaOutboards -->
+      <circle cx="560" cy="340" r="16" fill="rgba(74,81,104,0.15)" stroke="#4a5168" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="560" y="337" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="7" font-weight="500">MY</text>
+      <text x="560" y="347" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="7">YAM</text>
+      <text x="560" y="368" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="9">MyYamaha</text>
+
+      <!-- bundleIQ -->
+      <circle cx="270" cy="230" r="12" fill="rgba(67,206,214,0.08)" stroke="#43CED6" stroke-width="0.6" stroke-dasharray="3 3"/>
+      <text x="270" y="234" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="7" font-weight="500">bIQ</text>
+      <text x="270" y="252" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="9">bundleIQ</text>
+
+      <!-- TCS / BCG (consulting) -->
+      <circle cx="480" cy="190" r="16" fill="rgba(74,81,104,0.1)" stroke="#4a5168" stroke-width="0.8" stroke-dasharray="3 3"/>
+      <text x="480" y="187" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="8" font-weight="500">TCS</text>
+      <text x="480" y="197" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="7">/BCG</text>
+      <text x="480" y="218" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="9">Consulting</text>
+
+      <!-- PLANARA -->
+      <circle cx="660" cy="90" r="32" fill="rgba(67,206,214,0.2)" stroke="#43CED6" stroke-width="2.5"/>
+      <text x="660" y="87" text-anchor="middle" fill="#43CED6" font-family="DM Sans" font-size="12" font-weight="700">Planara</text>
+      <text x="660" y="102" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9">Full chain + AI</text>
+
+      <!-- ELEVAT -->
+      <circle cx="380" cy="120" r="20" fill="rgba(224,168,82,0.2)" stroke="#e0a852" stroke-width="1.5"/>
+      <text x="380" y="117" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="9" font-weight="600">Elevat</text>
+      <text x="380" y="130" text-anchor="middle" fill="#e0a852" font-family="DM Sans" font-size="8">New 2026</text>
+
+      <!-- Legend -->
+      <circle cx="120" y="20" r="6" fill="rgba(224,82,82,0.3)" stroke="#e05252" stroke-width="1"/>
+      <text x="132" y="24" fill="#7a8294" font-family="DM Sans" font-size="10">Direct competitor</text>
+      <circle cx="260" cy="20" r="6" fill="rgba(224,168,82,0.2)" stroke="#e0a852" stroke-width="1"/>
+      <text x="272" y="24" fill="#7a8294" font-family="DM Sans" font-size="10">Adjacent</text>
+      <circle cx="370" cy="20" r="6" fill="rgba(67,206,214,0.15)" stroke="#43CED6" stroke-width="0.8" stroke-dasharray="2 2"/>
+      <text x="382" y="24" fill="#7a8294" font-family="DM Sans" font-size="10">Horizontal / Other</text>
+      <circle cx="520" cy="20" r="6" fill="rgba(74,81,104,0.2)" stroke="#4a5168" stroke-width="1"/>
+      <text x="532" y="24" fill="#7a8294" font-family="DM Sans" font-size="10">DMS / Legacy</text>
+    </svg>
+  </div>
+
+  <div class="insight">
+    <p>Planara doesn't need to own the top-right quadrant alone. It needs to be the intelligence layer that powers it. Neuron7 and Aquant have depth but narrow reach. DMS platforms have breadth but no intelligence. Planara is the connective tissue — the layer that plugs into both and makes the full chain intelligent.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 3: VALUE CHAIN COVERAGE -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Value Chain Coverage</div>
+  <h2>Who serves which part of the chain</h2>
+  <p>The OEM → Dealer → Technician → Owner value chain has four distinct audiences with different needs. Most competitors serve one. Nobody connects all four.</p>
+
+  <div class="diagram-container" style="padding:16px 24px;">
+    <table class="chain-table">
+      <thead>
+        <tr>
+          <th style="min-width:140px;">Company</th>
+          <th style="text-align:center;">OEM / Product</th>
+          <th style="text-align:center;">Dealer Network</th>
+          <th style="text-align:center;">Technician</th>
+          <th style="text-align:center;">Owner</th>
+          <th>Primary focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="planara-row">
+          <td class="company-name">Planara</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td>Full value chain intelligence from single platform</td>
+        </tr>
+        <tr>
+          <td class="company-name">Neuron7</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td>Service resolution intelligence for technicians</td>
+        </tr>
+        <tr>
+          <td class="company-name">Aquant</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td>AI copilot for complex equipment service</td>
+        </tr>
+        <tr>
+          <td class="company-name">ServiceMax/PTC</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td>Field service management + AI assistant</td>
+        </tr>
+        <tr>
+          <td class="company-name">Elevat</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td>OEM-branded AI technician assistant for dealer networks</td>
+        </tr>
+        <tr>
+          <td class="company-name">Dozuki</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td>Digital work instructions & SOPs</td>
+        </tr>
+        <tr>
+          <td class="company-name">Poka (IFS)</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td>Connected worker training & knowledge sharing</td>
+        </tr>
+        <tr>
+          <td class="company-name">Lightspeed DMS</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td>Dealer management (marine/powersports/RV)</td>
+        </tr>
+        <tr>
+          <td class="company-name">CDK Global</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td>Dealer management (automotive)</td>
+        </tr>
+        <tr>
+          <td class="company-name">MyYamahaOutboards</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td>Owner maintenance log & service reminders</td>
+        </tr>
+        <tr>
+          <td class="company-name">Shelf.io</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td>Knowledge management for contact centers</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:12px;font-size:11px;color:var(--text-dim);">
+      <span class="yes" style="margin-right:16px;">● Primary focus</span>
+      <span class="partial" style="margin-right:16px;">◐ Partial / secondary</span>
+      <span class="no">○ Not served</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 4: COMPETITOR DEEP DIVES -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Competitor Profiles</div>
+  <h2>Who matters and why</h2>
+
+  <div class="tier">
+    <div class="tier-header">
+      <span class="tier-badge direct">Tier 1 — Direct Competitors</span>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="name">Neuron7</div>
+        <div class="tagline">Service Resolution Intelligence</div>
+        <div class="desc">Ingests manuals, work orders, and service data. Guides technicians through step-by-step resolution with AI. "Neuro" agent launched Nov 2025. Claims 90%+ resolution accuracy. Fortune 1000 customers: NCR Atleos, Medtronic, Ciena.</div>
+        <div class="desc"><strong style="color:var(--text)">Gap:</strong> Technician-only. No owner portal, no dealer branding, no OEM feedback loop. Doesn't serve the full value chain.</div>
+        <div class="stats">
+          <span><strong>Funding:</strong> $44M Series B</span>
+          <span><strong>Users:</strong> 50K+</span>
+          <span><strong>ARR growth:</strong> 300% YoY</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="name">Aquant</div>
+        <div class="tagline">Agentic AI for Complex Equipment Service</div>
+        <div class="desc">Multi-agent platform for the service lifecycle. Turns expert knowledge into accessible guidance. Serves industrial machinery, medical devices, food equipment. Frost & Sullivan award winner.</div>
+        <div class="desc"><strong style="color:var(--text)">Gap:</strong> Service ops focused. No dealer-branded portals, no owner self-service, no documentation intelligence pipeline.</div>
+        <div class="stats">
+          <span><strong>Founded:</strong> 2016, Newton MA</span>
+          <span><strong>Focus:</strong> Enterprise service orgs</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="name">ServiceMax AI (PTC)</div>
+        <div class="tagline">AI-Powered Field Service Management</div>
+        <div class="desc">The 800-pound gorilla. 25+ years of service data. GenAI assistant leverages equipment data, service history, and known resolutions. Backed by PTC's PLM/SLM ecosystem. Launched Aug 2025.</div>
+        <div class="desc"><strong style="color:var(--text)">Risk:</strong> Could add documentation intelligence as a feature. Already has the install base and data. <strong style="color:var(--text)">Gap:</strong> It's a feature within a massive enterprise platform, not a purpose-built intelligence layer. No dealer or owner story.</div>
+        <div class="stats">
+          <span><strong>Parent:</strong> PTC ($2B+ revenue)</span>
+          <span><strong>Install base:</strong> Fortune 500 service orgs</span>
+        </div>
+      </div>
+      <div class="card" style="border-color: var(--amber);">
+        <div class="name" style="color:var(--amber);">Elevat — NEW Feb 2026</div>
+        <div class="tagline">IoT Platform + AI Technician Assistant for Dealer Networks</div>
+        <div class="desc">Seattle-based connected machine / IoT platform that just added an AI Technician Assistant (launched Feb 25, 2026). Turns machine telemetry, fault codes, service manuals, and field repair history into step-by-step technician guidance. OEM-branded, dealer-managed deployment. Bosch/HydraForce partnership for construction, ag, forestry. Cummins relationship. Showing at CONEXPO 2026.</div>
+        <div class="desc"><strong style="color:var(--text)">Where they compete:</strong> Directly on the Service Intelligence / technician layer. Their "OEM-branded, dealer-managed" positioning and "telemetry + manuals → structured guidance" pipeline is close to Planara's technician tool.</div>
+        <div class="desc"><strong style="color:var(--text)">Where they don't:</strong> They're a technician productivity tool, not an aftermarket revenue engine. No owner-facing portal. No proactive push-based engagement. No dealer-as-revenue-channel story. No aftermarket capture thesis. Their framing is "shop productivity" and "first-time fix rates" — not "every owner interaction is a service revenue event." Their roots are IoT/machine connectivity, not documentation intelligence or customer experience.</div>
+        <div class="stats">
+          <span><strong>HQ:</strong> Seattle, WA</span>
+          <span><strong>Partners:</strong> Bosch, HydraForce, Cummins</span>
+          <span><strong>Focus:</strong> Construction, Ag, Forestry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier">
+    <div class="tier-header">
+      <span class="tier-badge adjacent">Tier 2 — Adjacent Players</span>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="name">Dozuki</div>
+        <div class="tagline">Connected Worker Platform (from iFixit founders)</div>
+        <div class="desc">Digital work instructions, SOPs, tribal knowledge capture. CreatorPro AI generates instructions from video. Gartner-recognized. Strong in regulated industries (medical device, aerospace).</div>
+        <div class="desc"><strong style="color:var(--text)">Gap:</strong> Factory floor, not field service or dealer networks. No AI query interface, no telemetry integration, no owner-facing product.</div>
+        <div class="stats">
+          <span><strong>Since:</strong> 2011</span>
+          <span><strong>Focus:</strong> Factory floor SOPs</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="name">Poka (acquired by IFS)</div>
+        <div class="tagline">Video-Based Training & Knowledge Sharing</div>
+        <div class="desc">"YouTube for manufacturing." Strong on onboarding and tribal knowledge capture. Supports 37 languages. Industrial AI converts PDFs to digital work instructions.</div>
+        <div class="desc"><strong style="color:var(--text)">Gap:</strong> Training tool, not an intelligence layer. No structured query responses, no telemetry fusion, no dealer/owner story.</div>
+        <div class="stats">
+          <span><strong>Acquirer:</strong> IFS</span>
+          <span><strong>Focus:</strong> Factory onboarding</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="name">DMS Providers</div>
+        <div class="tagline">Lightspeed · CDK · ZiiDMS · BiT · Ideal · DX1</div>
+        <div class="desc">DMS = Dealer Management Software (not document management). The operational plumbing of dealerships: inventory, parts, service work orders, accounting, CRM. Lightspeed dominates marine/powersports. CDK dominates automotive. Adding AI for email marketing, basic automation.</div>
+        <div class="desc"><strong style="color:var(--text)">Gap:</strong> Transaction systems, not intelligence layers. No documentation AI, no telemetry fusion, no structured query responses. Potential integration partners for Planara.</div>
+        <div class="stats">
+          <span><strong>Lightspeed:</strong> Marine/Powersports/RV leader</span>
+          <span><strong>CDK:</strong> Automotive leader</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier">
+    <div class="tier-header">
+      <span class="tier-badge horizontal">Tier 3 — Horizontal / Other</span>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="name">Shelf.io</div>
+        <div class="tagline">AI Knowledge Management for Contact Centers</div>
+        <div class="desc">$60M+ raised. John Deere is a customer. Powerful for contact center agents but horizontal — no manufacturing domain expertise, no structured output for safety-critical contexts, no dealer or owner portals.</div>
+        <div class="stats"><span><strong>Funding:</strong> $60M+</span></div>
+      </div>
+      <div class="card">
+        <div class="name">Glean / Guru</div>
+        <div class="tagline">Enterprise Search & Knowledge Platforms</div>
+        <div class="desc">Powerful horizontal knowledge management. Strong integrations. But fully generic — no manufacturing-specific structured output, no telemetry integration, no value chain coverage.</div>
+        <div class="stats"><span><strong>Category:</strong> Enterprise KM</span></div>
+      </div>
+      <div class="card">
+        <div class="name">TCS / BCG X</div>
+        <div class="tagline">Consulting + Custom AI Solutions</div>
+        <div class="desc">TCS Manufacturing AI and BCG Field Service AI are consulting plays — they build custom solutions for enterprise clients. Not product competitors but they compete for the same budget at large OEMs.</div>
+        <div class="stats"><span><strong>Category:</strong> Services / Consulting</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 5: YAMAHA OPPORTUNITY -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">The Yamaha Opportunity</div>
+  <h2>What exists today vs. what Planara adds</h2>
+  <p>Yamaha launched MyYamahaOutboards in 2021 — a mobile app and web portal for outboard owners. It's a maintenance log with service reminders and dealer finder. It's the first-generation owner portal: necessary but not intelligent.</p>
+
+  <div class="yamaha-grid">
+    <div class="yamaha-col">
+      <h3>MyYamahaOutboards (exists today)</h3>
+      <ul>
+        <li>Maintenance history tracking</li>
+        <li>Service interval reminders (push notifications)</li>
+        <li>Warranty registration storage</li>
+        <li>Dealer locator</li>
+        <li>Trip log & pre-trip checklists</li>
+        <li>Owner's manual PDF access</li>
+        <li>Multi-boat/multi-engine support</li>
+        <li>Resale value documentation</li>
+      </ul>
+      <p style="margin-top:16px;font-size:13px;color:var(--text-dim);max-width:none;">Records-based. Tells you <em>when</em> service is due. Doesn't help you understand your equipment or act on problems.</p>
+    </div>
+    <div class="yamaha-arrow">→</div>
+    <div class="yamaha-col planara-col">
+      <h3 style="color:var(--teal);">+ Planara Intelligence Layer</h3>
+      <ul>
+        <li><strong style="color:var(--text);">Conversational documentation access</strong> — ask anything about your equipment in natural language</li>
+        <li><strong style="color:var(--text);">Structured answers</strong> — spec tables, procedures, safety warnings, parts lists with SKUs</li>
+        <li><strong style="color:var(--text);">Telemetry-aware responses</strong> — "your engine has 847 hours, major service is due at 1000"</li>
+        <li><strong style="color:var(--text);">Dealer-branded experience</strong> — each dealer's portal, their branding, their service CTAs</li>
+        <li><strong style="color:var(--text);">Action-connected</strong> — every answer links to schedule service, order parts, call dealer</li>
+        <li><strong style="color:var(--text);">OEM feedback loop</strong> — every owner query becomes fleet intelligence for Yamaha product teams</li>
+      </ul>
+      <p style="margin-top:16px;font-size:13px;color:var(--text-muted);max-width:none;">Intelligence-based. Answers <em>what</em> to do and connects to <em>how</em> to do it. Every interaction is a potential service revenue event.</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <p>Planara doesn't replace MyYamahaOutboards. It could sit alongside it or integrate — adding the intelligence layer that turns a maintenance log into an AI-powered owner experience. MyYamahaOutboards tracks the history. Planara makes it actionable.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 5b: THE OWNER EXPERIENCE GAP -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">The Owner Experience</div>
+  <h2>Nobody is designing for the equipment owner</h2>
+  <p>Every player in this landscape is building for professionals — technicians, service managers, factory operators. The equipment owner (the person who bought the $350K boat, the fleet of commercial vehicles, the industrial compressor) is an afterthought. They get a PDF manual, a phone number, and maybe a maintenance log app.</p>
+  <p>This matters because the owner is the revenue engine of the aftermarket. Every owner question is a potential service appointment, parts order, or dealer touchpoint. The companies that figure out how to serve the owner intelligently will capture the largest share of aftermarket revenue.</p>
+
+  <h3 style="margin-top:32px;">What the current owner experience looks like</h3>
+  <p>A Yamaha F300 owner at 6am on the water with a warning light has three options: call their dealer (who opens at 7:30), Google it (and find forum posts from 2018), or ignore it until the next scheduled service. None of these are good. The owner has a $350K asset and no intelligent way to understand what's happening with it in the moment.</p>
+
+  <h3 style="margin-top:32px;">What we need to get right</h3>
+  <p>The demo on the Planara site shows a conversational query interface — the owner types a question and gets a structured answer. That's a good proof of concept for showing Yamaha's internal team what's possible. But the actual shipped owner product probably looks different:</p>
+
+  <div class="diagram-container" style="padding:24px 32px;">
+    <table class="chain-table">
+      <thead>
+        <tr>
+          <th style="min-width:160px;">Interaction model</th>
+          <th>What it means</th>
+          <th>When it's right</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="company-name">Push-based (proactive)</td>
+          <td>The system tells the owner what matters before they ask. Smart notifications: "Your engine has 847 hours. 1000-hour major service due. Newport Marine has availability next week." → One tap to schedule.</td>
+          <td>Most of the time. Owners don't know what to ask. The system should anticipate needs based on telemetry, service history, and seasonal context. This is where most of the service revenue capture happens.</td>
+        </tr>
+        <tr>
+          <td class="company-name">Reactive (query-based)</td>
+          <td>The owner asks a question and gets a structured answer. "What does this warning light mean?" → Simplified diagnostic with clear next steps and a "Call your dealer" button.</td>
+          <td>When something goes wrong. Warning lights, unusual behavior, unexpected situations. The answers should be simplified for an owner, not the dense procedural output a technician gets.</td>
+        </tr>
+        <tr>
+          <td class="company-name">Seasonal / lifecycle</td>
+          <td>Contextual guidance tied to calendar and equipment lifecycle. Winterization checklists in October. Pre-season checks in March. Warranty expiration reminders. Resale value documentation.</td>
+          <td>Ongoing relationship maintenance. This is what keeps the owner engaged with their dealer year-round, not just when something breaks.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The key insight: the technician tool is query-first because technicians know what to ask. The owner tool should be <strong style="color:var(--text)">push-first</strong> — proactive, contextual, action-oriented. The intelligence layer is the same. The interface and interaction model are different.</p>
+
+  <h3 style="margin-top:32px;">Competitive positioning: nobody else is here</h3>
+
+  <div class="diagram-container" style="padding:24px 32px;">
+    <table class="chain-table">
+      <thead>
+        <tr>
+          <th style="min-width:160px;">Who</th>
+          <th>What they offer the owner</th>
+          <th>What's missing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="company-name">MyYamahaOutboards</td>
+          <td>Maintenance log, interval reminders, dealer finder, PDF manual access</td>
+          <td>No intelligence. Reminders are calendar-based, not condition-based. Can't answer questions. Can't diagnose problems. Doesn't connect to dealer service scheduling or parts ordering.</td>
+        </tr>
+        <tr>
+          <td class="company-name">Neuron7 / Aquant</td>
+          <td>Nothing. These are technician tools. The owner doesn't exist in their product.</td>
+          <td>Everything. They don't think about the end customer at all.</td>
+        </tr>
+        <tr>
+          <td class="company-name">ServiceMax / PTC</td>
+          <td>Customer self-service portals (basic). Ticket submission, status tracking.</td>
+          <td>No documentation intelligence. No equipment-specific context. No dealer branding. It's a support ticket system, not an ownership experience.</td>
+        </tr>
+        <tr>
+          <td class="company-name">DMS providers</td>
+          <td>Some offer customer-facing portals for service status and appointment booking.</td>
+          <td>No intelligence. No documentation access. No telemetry awareness. Basic transactional portals.</td>
+        </tr>
+        <tr class="planara-row">
+          <td class="company-name">Planara (target)</td>
+          <td>Proactive, dealer-branded intelligence. Push notifications from telemetry + docs. Reactive query answers simplified for owners. Seasonal lifecycle guidance. Every interaction connects to dealer revenue.</td>
+          <td>Needs to be designed and built. The demo shows the query interface; the shipped product needs the push-based layer on top.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight">
+    <p>The owner experience is the most underserved part of the value chain and potentially the most valuable for aftermarket revenue. It's also the hardest for incumbents to build — it requires consumer-grade UX, per-dealer white-labeling, and an interaction model (push-based, proactive) that's fundamentally different from the enterprise tools they sell today. This is where Planara should aim to be definitively best.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 6: RISKS & MOATS -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Strategic Risks</div>
+  <h2>What could close the gap</h2>
+  <p><strong style="color:var(--text)">Neuron7 expands downstream.</strong> At $44M Series B with 300% ARR growth, they have resources. If they build dealer and owner portals, they become a direct threat. Mitigant: their DNA is enterprise service ops, not dealer/owner UX. Different sale, different buyer.</p>
+  <p><strong style="color:var(--text)">ServiceMax/PTC adds documentation intelligence.</strong> PTC owns the PLM data and has the install base. They could embed documentation AI into ServiceMax. Mitigant: PTC moves slowly, sells to enterprise IT, and their product is a feature within a massive platform — not a purpose-built solution a VP of Service can deploy in weeks.</p>
+  <p><strong style="color:var(--text)">DMS providers add AI features.</strong> Lightspeed is already adding AI for email marketing. If they add documentation AI, they control the dealer relationship. Mitigant: DMS providers are transaction systems, not intelligence companies. Partnership (embed Planara into Lightspeed) is more likely than competition.</p>
+  <p><strong style="color:var(--text)">OEMs build it themselves.</strong> Yamaha could decide to build documentation AI in-house or with a consulting firm (TCS, Accenture). Mitigant: this is Planara's "prove it fast" advantage — a working prototype from their documentation in 1-2 weeks is faster and cheaper than any internal build or consulting engagement.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 7: HOW WE WIN -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">How We Win</div>
+  <h2>Why a manufacturer would choose a startup over incumbents</h2>
+  <p>We can't out-feature Neuron7 ($44M, Fortune 1000 clients) or out-scale ServiceMax/PTC. We don't need to. We need to be the fastest path from "we have documentation and telemetry" to "our people and customers are getting intelligent answers." The incumbents are structurally slow at this for different reasons:</p>
+
+  <div class="diagram-container" style="padding:24px 32px;">
+    <table class="chain-table">
+      <thead>
+        <tr>
+          <th style="min-width:140px;">Competitor</th>
+          <th>Why they can't move fast here</th>
+          <th>Our advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="company-name">Neuron7 / Aquant</td>
+          <td>Entire company oriented toward VP of Service Ops at Fortune 1000. Moving to dealer/owner portals means selling to a different buyer, building consumer-grade UX, and managing per-dealer white-label deployments. That's a different company, not a feature.</td>
+          <td>We start at the value chain edges they don't serve — dealers and owners — then move inward.</td>
+        </tr>
+        <tr>
+          <td class="company-name">ServiceMax / PTC</td>
+          <td>12-18 month enterprise sales cycles. Six-figure implementation. Requires PLM integration. Can't offer "see it working with your docs in two weeks" because their business model is built around long engagements.</td>
+          <td>Speed to proof. A manufacturer sees their own documentation returning structured intelligence before any procurement process begins.</td>
+        </tr>
+        <tr>
+          <td class="company-name">DMS Providers</td>
+          <td>Transaction system DNA — databases, accounting logic. They'll bolt on a generic chatbot but won't build domain-specific documentation intelligence. Their engineering teams don't do RAG pipelines.</td>
+          <td>We plug INTO their systems via API, making their DMS intelligent. Partnership, not competition.</td>
+        </tr>
+        <tr>
+          <td class="company-name">OEM In-House / Consulting</td>
+          <td>Internal build takes 6-12 months minimum. Consulting (TCS, Accenture) is expensive and slow. Neither produces a working prototype before the budget is committed.</td>
+          <td>Working prototype from their actual manuals before any budget commitment. Risk-free evaluation.</td>
+        </tr>
+        <tr>
+          <td class="company-name">Elevat</td>
+          <td>Overlaps on technician layer (telemetry + manuals → guidance). But they're an IoT platform that added AI for technicians — their thesis is "shop productivity," not "aftermarket revenue capture." No owner experience, no dealer-as-revenue-channel, no proactive engagement model. Construction/heavy equipment focus.</td>
+          <td>We compete on the technician layer but our thesis is bigger: the owner is the revenue engine, the dealer is the channel, the intelligence layer captures aftermarket value across the entire chain. Elevat makes technicians faster. Planara makes the aftermarket more valuable.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight">
+    <p>Planara's advantage isn't doing more. It's proving value faster with less commitment — then expanding into the parts of the value chain that incumbents can't easily reach.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 8: ROLLOUT PLAN -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Rollout Strategy</div>
+  <h2>What we build, in what order, and why</h2>
+
+  <div style="margin-bottom:40px;">
+    <h3 style="color:var(--teal);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Phase 1 — Prove the Intelligence Layer</h3>
+    <p><strong style="color:var(--text);">What we sell:</strong> Documentation intelligence. We ingest a manufacturer's manuals and produce structured, citation-backed, role-specific output that's demonstrably better than what generic AI or existing tools can do.</p>
+    <p><strong style="color:var(--text);">How we prove it:</strong> Custom-built demo interfaces (the service tool, the owner portal). These aren't the product — they're the proof that the intelligence layer works. A manufacturer sees their F300 documentation returning real specs, real part numbers, real safety warnings.</p>
+    <p><strong style="color:var(--text);">What we don't do yet:</strong> We don't try to replace anyone's DMS. We don't build fleet analytics. We don't require telemetry integration. We keep the surface area small so we can execute flawlessly.</p>
+    <p><strong style="color:var(--text);">Technical moat to build:</strong> Domain-level documentation ingestion quality. If our RAG pipeline produces consistently better structured output from marine/powersports manuals than anything else on the market — that's what makes the demo land and the pilot succeed. This isn't visible on a marketing page but it's the thing that wins.</p>
+  </div>
+
+  <div style="margin-bottom:40px;">
+    <h3 style="color:var(--teal);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Phase 2 — Expand into Telemetry + Integrations</h3>
+    <p><strong style="color:var(--text);">What we add:</strong> Live telemetry connection (Siren Marine or equivalent). DMS integration (Lightspeed, CDK) for work orders and parts ordering. These make the intelligence contextual and actionable — not just "what oil does it need" but "your engine has 847 hours, major service is due in 153 hours, here are the parts, here's your closest dealer."</p>
+    <p><strong style="color:var(--text);">Why now:</strong> The pilot has proven the documentation intelligence works. Now we add the data connections that turn answers into actions. This is where Planara becomes hard to rip out — once we're connected to telemetry and DMS, we're infrastructure.</p>
+    <p><strong style="color:var(--text);">Competitive defense:</strong> We're now integrated with the same DMS systems that the incumbents depend on. We're a complement, not a threat. A DMS provider is more likely to partner with us than build what we do.</p>
+  </div>
+
+  <div style="margin-bottom:40px;">
+    <h3 style="color:var(--teal);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Phase 3 — The Dealer/Owner Experience (The Strategic Moat)</h3>
+    <p><strong style="color:var(--text);">What we build:</strong> The white-label dealer portal infrastructure. Each dealer gets their own branded intelligence interface for their customers. This is the thing that nobody else is building and that the incumbents are structurally unable to prioritize.</p>
+    <p><strong style="color:var(--text);">Critical design insight:</strong> The owner experience should be push-first, not query-first. Technicians know what to ask. Owners don't. The shipped product should lead with proactive, telemetry-aware notifications ("847 hours — major service due, your dealer has availability") and seasonal guidance ("winterization checklist for your F300"), with the query interface as a secondary mode for when something goes wrong. The demo on the site shows query-based interaction because it demonstrates the intelligence layer. The real product inverts the model: the system tells the owner what matters, the owner acts on it.</p>
+    <p><strong style="color:var(--text);">Why this is the moat:</strong> Neuron7 sells to Fortune 1000 VP of Service. ServiceMax sells to enterprise IT. Nobody is selling to the <em>dealer network</em> — because it requires a completely different deployment model (per-dealer white-labeling), a different buyer (OEM's dealer relations team), a different UX (consumer-grade, proactive, mobile-first), and a fundamentally different interaction model (push not pull). Building this capability is what makes Planara defensible, not just fast.</p>
+    <p><strong style="color:var(--text);">Revenue model:</strong> Per-dealer SaaS, paid by the OEM as a value-add for their dealer network. Every dealer portal is a recurring revenue line. Every owner interaction is a measurable service revenue event for the dealer. The OEM pays because it drives dealer loyalty and aftermarket capture.</p>
+  </div>
+
+  <div style="margin-bottom:40px;">
+    <h3 style="color:var(--teal);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Phase 4 — OEM Intelligence (The Flywheel)</h3>
+    <p><strong style="color:var(--text);">What emerges:</strong> At scale, the data flowing through the platform reveals patterns: which documentation sections generate the most queries, which failure modes are most common across model lines, which dealers are seeing unusual service patterns. This is fleet intelligence for the OEM product and documentation teams.</p>
+    <p><strong style="color:var(--text);">Why last:</strong> This requires volume. You can't do fleet analytics with one pilot. But it's the thing you sell from day one as a vision — because it's what makes a C-suite buyer care. "Your documentation investment becomes an intelligence asset that improves your products" is a boardroom story.</p>
+  </div>
+
+  <div class="diagram-container">
+    <svg width="820" height="200" viewBox="0 0 820 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="min-width:820px;">
+      <!-- Phase boxes -->
+      <rect x="10" y="40" width="180" height="120" rx="6" fill="#151921" stroke="#43CED6" stroke-width="2"/>
+      <text x="100" y="68" text-anchor="middle" fill="#43CED6" font-family="DM Sans" font-size="10" font-weight="600" letter-spacing="1.5">PHASE 1</text>
+      <text x="100" y="90" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">Intelligence</text>
+      <text x="100" y="106" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">Layer</text>
+      <text x="100" y="130" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Documentation RAG</text>
+      <text x="100" y="145" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Custom demo UIs</text>
+
+      <!-- Arrow 1 -->
+      <line x1="195" y1="100" x2="215" y2="100" stroke="#43CED6" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <polygon points="215,96 223,100 215,104" fill="#43CED6"/>
+
+      <rect x="225" y="40" width="180" height="120" rx="6" fill="#151921" stroke="#252a36" stroke-width="1.5"/>
+      <text x="315" y="68" text-anchor="middle" fill="#e0a852" font-family="DM Sans" font-size="10" font-weight="600" letter-spacing="1.5">PHASE 2</text>
+      <text x="315" y="90" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">Telemetry +</text>
+      <text x="315" y="106" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">Integrations</text>
+      <text x="315" y="130" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Siren Marine, DMS APIs</text>
+      <text x="315" y="145" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Contextual + actionable</text>
+
+      <!-- Arrow 2 -->
+      <line x1="410" y1="100" x2="430" y2="100" stroke="#252a36" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <polygon points="430,96 438,100 430,104" fill="#4a5168"/>
+
+      <rect x="440" y="40" width="180" height="120" rx="6" fill="#151921" stroke="#252a36" stroke-width="1.5"/>
+      <text x="530" y="68" text-anchor="middle" fill="#e0a852" font-family="DM Sans" font-size="10" font-weight="600" letter-spacing="1.5">PHASE 3</text>
+      <text x="530" y="90" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">Dealer / Owner</text>
+      <text x="530" y="106" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">Experience</text>
+      <text x="530" y="130" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">White-label portals</text>
+      <text x="530" y="145" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">The strategic moat</text>
+
+      <!-- Arrow 3 -->
+      <line x1="625" y1="100" x2="645" y2="100" stroke="#252a36" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <polygon points="645,96 653,100 645,104" fill="#4a5168"/>
+
+      <rect x="655" y="40" width="155" height="120" rx="6" fill="#151921" stroke="#252a36" stroke-width="1.5"/>
+      <text x="732" y="68" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="10" font-weight="600" letter-spacing="1.5">PHASE 4</text>
+      <text x="732" y="90" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">OEM</text>
+      <text x="732" y="106" text-anchor="middle" fill="#e2e5ea" font-family="DM Sans" font-size="13" font-weight="600">Intelligence</text>
+      <text x="732" y="130" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Fleet analytics</text>
+      <text x="732" y="145" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="10">Requires volume</text>
+
+      <!-- Labels below -->
+      <text x="100" y="185" text-anchor="middle" fill="#43CED6" font-family="DM Sans" font-size="11" font-weight="500">NOW</text>
+      <text x="315" y="185" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Pilot</text>
+      <text x="530" y="185" text-anchor="middle" fill="#7a8294" font-family="DM Sans" font-size="11">Scale</text>
+      <text x="732" y="185" text-anchor="middle" fill="#4a5168" font-family="DM Sans" font-size="11">Flywheel</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 9: THE REAL THREAT -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">What Keeps Us Up at Night</div>
+  <h2>The real competitive risk isn't features — it's timing</h2>
+  <p><strong style="color:var(--text)">Elevat validates the thesis but doesn't threaten the moat.</strong> Their AI Technician Assistant (launched Feb 25, 2026) proves that OEMs want AI-powered technician guidance delivered through dealer networks. That's market validation. But Elevat is a technician productivity tool — their language is "shop productivity," "first-time fix rates," "repair velocity." They're not thinking about the owner as a revenue engine, the dealer as a branded customer channel, or proactive engagement as an aftermarket capture mechanism. They're solving a different problem (fewer technicians need to fix more machines) than Planara (capture more aftermarket value through intelligent owner-dealer-OEM connections). Worth monitoring if they expand downstream, but their IoT/machine connectivity DNA makes that unlikely near-term.</p>
+  <p><strong style="color:var(--text)">Neuron7 remains the most credible competitive threat</strong> on the technician/service layer specifically. $44M Series B, Fortune 1000 customers, 300% ARR growth. If they decide to expand downstream into dealer/owner portals, they have the resources and the service data. Their expansion path is likely lateral (more enterprise service clients) but they could surprise.</p>
+  <p>The manual/documentation players (Dozuki, Poka) are the medium-term watch. They already have manufacturer relationships and documentation in their systems, and they're all adding AI capabilities.</p>
+  <p>The window is the next 12-18 months. Neuron7 is scaling laterally. Dozuki is going deeper on factory floor compliance. Elevat is focused on construction/heavy equipment technicians. Nobody is building the owner-as-revenue-engine experience in marine/powersports.</p>
+
+  <div class="insight">
+    <p>Move fast on the intelligence layer (Phase 1-2). Build the dealer/owner moat (Phase 3) before the incumbents realize it matters. Sell the OEM intelligence vision (Phase 4) from day one even though it comes last — it's what gets the C-suite to care.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 10: VERTICAL EXPANSION -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Vertical Expansion</div>
+  <h2>Which industries after marine?</h2>
+  <p>Not every industry with complex equipment is a good fit. The question isn't "who has documentation?" — everyone does. The question is: which industries have the specific combination of dealer-dependent aftermarket, underserved owner experience, weak digital infrastructure, and market dynamics that justify a startup's investment?</p>
+
+  <div class="diagram-container" style="padding:24px 32px;">
+    <table class="chain-table">
+      <thead>
+        <tr>
+          <th style="min-width:140px;">Industry</th>
+          <th style="text-align:center;">Dealer<br>network</th>
+          <th style="text-align:center;">Owner<br>engaged</th>
+          <th style="text-align:center;">Tech<br>shortage</th>
+          <th style="text-align:center;">Digital<br>gap</th>
+          <th style="text-align:center;">Aftermarket<br>value</th>
+          <th>Assessment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="planara-row">
+          <td class="company-name">Marine (current)</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td>Proving ground. Yamaha pilot.</td>
+        </tr>
+        <tr style="background:var(--green-dim);">
+          <td class="company-name" style="color:var(--green);">Powersports</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td><strong style="color:var(--green);">Immediate next.</strong> Same OEMs (Yamaha, BRP, Honda), same DMS (Lightspeed), same dealer structure.</td>
+        </tr>
+        <tr style="background:var(--green-dim);">
+          <td class="company-name" style="color:var(--green);">RV / Trailer</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td><strong style="color:var(--green);">Strong fit.</strong> High-value assets ($50K-$500K), Lightspeed DMS, complex docs (chassis + electrical + plumbing + HVAC). Thor Industries alone is $10B+.</td>
+        </tr>
+        <tr>
+          <td class="company-name" style="color:var(--amber);">Commercial HVAC</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td><strong style="color:var(--amber);">Medium-term.</strong> 300K technician shortfall by 2031. Carrier/Trane/Lennox dealer networks. "Owner" is facility manager (different UX). Service contracts are massive.</td>
+        </tr>
+        <tr>
+          <td class="company-name" style="color:var(--amber);">Ag equipment (mid-market)</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td><strong style="color:var(--amber);">Opportunity below Deere/CNH.</strong> AGCO, Kubota, Mahindra have dealer networks and are behind on digital. Right-to-repair politics complicate things.</td>
+        </tr>
+        <tr>
+          <td class="company-name" style="color:var(--text-dim);">Construction / Heavy equip</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td><strong style="color:var(--text-dim);">Elevat's territory.</strong> They have Bosch/HydraForce and are showing at CONEXPO. Cat/Deere dominate and have their own digital ecosystems. Competing here means competing with Elevat directly.</td>
+        </tr>
+        <tr>
+          <td class="company-name" style="color:var(--text-dim);">Medical devices</td>
+          <td style="text-align:center;" class="partial">◐</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td style="text-align:center;" class="no">○</td>
+          <td style="text-align:center;" class="yes">●</td>
+          <td><strong style="color:var(--text-dim);">Neuron7's territory.</strong> Medtronic is a customer. Heavily regulated. Different buyer and compliance landscape.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:12px;font-size:11px;color:var(--text-dim);">
+      <span class="yes" style="margin-right:16px;">● Strong</span>
+      <span class="partial" style="margin-right:16px;">◐ Moderate</span>
+      <span class="no">○ Weak / Different</span>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px;">The expansion logic</h3>
+
+  <div style="margin-bottom:24px;">
+    <p><strong style="color:var(--green);">Powersports is the immediate adjacent play.</strong> It's not really a "new vertical" — it's the same ecosystem. Yamaha makes outboards AND motorcycles, ATVs, snowmobiles, and PWC. BRP makes boats AND Ski-Doo, Can-Am, Sea-Doo. Honda, Kawasaki, Polaris span both. Lightspeed DMS serves both marine and powersports dealers. A Yamaha marine pilot extends naturally to Yamaha powersports with minimal platform adaptation. The $12B+ powersports aftermarket runs through the same dealer channel with the same service dynamics.</p>
+  </div>
+
+  <div style="margin-bottom:24px;">
+    <p><strong style="color:var(--green);">RV/Trailer is the second move.</strong> High-value assets with the most complex documentation of any consumer equipment (a motorhome is a house on wheels — chassis, engine, electrical, plumbing, HVAC, appliances, all from different manufacturers). Thor Industries ($10B+), Winnebago, REV Group have dealer networks. Lightspeed DMS serves RV dealers. Owners are extremely engaged (the RV community is one of the most active enthusiast groups in North America). And the aftermarket is massive — parts, service, upgrades, winterization, storage.</p>
+  </div>
+
+  <div style="margin-bottom:24px;">
+    <p><strong style="color:var(--amber);">Commercial HVAC is the medium-term opportunity</strong> with the strongest aftermarket economics. Carrier, Trane, and Lennox have dealer/contractor networks. The technician shortage is projected at 300,000+ by 2031. Service contracts are the dominant revenue model. But the "owner" is a facility manager, not a consumer — different UX needs, different buying process. It's a natural fit for the intelligence layer but requires adapting the interface for a B2B context.</p>
+  </div>
+
+  <div style="margin-bottom:24px;">
+    <p><strong style="color:var(--text-dim);">Construction and medical devices are someone else's fight.</strong> Elevat owns the construction/heavy equipment space with their Bosch partnership. Neuron7 owns medical devices with Medtronic. Both have a head start, established relationships, and industry-specific expertise. We should avoid direct competition here unless an opportunity falls into our lap.</p>
+  </div>
+
+  <div class="insight">
+    <p>The expansion path is: Marine (now) → Powersports (same OEMs, same DMS, minimal adaptation) → RV/Trailer (same DMS, similar owner profile, high documentation complexity) → Commercial HVAC (different owner type but strongest aftermarket economics). Each step builds on the previous one's infrastructure, relationships, and learnings.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SECTION 11: SUMMARY -->
+<!-- ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Summary</div>
+  <h2>Planara's position — honestly</h2>
+  <p>We're not a platform with three products. We're an intelligence layer that produces role-specific output from manufacturer documentation and telemetry. The custom interfaces we build (service tool, owner portal) are proof points, not the product. The product is the intelligence itself — and it can surface in our own UIs, inside a DMS, alongside an owner app like MyYamahaOutboards, or via API into any other system.</p>
+  <p>The competitive landscape is more crowded and faster-moving than it was a month ago. Elevat's Feb 2026 launch with Bosch/HydraForce shows that the "OEM-branded AI for dealer networks" thesis is being validated by the market — and we're not the only ones who see it. Neuron7's $44M raise shows enterprise service AI has investor confidence. The window exists but it's not wide open.</p>
+  <p>Our path: prove the intelligence layer with Yamaha marine. Expand to powersports (same OEMs, same DMS). Build the owner experience moat that nobody else — not Elevat, not Neuron7, not ServiceMax — is building. Then use that position to expand into RV/trailer and eventually commercial HVAC. Each step makes the next one easier and the moat deeper.</p>
+
+  <div class="insight">
+    <p>The moat isn't the RAG pipeline — that's commodity infrastructure. The moat is the combination of domain-level documentation intelligence quality (Phase 1), telemetry and DMS integration depth (Phase 2), the proactive push-based owner experience nobody else is building (Phase 3), and a vertical expansion path through adjacent industries that share infrastructure (marine → powersports → RV → HVAC). Each phase makes the next harder to replicate.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Planara Manufacturing Intelligence · Competitive Landscape · March 2026 · Internal & Confidential</p>
+</footer>
+
+</div>
+
+</body>
+</html>
