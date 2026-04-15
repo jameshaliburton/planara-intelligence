@@ -257,12 +257,13 @@ export default function WhitePaperPage() {
                 pages across dozens of documents.
               </P>
               <P>
-                The question is whether this investment stays trapped in static
-                PDFs or becomes a queryable intelligence layer. Today, the
-                answer is overwhelmingly the former. Documentation is distributed
-                as static files &mdash; not searchable in context, not connected
-                to specific equipment, not linked to live telemetry that might
-                indicate which procedure is relevant right now.
+                The question is whether this investment stays trapped as
+                static documentation or becomes a queryable intelligence
+                layer. Today, the answer is overwhelmingly the former.
+                Documentation is distributed as static files &mdash; not
+                searchable in context, not connected to specific equipment,
+                not linked to live telemetry that might indicate which
+                procedure is relevant right now.
               </P>
 
               <InlineStatCallout
