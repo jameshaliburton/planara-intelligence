@@ -10,9 +10,9 @@ import {
 const cards = [
   {
     icon: Storefront,
-    title: "OEM-to-dealer distribution",
+    title: "Manufacturer-to-network distribution",
     description:
-      "The OEM publishes content. Every dealer in the network has it in minutes — chunked, indexed, and ready for retrieval. No email PDFs. No filing cabinets. No hoping someone reads the TSB.",
+      "The manufacturer publishes content. Every service location in the network has it in minutes — chunked, indexed, and ready for retrieval. No email PDFs. No filing cabinets. No hoping someone reads the TSB.",
     featured: true,
   },
   {
@@ -39,7 +39,7 @@ const cards = [
     icon: ChartLineUp,
     title: "Network resolution analytics",
     description:
-      "Cross-dealer patterns the OEM can't see any other way. Which procedures actually work. Which documentation gaps cost the most. Which field issues are emerging before they become recalls.",
+      "Cross-network patterns the manufacturer can't see any other way. Which procedures actually work. Which documentation gaps cost the most. Which field issues are emerging before they become recalls.",
   },
   {
     icon: Lightning,
