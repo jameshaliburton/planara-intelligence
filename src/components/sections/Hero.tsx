@@ -32,7 +32,7 @@ export function Hero() {
 
         <p className="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed mb-6">
           Planara sits between manufacturer documentation and service
-          execution. It turns OEM knowledge into structured, cited,
+          execution. It turns that documentation into structured, cited,
           safety-checked intelligence — and learns from every repair
           across your service network.
         </p>
