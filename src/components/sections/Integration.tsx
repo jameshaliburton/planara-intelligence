@@ -37,7 +37,7 @@ const tabs = [
     flow: [
       { step: "Customer asks about their equipment", detail: "Self-service portal with their unit, their service provider, their service history" },
       { step: "Planara answers in plain language", detail: "Conversational responses sourced from manufacturer documentation — not generic AI" },
-      { step: "Every answer includes a service-provider CTA", detail: "Schedule service, order parts, call the dealer — branded for their specific dealership" },
+      { step: "Every answer includes a service-provider CTA", detail: "Schedule service, order parts, contact the service location — branded for their service provider" },
       { step: "The service provider captures the revenue", detail: "Appointments, parts orders, and service requests flow directly into their service-management system" },
     ],
     integrations: ["Branded portal", "Service scheduling", "Parts ordering", "Customer CRM", "Service reminders"],
