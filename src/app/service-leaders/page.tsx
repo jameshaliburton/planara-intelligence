@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Users,
   Clock,
@@ -13,6 +14,25 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
+
+export const metadata: Metadata = {
+  title: "For Service Leaders",
+  description:
+    "Your best tech's knowledge, available to everyone. Reduce diagnostic time, improve first-time fix rate, capture field knowledge before it walks out the door, measure ROI per technician.",
+  alternates: { canonical: "/service-leaders" },
+  openGraph: {
+    title: "Planara for Service Leaders — Your best tech's knowledge, for everyone",
+    description:
+      "Reduce diagnostic time. Improve first-time fix rate. Capture field knowledge before it walks out the door. Measure ROI per technician.",
+    url: "/service-leaders",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planara for Service Leaders",
+    description:
+      "Your best tech's knowledge, available to everyone. Reduce diagnostic time, improve first-time fix rate.",
+  },
+};
 
 const painPoints = [
   {

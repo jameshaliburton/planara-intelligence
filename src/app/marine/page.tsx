@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Anchor,
   Wrench,
@@ -10,6 +11,25 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
+
+export const metadata: Metadata = {
+  title: "Marine Service Intelligence",
+  description:
+    "Your service network is sitting on a knowledge goldmine. Marine service intelligence built for ABYC/USCG compliance, outboard/sterndrive/inboard equipment, and dealer-network distribution.",
+  alternates: { canonical: "/marine" },
+  openGraph: {
+    title: "Planara Marine — Marine service intelligence",
+    description:
+      "Thousands of marine dealers have technicians solving the same problems independently. Planara connects their knowledge so every repair makes the next one faster.",
+    url: "/marine",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planara Marine — Marine service intelligence",
+    description:
+      "Your dealer network is sitting on a knowledge goldmine. ABYC/USCG compliance, field intelligence loop across the network.",
+  },
+};
 
 const marineStats = [
   { value: "10,000+", label: "Marine service dealers across the major OEM networks (industry footprint)" },

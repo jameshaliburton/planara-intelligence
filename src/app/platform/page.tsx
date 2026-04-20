@@ -1,9 +1,30 @@
+import type { Metadata } from "next";
 import { Integration } from "@/components/sections/Integration";
 import { Differentiators } from "@/components/sections/Differentiators";
 import { PlatformScreenshots } from "@/components/sections/PlatformScreenshots";
 import { Platform } from "@/components/sections/Platform";
 import { SlimFAQ } from "@/components/sections/SlimFAQ";
 import { Footer } from "@/components/sections/Footer";
+import { faqPageJsonLd, jsonLdScriptProps } from "@/lib/jsonld";
+
+export const metadata: Metadata = {
+  title: "Platform",
+  description:
+    "Manufacturing intelligence that compounds. Documentation and telemetry in. Structured, cited, safety-critical intelligence out. The same platform powers technicians, service teams, and manufacturer analytics.",
+  alternates: { canonical: "/platform" },
+  openGraph: {
+    title: "Planara Platform — Manufacturing intelligence that compounds",
+    description:
+      "Documentation and telemetry in. Structured, cited, safety-critical intelligence out. Multi-stage intelligence pipeline with zero-hallucination architecture.",
+    url: "/platform",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planara Platform — Manufacturing intelligence that compounds",
+    description:
+      "Documentation and telemetry in. Structured, cited intelligence out. Multi-stage pipeline with zero-hallucination architecture.",
+  },
+};
 import {
   Broadcast,
   Wrench,
@@ -71,6 +92,7 @@ const platformFAQ = [
 export default function PlatformPage() {
   return (
     <main className="min-h-screen pt-14">
+      <script {...jsonLdScriptProps(faqPageJsonLd(platformFAQ))} />
       {/* Hero */}
       <section className="py-16 md:py-22 bg-planara-dark">
         <div className="container mx-auto px-6 max-w-5xl">

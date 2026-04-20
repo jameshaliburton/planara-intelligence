@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
 import { SecurityControls } from "@/components/sections/SecurityControls";
 import { SlimFAQ } from "@/components/sections/SlimFAQ";
 import { Footer } from "@/components/sections/Footer";
+import { faqPageJsonLd, jsonLdScriptProps } from "@/lib/jsonld";
+
+export const metadata: Metadata = {
+  title: "Enterprise Security & Compliance",
+  description:
+    "Built for the compliance requirements your procurement team will ask about. Data isolation, authentication, PII protection, 195-check adversarial audit, SOC 2 Type II in preparation, on-premises deployment available.",
+  alternates: { canonical: "/enterprise" },
+  openGraph: {
+    title: "Planara Enterprise — Security & compliance for procurement",
+    description:
+      "Data isolation. 195-check adversarial audit across 14 dimensions. SOC 2 Type II in preparation. On-premises deployment for data residency.",
+    url: "/enterprise",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planara Enterprise — Security & compliance",
+    description:
+      "Built for the compliance your procurement team will ask about. 195-check adversarial audit. SOC 2 Type II prep.",
+  },
+};
 
 const companies = [
   "Ford",
@@ -35,6 +56,7 @@ const enterpriseFAQ = [
 export default function EnterprisePage() {
   return (
     <main className="min-h-screen pt-14">
+      <script {...jsonLdScriptProps(faqPageJsonLd(enterpriseFAQ))} />
       {/* Hero */}
       <section className="py-16 md:py-22 bg-planara-dark">
         <div className="container mx-auto px-6 max-w-5xl">

@@ -53,7 +53,7 @@ export function SocialProof() {
               >
                 <Image
                   src={`/logos/${name.toLowerCase()}.svg`}
-                  alt={name}
+                  alt={`${name} logo`}
                   width={120}
                   height={40}
                   className="opacity-50"
@@ -81,7 +81,7 @@ export function SocialProof() {
               >
                 <Image
                   src={`/logos/${name.toLowerCase().replace(/\s+/g, "-")}.svg`}
-                  alt={name}
+                  alt={`${name} logo`}
                   width={80}
                   height={28}
                   className="opacity-20"

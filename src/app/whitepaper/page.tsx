@@ -19,12 +19,37 @@ import { IntelligenceGapDiagram } from "@/components/whitepaper/IntelligenceGapD
 import { MarginBars } from "@/components/whitepaper/MarginBars";
 import { TwoPathDiagram } from "@/components/whitepaper/TwoPathDiagram";
 import { PhaseTimeline } from "@/components/whitepaper/PhaseTimeline";
+import {
+  articleJsonLd,
+  jsonLdScriptProps,
+  SITE_URL,
+} from "@/lib/jsonld";
 
 export const metadata: Metadata = {
-  title:
-    "The Intelligence Gap: Where Purpose-Built AI Creates Value in Equipment Manufacturing — Planara",
+  title: {
+    absolute:
+      "The Intelligence Gap: Where Purpose-Built AI Creates Value in Equipment Manufacturing — Planara",
+  },
   description:
-    "A landscape overview of the opportunities, market dynamics, and emerging AI applications across the manufacturing value chain.",
+    "A landscape overview of the opportunities, market dynamics, and emerging AI applications across the manufacturing value chain. Published by Planara, March 2026.",
+  alternates: { canonical: "/whitepaper" },
+  openGraph: {
+    type: "article",
+    title:
+      "The Intelligence Gap: Where Purpose-Built AI Creates Value in Equipment Manufacturing",
+    description:
+      "A landscape overview of the opportunities, market dynamics, and emerging AI applications across the manufacturing value chain.",
+    url: "/whitepaper",
+    publishedTime: "2026-03-01",
+    authors: ["Planara"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "The Intelligence Gap: Where Purpose-Built AI Creates Value in Equipment Manufacturing",
+    description:
+      "A landscape overview of AI applications across the equipment manufacturing value chain. Planara white paper.",
+  },
 };
 
 /* ── Helper components ── */
@@ -124,6 +149,18 @@ function DownloadLink() {
 export default function WhitePaperPage() {
   return (
     <main className="min-h-screen bg-planara-dark">
+      <script
+        {...jsonLdScriptProps(
+          articleJsonLd({
+            title:
+              "The Intelligence Gap: Where Purpose-Built AI Creates Value in Equipment Manufacturing",
+            description:
+              "A landscape overview of the opportunities, market dynamics, and emerging AI applications across the manufacturing value chain.",
+            url: `${SITE_URL}/whitepaper`,
+            datePublished: "2026-03-01",
+          }),
+        )}
+      />
       <StickyHeader />
 
       {/* Top nav */}

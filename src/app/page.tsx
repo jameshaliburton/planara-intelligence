@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { AIComparison } from "@/components/sections/AIComparison";
@@ -7,6 +8,29 @@ import { SocialProof } from "@/components/sections/SocialProof";
 import { Engagement } from "@/components/sections/Engagement";
 import { SlimFAQ } from "@/components/sections/SlimFAQ";
 import { Footer } from "@/components/sections/Footer";
+import { faqPageJsonLd, jsonLdScriptProps } from "@/lib/jsonld";
+import { homepageFAQ } from "@/lib/faqs";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Planara — Field intelligence for equipment service",
+  },
+  description:
+    "The field intelligence layer between manufacturer documentation and service execution. Every repair across your service network makes the next one faster.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Planara — Field intelligence for equipment service",
+    description:
+      "Every repair makes the next one faster. Planara turns manufacturer documentation into structured, cited, safety-checked intelligence that learns from every repair.",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planara — Field intelligence for equipment service",
+    description:
+      "Every repair makes the next one faster. The field intelligence layer between manufacturer documentation and service execution.",
+  },
+};
 import {
   Wrench,
   Storefront,
@@ -92,6 +116,7 @@ const dealerFeatures = [
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <script {...jsonLdScriptProps(faqPageJsonLd(homepageFAQ))} />
       <Hero />
       <Problem />
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/sections/Footer";
 import {
   ArrowRight,
@@ -20,6 +21,25 @@ import {
   Blueprint,
   Code,
 } from "@phosphor-icons/react/dist/ssr";
+
+export const metadata: Metadata = {
+  title: "Platform Documentation",
+  description:
+    "Comprehensive guides for every role — from first login to network-wide deployment. Getting started, platform concepts, evaluation, monitoring, operations, administration.",
+  alternates: { canonical: "/docs" },
+  openGraph: {
+    title: "Planara Platform Documentation",
+    description:
+      "Comprehensive guides across Getting Started, Platform Concepts, Evaluation, Monitoring, Operations, and Administration.",
+    url: "/docs",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planara Platform Documentation",
+    description:
+      "Comprehensive guides for every role — from first login to network-wide deployment.",
+  },
+};
 
 const docSections = [
   {
