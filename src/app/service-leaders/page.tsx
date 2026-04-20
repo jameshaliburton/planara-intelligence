@@ -33,7 +33,7 @@ const painPoints = [
     icon: Clock,
     title: "The callback because the first visit missed it",
     description:
-      "Tech replaced the thermostat. Customer called back 2 weeks later — same symptom. Turns out 31% of the time, the actual root cause is the water passage, not the thermostat. Nobody told the tech because that knowledge wasn't in the manual.",
+      "From marine: a tech replaced the thermostat. Customer called back 2 weeks later — same symptom. Turns out 31% of the time, the actual root cause is the water passage, not the thermostat. Nobody told the tech because that knowledge wasn't in the manual.",
     outcome: "With Planara: field corrections from across the network are injected into procedures. The second tech in line gets what the first one learned.",
   },
 ];
@@ -60,7 +60,7 @@ const beforeAfter = [
     after: "Adoption metrics, query patterns, and satisfaction rates per technician",
   },
   {
-    before: "Callbacks cost 2 extra truck rolls and 14 days",
+    before: "Callbacks cost days of downtime and repeat labor",
     after: "First-time fix rate improves as the field intelligence loop compounds",
   },
 ];
@@ -265,7 +265,7 @@ export default function ServiceLeadersPage() {
           </div>
 
           <p className="text-xs text-planara-muted/50 mt-4 max-w-2xl">
-            Based on 250 working days/year. Your actual numbers will vary — the platform calculates this from your real usage data.
+            Based on: $85/hr loaded labor rate (industry benchmark), 45 min/incident baseline search time (IFS / Reliabilityweb 2024 industry average), 8 min/incident with Planara (measured from pilot data), 4 incidents/tech/day, 10 techs, 250 working days/year. Your actual numbers will vary — the platform calculates this from your real usage data.
           </p>
         </div>
       </section>
@@ -365,7 +365,7 @@ export default function ServiceLeadersPage() {
             <div className="border border-white/[0.08] rounded-sm p-5 bg-white/[0.02]">
               <p className="text-sm font-mono text-planara-teal mb-2">Day 2</p>
               <p className="text-sm font-semibold text-white mb-1">Configure roles</p>
-              <p className="text-xs text-white/40">Load templates for your vertical. Set what techs see vs. what operators see.</p>
+              <p className="text-xs text-white/40">Load templates for your vertical. Set what techs see vs. what customers see.</p>
             </div>
             <div className="border border-white/[0.08] rounded-sm p-5 bg-white/[0.02]">
               <p className="text-sm font-mono text-planara-teal mb-2">Day 3-4</p>
