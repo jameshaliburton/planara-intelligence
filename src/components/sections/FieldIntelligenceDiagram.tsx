@@ -17,9 +17,9 @@ const learningSteps = [
 ];
 
 const networkCards = [
-  { dealer: "Dealer A", correction: "Same fix submitted" },
-  { dealer: "Dealer B", correction: "Same fix submitted" },
-  { dealer: "Dealer C", correction: "Same fix submitted" },
+  { location: "Location A", correction: "Same fix submitted" },
+  { location: "Location B", correction: "Same fix submitted" },
+  { location: "Location C", correction: "Same fix submitted" },
 ];
 
 export function FieldIntelligenceDiagram() {
@@ -48,7 +48,7 @@ export function FieldIntelligenceDiagram() {
         </h2>
         <p className="text-lg text-white/50 max-w-2xl mb-12 leading-relaxed">
           Step-level outcome tracking captures what worked, what didn&apos;t, and what the tech actually did.
-          Corrections flow through validation into future responses. Network patterns surface across the dealer base.
+          Corrections flow through validation into future responses. Network patterns surface across every location.
         </p>
 
         {/* The Repair */}
@@ -128,13 +128,13 @@ export function FieldIntelligenceDiagram() {
               <p className="text-sm font-semibold text-purple-300 mb-3">Pattern detection</p>
               <div className="flex gap-2 mb-3">
                 {networkCards.map((card) => (
-                  <div key={card.dealer} className="flex-1 border border-purple-400/10 rounded-sm p-2 bg-white/[0.01]">
-                    <p className="text-[11px] font-semibold text-purple-300/70">{card.dealer}</p>
+                  <div key={card.location} className="flex-1 border border-purple-400/10 rounded-sm p-2 bg-white/[0.01]">
+                    <p className="text-[11px] font-semibold text-purple-300/70">{card.location}</p>
                     <p className="text-[10px] text-white/20">{card.correction}</p>
                   </div>
                 ))}
               </div>
-              <p className="text-[11px] text-white/30">3+ dealers submit the same correction → auto-proposes network-wide update</p>
+              <p className="text-[11px] text-white/30">3+ locations submit the same correction → auto-proposes network-wide update</p>
             </div>
 
             <div
@@ -143,13 +143,13 @@ export function FieldIntelligenceDiagram() {
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
               )}
             >
-              <p className="text-sm font-semibold text-emerald-300 mb-3">OEM resolution analytics</p>
+              <p className="text-sm font-semibold text-emerald-300 mb-3">Manufacturer resolution analytics</p>
               <p className="text-[12px] text-white/40 leading-relaxed">
                 F300 thermostat replacement resolves overheating <span className="text-emerald-400 font-mono">64%</span> of the time.{" "}
                 <span className="text-emerald-400 font-mono">31%</span> of cases, the actual root cause is the tell-tale water passage.
               </p>
               <p className="text-[10px] text-white/20 mt-2">
-                Intelligence the OEM&apos;s engineering team can&apos;t get any other way.
+                Intelligence the manufacturer&apos;s engineering team can&apos;t get any other way.
               </p>
             </div>
           </div>
