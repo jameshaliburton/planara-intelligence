@@ -45,7 +45,7 @@ const cards = [
     icon: Lightning,
     title: "27-second onboarding",
     description:
-      "Drop in your documentation. In 27 seconds the system extracts procedures, parts, specs, diagnostic trees, and generates eval queries automatically. Self-serve from day one.",
+      "Drop in your service manual. In about 27 seconds on a typical-sized corpus, the system extracts procedures, parts, specs, diagnostic trees, and generates eval queries automatically. Self-serve from day one.",
   },
 ];
 

@@ -8,7 +8,7 @@ const screenshots = [
   },
   {
     title: "Service Manager Dashboard",
-    caption: "KPIs, resolution rates, technician adoption, and knowledge gap identification across the dealer network.",
+    caption: "KPIs, resolution rates, technician adoption, and knowledge gap identification across the service network.",
     src: "/screenshots/backoffice-overview.png",
   },
   {
