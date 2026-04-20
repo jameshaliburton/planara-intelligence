@@ -11,8 +11,6 @@ const stats = [
 const prominentLogos = ["Ford", "Airbus"];
 const otherLogos = ["Google", "Apple", "Uber", "Disney", "Goldman Sachs", "Samsung"];
 
-// TODO: Add actual company logos as SVGs
-
 export function SocialProof() {
   return (
     <section id="social-proof" className="py-16 md:py-22 bg-planara-dark">
@@ -46,7 +44,6 @@ export function SocialProof() {
           <p className="text-xs font-mono uppercase tracking-wider text-white/30 mb-8">
             Leadership experience includes
           </p>
-          {/* TODO: Add actual company logos as SVGs */}
           {/* Prominent logos */}
           <div className="flex justify-center gap-12 mb-8">
             {prominentLogos.map((name) => (
