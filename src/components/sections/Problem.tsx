@@ -7,7 +7,7 @@ const stats = [
   {
     value: "25%",
     headline: "of service costs are failed visits",
-    detail: "A failed first visit adds 2 more truck rolls and 14 days to resolution. Bottom performers waste 44% of service spend on repeat visits.",
+    detail: "A failed first visit adds days of downtime and repeat labor to resolution. Bottom performers waste 44% of service spend on repeat visits.",
     source: "Aquant Field Service Benchmark, 2026",
   },
   {
