@@ -12,7 +12,7 @@ import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
 
 const marineStats = [
-  { value: "10,000+", label: "Marine dealers across the major OEM networks" },
+  { value: "10,000+", label: "Marine service dealers across the major OEM networks (industry footprint)" },
   { value: "847", label: "Average engine hours before first major service query" },
   { value: "14 days", label: "Added to resolution from a failed first visit" },
 ];
@@ -40,7 +40,7 @@ const useCases = [
     icon: ChartLineUp,
     title: "OEM product team",
     description:
-      "Cross-network analytics: thermostat replacement resolves overheating 64% of the time across 200 dealers. 31% of cases, the actual root cause is the tell-tale passage. That's intelligence no field engineer can gather manually.",
+      "Cross-network analytics: thermostat replacement resolves overheating 64% of the time. 31% of cases, the actual root cause is the tell-tale passage. That's intelligence no field engineer can gather manually.",
   },
 ];
 
@@ -262,7 +262,7 @@ export default function MarinePage() {
               <p className="text-sm text-planara-muted leading-relaxed mb-3">
                 Field-validated corrections distinguish between real warranty claims and operator error. Cross-network resolution data tells the OEM which failures are systemic vs. one-off — before the claims pile up.
               </p>
-              <p className="text-xs font-mono text-planara-teal/70">Resolution analytics flag patterns across 4,000+ dealers</p>
+              <p className="text-xs font-mono text-planara-teal/70">Resolution analytics flag patterns across networks of thousands of dealers</p>
             </div>
 
             <div className="border border-planara-border rounded-sm p-6">

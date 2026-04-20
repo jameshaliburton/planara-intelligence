@@ -19,11 +19,11 @@ const phases = [
     timeline: "4-8 weeks",
     price: "",
     detail:
-      "Production deployment with real users. Full documentation library, telemetry integration, DMS connection, measured outcomes.",
+      "Production deployment with real users. Full documentation library, telemetry integration, service-system connection, measured outcomes.",
     items: [
       "Full documentation library",
       "Telemetry integration",
-      "DMS & parts catalog connection",
+      "Service-system & parts catalog connection",
       "Measured outcomes",
     ],
     highlight: false,
@@ -33,7 +33,7 @@ const phases = [
     timeline: "Ongoing",
     price: "Per-unit SaaS",
     detail:
-      "Scale across models, dealers, and customers. The field intelligence loop compounds — every repair makes the next one faster.",
+      "Scale across models, service locations, and customers. The field intelligence loop compounds — every repair makes the next one faster.",
     items: [
       "Network-wide deployment",
       "Field intelligence loop active",

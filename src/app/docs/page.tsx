@@ -81,7 +81,7 @@ const docSections = [
     guides: [
       "Pipeline observability",
       "Query analytics",
-      "Dealer adoption metrics",
+      "Network adoption metrics",
       "Knowledge gap reports",
       "Latency monitoring",
     ],
@@ -93,7 +93,7 @@ const docSections = [
     guides: [
       "Self-serve onboarding",
       "Tenant provisioning",
-      "DMS integration",
+      "Service-system integration",
       "Webhook configuration",
     ],
   },
