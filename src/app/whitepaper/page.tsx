@@ -245,6 +245,49 @@ export default function WhitePaperPage() {
                 intelligence opportunity.
               </P>
 
+              <P>
+                <Bold>Two shapes of the same value chain.</Bold> The equipment
+                manufacturing value chain runs from the manufacturer through
+                its service network to the end customer &mdash; but the shape
+                that network takes varies by industry. For marine, automotive,
+                powersports, and heavy equipment, the classic shape is{" "}
+                <Bold>OEM &rarr; Dealer &rarr; Technician &rarr; Owner</Bold>:
+                the manufacturer builds, a dealer network distributes and
+                services, technicians execute the work, owners operate the
+                asset. This is the shape most of the rest of this paper
+                describes.
+              </P>
+
+              <P>
+                For factory-floor manufacturing, the shape is{" "}
+                <Bold>
+                  Corporate Manufacturing &rarr; Plant &rarr; Operator
+                </Bold>
+                : a central manufacturing organization operates its own
+                production sites, each plant runs its own equipment, and
+                operators on the line use that equipment every shift. There is
+                no external dealer, no third-party service organization, no
+                consumer owner &mdash; the same company designs, runs, and
+                services the equipment in-house. The same intelligence gap
+                exists; it just lives between corporate engineering and the
+                plant floor rather than between OEM and dealer.
+              </P>
+
+              <P>
+                <Bold>
+                  Both shapes have the same problem and the same opportunity.
+                </Bold>{" "}
+                Documentation is invested in once and consumed unevenly across
+                the network. Telemetry flows but doesn&apos;t reach the point
+                of use. The people who need the answer are farthest from the
+                people who wrote it. Where this paper says &ldquo;dealer,&rdquo;
+                a factory-shape reader can read &ldquo;plant.&rdquo; Where it
+                says &ldquo;technician,&rdquo; read &ldquo;operator.&rdquo;
+                Where it says &ldquo;fleet,&rdquo; read &ldquo;production
+                lines.&rdquo; The value chain is the same shape rotated &mdash;
+                the intelligence layer applies to both.
+              </P>
+
               <ValueChainDiagram />
 
               <SubHeading title="OEM Documentation: Millions Invested, None of It Searchable" />
@@ -605,9 +648,11 @@ export default function WhitePaperPage() {
               <P>
                 At scale, the data flowing through a documentation intelligence
                 platform reveals patterns invisible to individual dealers or
-                technicians. Which failure modes are most common across a model
-                line? Which documentation sections generate the most queries?
-                Which dealers are seeing unusual service patterns?
+                technicians &mdash; or to individual plants in a factory-floor
+                deployment. Which failure modes are most common across a model
+                line (or across production lines in a plant)? Which
+                documentation sections generate the most queries? Which dealers
+                are seeing unusual service patterns?
               </P>
               <P>
                 This is the feedback loop that connects field experience back to
