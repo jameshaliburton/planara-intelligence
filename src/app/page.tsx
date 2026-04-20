@@ -37,7 +37,7 @@ const outcomes = [
   },
   {
     icon: ChartLineUp,
-    title: "OEM Product Teams",
+    title: "Manufacturer product teams",
     description: "Network-wide resolution analytics. Field issue detection before recalls. Documentation gaps ranked by cost. The intelligence your engineering team can't get any other way.",
     href: "/platform",
   },
@@ -80,7 +80,7 @@ const dealerFeatures = [
   {
     icon: UsersFour,
     title: "Role-based intelligence",
-    description: "Technicians see procedures and safety warnings. Service managers see resolution rates and knowledge gaps. Operators see plain-language answers with service CTAs.",
+    description: "Technicians see procedures and safety warnings. Service managers see resolution rates and knowledge gaps. Customers see plain-language answers with service CTAs.",
   },
   {
     icon: ChartBar,
@@ -255,6 +255,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why Now */}
+      <section className="py-16 md:py-22 bg-planara-dark border-t border-white/[0.06]">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
+            Why Now
+          </p>
+          <p className="text-lg md:text-xl text-white/70 max-w-3xl leading-relaxed">
+            Three things converged: connected equipment generating real-time
+            telemetry, an aging workforce taking institutional knowledge with
+            them, and AI mature enough to handle safety-critical documentation.
+            The window is now.
+          </p>
+        </div>
+      </section>
+
       <SocialProof />
 
       {/* Condensed credentials strip */}
@@ -289,7 +304,7 @@ export default function Home() {
             <div className="border border-planara-border rounded-sm p-6">
               <p className="text-xl font-bold text-planara-dark mb-2">First-time fix rate</p>
               <p className="text-sm text-planara-muted leading-relaxed">
-                Close the 28-point gap between your best and worst locations. A failed first visit costs 2 extra truck rolls and 14 days. Every tech gets the knowledge of your most experienced people.
+                Close the 28-point gap between your best and worst locations. A failed first visit costs days of downtime and repeat labor. Every tech gets the knowledge of your most experienced people.
               </p>
               <p className="text-xs font-mono text-planara-teal/70 mt-3">25% of service costs are repeat visits — Aquant 2026</p>
             </div>
@@ -301,7 +316,7 @@ export default function Home() {
               <p className="text-xs font-mono text-planara-teal/70 mt-3">Field issue detection weeks before traditional reporting</p>
             </div>
             <div className="border border-planara-border rounded-sm p-6">
-              <p className="text-xl font-bold text-planara-dark mb-2">Operator satisfaction</p>
+              <p className="text-xl font-bold text-planara-dark mb-2">Customer satisfaction</p>
               <p className="text-sm text-planara-muted leading-relaxed">
                 Instant answers, no phone tag. Maintenance schedules, plain-language explanations, one-tap scheduling. Every interaction builds loyalty and drives service revenue back to your network.
               </p>
@@ -317,9 +332,9 @@ export default function Home() {
             <div className="border border-planara-border rounded-sm p-6">
               <p className="text-xl font-bold text-planara-dark mb-2">Service revenue growth</p>
               <p className="text-sm text-planara-muted leading-relaxed">
-                The operator portal turns every question into a service appointment or parts order. Proactive maintenance alerts drive pre-season revenue. The manufacturer's service network becomes a profit center, not a cost center.
+                The customer portal turns every question into a service appointment or parts order. Proactive maintenance alerts drive pre-season revenue. The manufacturer's service network becomes a profit center, not a cost center.
               </p>
-              <p className="text-xs font-mono text-planara-teal/70 mt-3">Every operator interaction is a revenue opportunity</p>
+              <p className="text-xs font-mono text-planara-teal/70 mt-3">Every customer interaction is a revenue opportunity</p>
             </div>
             <div className="border border-planara-border rounded-sm p-6">
               <p className="text-xl font-bold text-planara-dark mb-2">Compliance &amp; liability</p>
