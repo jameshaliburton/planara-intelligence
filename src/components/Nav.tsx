@@ -11,7 +11,6 @@ const navLinks = [
   { href: "/service-leaders", label: "Service Leaders" },
   { href: "/marine", label: "Marine" },
   { href: "/enterprise", label: "Enterprise" },
-  { href: "/about", label: "About" },
 ];
 
 const demoLinks = [
