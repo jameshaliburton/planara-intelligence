@@ -127,7 +127,7 @@ export default function PlatformPage() {
               <div className="flex flex-col items-center gap-2 px-4">
                 <div className="w-px h-4 bg-planara-teal/20" />
                 <div className="border border-planara-teal/30 rounded-sm px-5 py-6 bg-planara-teal/[0.04] text-center">
-                  <p className="text-xs font-mono uppercase tracking-wider text-planara-teal/60 mb-1">19-node</p>
+                  <p className="text-xs font-mono uppercase tracking-wider text-planara-teal/60 mb-1">Multi-stage</p>
                   <p className="text-sm font-bold text-planara-teal">Intelligence</p>
                   <p className="text-sm font-bold text-planara-teal">Pipeline</p>
                 </div>
