@@ -33,7 +33,7 @@ export function Problem() {
             The Problem
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-16 max-w-3xl">
-            $8.3 billion in service costs. The knowledge to fix it is trapped in manuals nobody reads and techs who are retiring.
+            25% of service costs are failed first visits. The knowledge to fix it is trapped in manuals nobody reads and techs who are retiring.
           </h2>
         </ScrollReveal>
 
