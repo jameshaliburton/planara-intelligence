@@ -22,7 +22,7 @@ export function Platform() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             role="img"
-            aria-label="Architecture diagram showing data flow from documentation and telemetry through the Planara RAG pipeline to three intelligence products"
+            aria-label="Architecture diagram showing data flow from documentation and telemetry through the Planara intelligence pipeline to three intelligence products"
           >
             {/* ── INPUT NODES (left) ── */}
 
@@ -84,7 +84,7 @@ export function Platform() {
             <PipelinePill x={630} y={280} label="Structured output" />
 
             {/* Pipeline bracket / label */}
-            <text x="530" y="210" fill="rgba(67,206,214,0.5)" fontSize="10" fontFamily="var(--font-mono)" textAnchor="middle" letterSpacing="0.1em">PLANARA RAG PIPELINE</text>
+            <text x="530" y="210" fill="rgba(67,206,214,0.5)" fontSize="10" fontFamily="var(--font-mono)" textAnchor="middle" letterSpacing="0.1em">PLANARA INTELLIGENCE PIPELINE</text>
 
             {/* ── PIPELINE → OUTPUT PATHS ── */}
 
@@ -128,8 +128,8 @@ export function Platform() {
             {/* Anchor icon */}
             <circle cx="894" cy="255" r="4" stroke="#43CED6" strokeWidth="1.5" fill="none" opacity="0.8" />
             <line x1="894" y1="259" x2="894" y2="268" stroke="#43CED6" strokeWidth="1.5" opacity="0.6" />
-            <text x="912" y="255" fill="white" fontSize="13" fontWeight="600" fontFamily="var(--font-sans)">Owner Intelligence</text>
-            <text x="912" y="273" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="var(--font-mono)">Dealer-branded · Conversational</text>
+            <text x="912" y="255" fill="white" fontSize="13" fontWeight="600" fontFamily="var(--font-sans)">Operator Intelligence</text>
+            <text x="912" y="273" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="var(--font-mono)">Branded · Conversational</text>
 
             {/* OEM Intelligence */}
             <rect x="870" y="370" width="300" height="58" rx="6" stroke="rgba(67,206,214,0.35)" strokeWidth="1" fill="rgba(67,206,214,0.04)" />

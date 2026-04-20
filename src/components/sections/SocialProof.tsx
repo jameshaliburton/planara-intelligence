@@ -1,27 +1,33 @@
+"use client";
+
+import Image from "next/image";
+
 const stats = [
-  { value: "1B+", label: "Users reached" },
-  { value: "25+", label: "Fortune 100 clients" },
+  { value: "1B+", label: "Users reached by our team" },
+  { value: "25+", label: "Fortune 100 clients served" },
   { value: "Multiple", label: "Exits" },
 ];
 
 const prominentLogos = ["Ford", "Airbus"];
 const otherLogos = ["Google", "Apple", "Uber", "Disney", "Goldman Sachs", "Samsung"];
 
+// TODO: Add actual company logos as SVGs
+
 export function SocialProof() {
   return (
     <section id="social-proof" className="py-16 md:py-22 bg-planara-dark">
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
-          Why Planara
+          Our Team&apos;s Track Record
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 max-w-3xl">
-          Deployed at Ford Manufacturing.
+          Leadership from Ford, Airbus,
           <br />
-          Airbus manufacturing experience.
+          Google, Apple, and beyond.
         </h2>
         <p className="text-lg text-white/50 max-w-2xl mb-16 leading-relaxed">
-          We&apos;ve shipped products used by billions. Now we&apos;re applying
-          that at manufacturing scale.
+          Our team has shipped products used by billions at the world&apos;s
+          largest companies. Now we apply that to manufacturing intelligence.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -40,14 +46,32 @@ export function SocialProof() {
           <p className="text-xs font-mono uppercase tracking-wider text-white/30 mb-8">
             Leadership experience includes
           </p>
+          {/* TODO: Add actual company logos as SVGs */}
           {/* Prominent logos */}
           <div className="flex justify-center gap-12 mb-8">
             {prominentLogos.map((name) => (
               <div
                 key={name}
-                className="text-center text-lg font-bold text-white/50 tracking-wide"
+                className="flex items-center justify-center"
               >
-                {name}
+                <Image
+                  src={`/logos/${name.toLowerCase()}.svg`}
+                  alt={name}
+                  width={120}
+                  height={40}
+                  className="opacity-50"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                    const fallback = target.nextElementSibling;
+                    if (fallback) (fallback as HTMLElement).style.display = "block";
+                  }}
+                />
+                <span
+                  className="text-lg font-bold text-white/50 tracking-wide hidden"
+                >
+                  {name}
+                </span>
               </div>
             ))}
           </div>
@@ -56,9 +80,26 @@ export function SocialProof() {
             {otherLogos.map((name) => (
               <div
                 key={name}
-                className="text-center text-sm font-medium text-white/20 py-4"
+                className="flex items-center justify-center py-4"
               >
-                {name}
+                <Image
+                  src={`/logos/${name.toLowerCase().replace(/\s+/g, "-")}.svg`}
+                  alt={name}
+                  width={80}
+                  height={28}
+                  className="opacity-20"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                    const fallback = target.nextElementSibling;
+                    if (fallback) (fallback as HTMLElement).style.display = "block";
+                  }}
+                />
+                <span
+                  className="text-sm font-medium text-white/20 hidden"
+                >
+                  {name}
+                </span>
               </div>
             ))}
           </div>

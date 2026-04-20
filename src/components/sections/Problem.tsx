@@ -5,23 +5,22 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const stats = [
   {
-    value: "72%",
-    headline: "of manufacturers have undocumented fixes",
-    detail: "masking true downtime causes across their service operations",
-    source: "HVI Manufacturing Survey, 2025",
+    value: "25%",
+    headline: "of service costs are failed visits",
+    detail: "A failed first visit adds 2 more truck rolls and 14 days to resolution. Bottom performers waste 44% of service spend on repeat visits.",
+    source: "Aquant Field Service Benchmark, 2026",
   },
   {
-    value: "61%",
-    headline: "of a technician\u2019s day",
-    detail: "spent searching systems instead of performing maintenance",
-    source: "IFS / Reliabilityweb Study, 2024",
+    value: "28pt",
+    headline: "first-time fix gap between top and bottom",
+    detail: "Top companies fix it right 88% of the time. Bottom performers: 60%. The difference is knowledge — who has it, how fast they can find it.",
+    source: "Aquant Field Service Benchmark, 2026",
   },
   {
-    value: "$0",
-    headline: "Zero value extracted from connected equipment telemetry",
-    detail:
-      "Manufacturers invest in connected equipment but capture none of that data as actionable service intelligence \u2014 today.",
-    source: "",
+    value: "70%",
+    headline: "of service orgs face disruption from retirements",
+    detail: "When a senior tech retires, years of undocumented fixes walk out the door. No manual captures what actually works in the field.",
+    source: "The Service Council",
   },
 ];
 
@@ -34,7 +33,7 @@ export function Problem() {
             The Problem
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-16 max-w-3xl">
-            Billions in documentation. Zero intelligence.
+            $8.3 billion in service costs. The knowledge to fix it is trapped in manuals nobody reads and techs who are retiring.
           </h2>
         </ScrollReveal>
 

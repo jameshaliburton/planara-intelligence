@@ -19,43 +19,49 @@ export function Hero() {
 
       <div className="relative container mx-auto px-6 py-32 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-8">
-          Planara Manufacturing Intelligence
+          Planara Intelligence Layer
         </p>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[0.95] mb-8">
-          Nobody reads
+          Every repair
           <br />
-          the manual.
+          makes the
+          <br />
+          next one faster.
         </h1>
 
         <p className="text-xl md:text-2xl text-white/60 max-w-2xl leading-relaxed mb-6">
-          Equipment manufacturers produce thousands of pages of technical
-          documentation that service technicians can&apos;t find, dealers
-          can&apos;t use, and owners never see.
+          Planara sits between manufacturer documentation and service
+          execution. It turns OEM knowledge into structured, cited,
+          safety-checked intelligence — and learns from every repair
+          across your service network.
         </p>
 
         <p className="text-xl md:text-2xl text-white/80 max-w-2xl leading-relaxed mb-12">
-          That&apos;s a{" "}
+          The manufacturer publishes. The service network uses it.{" "}
           <span className="text-planara-teal font-semibold">
-            $100 billion problem
-          </span>{" "}
-          in equipment downtime, wasted labor, and lost revenue.
-          <br />
-          Planara solves it.
+            The field intelligence flows back.
+          </span>
         </p>
 
         <div className="flex flex-wrap items-center gap-4">
           <a
-            href="#platform"
+            href="https://demo.planara.com"
             className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
           >
-            See how it works
+            See the demo
+          </a>
+          <a
+            href="/platform"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
+          >
+            How it works
           </a>
           <a
             href="/whitepaper"
             className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
           >
-            Read the white paper
+            White paper
           </a>
         </div>
       </div>

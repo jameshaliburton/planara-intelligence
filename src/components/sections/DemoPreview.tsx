@@ -34,12 +34,27 @@ export function DemoPreview() {
     <section id="demos" className="py-16 md:py-22 bg-planara-light">
       <div className="container mx-auto px-6 max-w-5xl">
         <ScrollReveal>
+          <p className="text-sm font-mono uppercase tracking-wider text-planara-blue mb-4">
+            Interactive Tours
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-            Built from Yamaha F300 documentation.
+            Two guided walkthroughs, built from Yamaha F300 documentation.
           </h2>
-          <p className="text-lg text-planara-muted max-w-2xl mb-16 leading-relaxed">
-            Click through to see how the same intelligence platform serves
-            different users.
+          <p className="text-lg text-planara-muted max-w-2xl mb-4 leading-relaxed">
+            Scripted scenarios that show how the same intelligence platform
+            serves different users — technicians on the floor and owners in
+            the dealership.
+          </p>
+          <p className="text-sm text-planara-muted/70 max-w-2xl mb-16 leading-relaxed">
+            For the real product — multi-tenant backoffice, analytics, OEM
+            network view —{" "}
+            <a
+              href="https://demo.planara.com"
+              className="text-planara-blue font-medium hover:underline"
+            >
+              open the live demo ↗
+            </a>
+            .
           </p>
         </ScrollReveal>
 
@@ -124,7 +139,7 @@ export function DemoPreview() {
                 href="/demo/service"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-planara-blue hover:text-planara-blue/80 transition-colors"
               >
-                Try the live demo
+                Take the interactive tour
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -205,7 +220,7 @@ export function DemoPreview() {
                 href="/demo/owner"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-planara-blue hover:text-planara-blue/80 transition-colors"
               >
-                Try the live demo
+                Take the interactive tour
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

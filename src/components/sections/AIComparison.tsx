@@ -71,13 +71,13 @@ export function AIComparison() {
     <section id="comparison" className="py-16 md:py-22 bg-planara-dark">
       <div className="container mx-auto px-6 max-w-5xl" ref={ref}>
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
-          Not Another Chatbot
+          Why General-Purpose AI Fails Manufacturing
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 max-w-3xl">
-          Generic AI vs. Manufacturing Intelligence
+          General-purpose AI doesn&apos;t work for service documentation.
         </h2>
         <p className="text-lg text-white/50 max-w-2xl mb-12 leading-relaxed">
-          Same question. Radically different output.
+          Same question. One gives you a paragraph of guesses. The other gives you specs, parts, safety warnings, and a citation.
         </p>
 
         {/* Query bar */}
@@ -202,7 +202,7 @@ export function AIComparison() {
                 <div className="flex items-center gap-1.5 pt-3 border-t border-white/5">
                   <BookOpen className="w-3 h-3 text-white/20" weight="duotone" />
                   <span className="text-[10px] font-mono text-white/25">
-                    Yamaha F300 Owner&apos;s Manual — Lubrication System, p.42
+                    Yamaha F300 Service Manual — Lubrication System, p.42
                   </span>
                 </div>
               </div>

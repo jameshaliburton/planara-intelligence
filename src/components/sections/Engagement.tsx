@@ -33,12 +33,12 @@ const phases = [
     timeline: "Ongoing",
     price: "Per-unit SaaS",
     detail:
-      "Scale across models, dealers, and customers. Revenue-generating for the dealer network.",
+      "Scale across models, dealers, and customers. The field intelligence loop compounds — every repair makes the next one faster.",
     items: [
-      "Multi-model support",
-      "Dealer white-labeling",
-      "Owner self-service portal",
-      "Continuous model improvement",
+      "Network-wide deployment",
+      "Field intelligence loop active",
+      "Resolution analytics for the OEM",
+      "Knowledge base grows with every repair",
     ],
     highlight: false,
   },
