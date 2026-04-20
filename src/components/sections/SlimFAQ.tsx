@@ -12,10 +12,10 @@ interface FAQItem {
 const defaultQuestions: FAQItem[] = [
   {
     q: "How long does deployment take?",
-    a: "A working prototype from 2-3 of your manuals takes 1-2 weeks. Pilot deployment with your full documentation library, DMS integration, and real technicians runs 4-8 weeks. You see it working with your own data before committing budget.",
+    a: "A working prototype from 2-3 of your manuals takes 1-2 weeks. Pilot deployment with your full documentation library, service-system integration, and real technicians runs 4-8 weeks. You see it working with your own data before committing budget.",
   },
   {
-    q: "How does Planara integrate with our existing DMS?",
+    q: "How does Planara integrate with our existing service-management system?",
     a: "Adapter architecture connects to existing service management systems — DMS, ERP, CMMS, or custom platforms. Work orders flow in, parts are identified with live inventory, and service scheduling triggers automatically. No rip-and-replace required.",
   },
   {
@@ -24,7 +24,7 @@ const defaultQuestions: FAQItem[] = [
   },
   {
     q: "Is our documentation secure?",
-    a: "Multi-tenant isolation with per-dealer data separation. Your documentation is never used to train any model. PII is hashed, authentication is enforced at every layer, and on-premises deployment is available for organizations with data residency requirements.",
+    a: "Multi-tenant isolation with per-location data separation. Your documentation is never used to train any model. PII is hashed, authentication is enforced at every layer, and on-premises deployment is available for organizations with data residency requirements.",
   },
   {
     q: "What happens when documentation has gaps?",
