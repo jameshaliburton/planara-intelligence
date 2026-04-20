@@ -128,7 +128,7 @@ export function Platform() {
             {/* Anchor icon */}
             <circle cx="894" cy="255" r="4" stroke="#43CED6" strokeWidth="1.5" fill="none" opacity="0.8" />
             <line x1="894" y1="259" x2="894" y2="268" stroke="#43CED6" strokeWidth="1.5" opacity="0.6" />
-            <text x="912" y="255" fill="white" fontSize="13" fontWeight="600" fontFamily="var(--font-sans)">Operator Intelligence</text>
+            <text x="912" y="255" fill="white" fontSize="13" fontWeight="600" fontFamily="var(--font-sans)">Customer Intelligence</text>
             <text x="912" y="273" fill="rgba(255,255,255,0.4)" fontSize="10" fontFamily="var(--font-mono)">Branded · Conversational</text>
 
             {/* OEM Intelligence */}

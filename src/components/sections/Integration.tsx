@@ -21,7 +21,7 @@ const tabs = [
       "Technicians get instant answers backed by your documentation. Parts are identified, work orders pre-filled, safety warnings surfaced — all from a single question. Manufacturing intelligence doesn't end at the answer — it starts there.",
     flow: [
       { step: "Technician asks a question", detail: "Natural language query about a specific symptom, procedure, or spec" },
-      { step: "Planara retrieves from docs + telemetry", detail: "Searches your manuals, cross-references live engine data from Siren Marine" },
+      { step: "Planara retrieves from docs + telemetry", detail: "Searches your manuals, cross-references live equipment data from your telemetry provider (example: Siren Marine for marine)." },
       { step: "Surfaces parts with live inventory", detail: "Relevant parts identified with real-time stock from your existing catalog system" },
       { step: "Creates work order in their existing system", detail: "Pre-populated work order pushed to your DMS, CMMS, or ERP — no re-keying" },
     ],
@@ -29,16 +29,16 @@ const tabs = [
   },
   {
     id: "dealer",
-    label: "Dealer Network",
+    label: "Service Network",
     icon: Storefront,
-    headline: "Operator questions become service revenue.",
+    headline: "Customer questions become service revenue.",
     description:
-      "Service locations offer a branded self-service portal that turns operator questions into service appointments and parts orders. New revenue channel, zero additional staff.",
+      "Service locations offer a branded self-service portal that turns customer questions into service appointments and parts orders. New revenue channel, zero additional staff.",
     flow: [
-      { step: "Operator asks about their equipment", detail: "Self-service portal with their unit, their service provider, their service history" },
+      { step: "Customer asks about their equipment", detail: "Self-service portal with their unit, their service provider, their service history" },
       { step: "Planara answers in plain language", detail: "Conversational responses sourced from manufacturer documentation — not generic AI" },
-      { step: "Every answer includes a dealer CTA", detail: "Schedule service, order parts, call the dealer — branded for their specific dealership" },
-      { step: "Dealer captures the revenue", detail: "Appointments, parts orders, and service requests flow directly into dealer DMS" },
+      { step: "Every answer includes a service-provider CTA", detail: "Schedule service, order parts, call the dealer — branded for their specific dealership" },
+      { step: "The service provider captures the revenue", detail: "Appointments, parts orders, and service requests flow directly into their service-management system" },
     ],
     integrations: ["Branded portal", "Service scheduling", "Parts ordering", "Customer CRM", "Service reminders"],
   },
