@@ -1,11 +1,12 @@
 import { FileDoc, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
+import { WhitepaperGate } from "@/components/WhitepaperGate";
 
 export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const isDark = variant === "dark";
 
   return (
-    <div className="flex flex-col sm:flex-row gap-3">
+    <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
       <Link
         href="/whitepaper"
         className={
@@ -20,10 +21,10 @@ export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light"
         />
         <div className="text-left">
           <p className={isDark ? "text-sm font-medium text-white" : "text-sm font-medium text-planara-dark"}>
-            Read the White Paper
+            Read the white paper
           </p>
           <p className={isDark ? "text-xs text-white/40" : "text-xs text-planara-muted"}>
-            The $100B Documentation Problem
+            Why authoritative documentation needs to be queryable
           </p>
         </div>
         <ArrowRight
@@ -34,17 +35,7 @@ export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light"
           }
         />
       </Link>
-      <a
-        href="/PLANARA_manufacturing_intelligence_whitepaper.pdf"
-        download
-        className={
-          isDark
-            ? "flex items-center gap-2 px-4 py-3 text-xs text-white/30 hover:text-white/50 transition-colors"
-            : "flex items-center gap-2 px-4 py-3 text-xs text-planara-muted hover:text-planara-dark transition-colors"
-        }
-      >
-        Download PDF
-      </a>
+      <WhitepaperGate theme={variant} ctaLabel="Email me the PDF" />
     </div>
   );
 }

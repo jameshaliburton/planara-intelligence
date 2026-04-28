@@ -4,14 +4,15 @@ export function TheAsk() {
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="max-w-2xl">
           <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-            The Ask
+            Get started
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6">
-            Working prototype in 1-2 weeks.
+            Working prototype in 1–2 weeks.
           </h2>
           <p className="text-lg text-planara-muted leading-relaxed mb-10">
-            We need three things to build a working proof of concept with your
-            actual equipment documentation:
+            We build a Conduit deployment from your actual equipment
+            documentation so you can see the answer quality before committing
+            anything. We need three things:
           </p>
 
           <div className="space-y-6 mb-12">
@@ -60,7 +61,7 @@ export function TheAsk() {
           </div>
 
           <a
-            href="mailto:eric@planara.com"
+            href="mailto:hello@planara.com"
             className="inline-flex items-center gap-2 px-6 py-3 bg-planara-dark text-white font-semibold rounded-sm hover:bg-planara-dark/90 transition-colors"
           >
             Let&apos;s talk

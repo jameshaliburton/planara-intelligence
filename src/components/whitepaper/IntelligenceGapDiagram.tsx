@@ -59,10 +59,10 @@ export function IntelligenceGapDiagram() {
           </p>
         </div>
 
-        {/* RIGHT: With intelligence layer */}
+        {/* RIGHT: With Conduit / TSI */}
         <div className="p-6 md:p-8 bg-planara-teal/[0.02]">
           <p className="text-[10px] font-mono uppercase tracking-wider text-planara-teal/50 mb-5">
-            With Intelligence Layer
+            With Planara Conduit
           </p>
 
           {/* Inputs */}
@@ -101,10 +101,10 @@ export function IntelligenceGapDiagram() {
             </svg>
           </div>
 
-          {/* Intelligence Layer */}
+          {/* Conduit (TSI) */}
           <div className="border border-planara-teal/20 rounded px-3 py-3 bg-planara-teal/[0.04]">
             <p className="text-xs text-planara-teal/70 font-semibold">
-              Intelligence Layer
+              Technical Service Intelligence
             </p>
             <div className="mt-2 space-y-1.5">
               <div className="flex items-center gap-2">

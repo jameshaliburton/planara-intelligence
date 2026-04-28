@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  DownloadSimple,
   ArrowLeft,
   FileDoc,
   Wrench,
@@ -19,12 +18,13 @@ import { IntelligenceGapDiagram } from "@/components/whitepaper/IntelligenceGapD
 import { MarginBars } from "@/components/whitepaper/MarginBars";
 import { TwoPathDiagram } from "@/components/whitepaper/TwoPathDiagram";
 import { PhaseTimeline } from "@/components/whitepaper/PhaseTimeline";
+import { WhitepaperGate } from "@/components/WhitepaperGate";
 
 export const metadata: Metadata = {
   title:
     "The Intelligence Gap: Where Purpose-Built AI Creates Value in Equipment Manufacturing — Planara",
   description:
-    "A landscape overview of the opportunities, market dynamics, and emerging AI applications across the manufacturing value chain.",
+    "A landscape overview of the opportunities, market dynamics, and emerging AI applications across the equipment manufacturing value chain.",
 };
 
 /* ── Helper components ── */
@@ -107,16 +107,7 @@ function Bold({ children }: { children: React.ReactNode }) {
 }
 
 function DownloadLink() {
-  return (
-    <a
-      href="/PLANARA_manufacturing_intelligence_whitepaper.pdf"
-      download
-      className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 rounded-sm bg-white/[0.03] hover:border-planara-teal/30 transition-colors text-sm text-white/50 hover:text-white"
-    >
-      <DownloadSimple className="w-4 h-4 text-planara-teal" />
-      Download PDF version
-    </a>
-  );
+  return <WhitepaperGate theme="dark" ctaLabel="Email me the PDF" />;
 }
 
 /* ── Page ── */
@@ -137,7 +128,7 @@ export default function WhitePaperPage() {
             Back to overview
           </Link>
           <span className="text-xs font-mono text-white/20">
-            Planara Manufacturing Intelligence
+            Planara &mdash; Technical Service Intelligence
           </span>
         </div>
       </div>
@@ -162,7 +153,7 @@ export default function WhitePaperPage() {
                 emerging AI applications across the manufacturing value chain
               </p>
               <p className="text-sm text-white/25 mb-10">
-                Planara Manufacturing Intelligence &mdash; March 2026
+                Planara &mdash; Technical Service Intelligence &middot; March 2026
               </p>
               <DownloadLink />
             </header>
@@ -182,7 +173,8 @@ export default function WhitePaperPage() {
                 sales &mdash; 25% EBIT versus 10% (McKinsey, 30-industry
                 analysis). The companies capturing the largest share of this
                 value are the ones connecting their documentation, telemetry, and
-                service operations into a single intelligence layer.
+                service operations into a single technical service intelligence
+                platform.
               </P>
               <P>
                 We call the space between what manufacturers{" "}
@@ -258,8 +250,8 @@ export default function WhitePaperPage() {
               </P>
               <P>
                 The question is whether this investment stays trapped as
-                static documentation or becomes a queryable intelligence
-                layer. Today, the answer is overwhelmingly the former.
+                static documentation or becomes queryable technical service
+                intelligence. Today, the answer is overwhelmingly the former.
                 Documentation is distributed as static files &mdash; not
                 searchable in context, not connected to specific equipment,
                 not linked to live telemetry that might indicate which
@@ -286,8 +278,8 @@ export default function WhitePaperPage() {
                 this role. The global automotive DMS market alone is valued at
                 $4.96 billion (2024), projected to reach $11.67 billion by 2034,
                 growing at 8.9% CAGR. The investment is massive, but the
-                intelligence layer connecting these systems is almost entirely
-                absent.
+                technical service intelligence connecting these systems is
+                almost entirely absent.
               </P>
               <P>
                 <Bold>
@@ -437,15 +429,15 @@ export default function WhitePaperPage() {
               />
 
               {/* Why Generic AI Fails */}
-              <SubHeading title="Why Generic AI Fails in Manufacturing" />
+              <SubHeading title="Why Generic AI Fails in Equipment Service" />
               <P>
                 Generic AI tools &mdash; ChatGPT, Copilot, Glean &mdash; are
                 designed for general knowledge work: drafting emails,
-                summarizing meetings, searching corporate documents.
-                Manufacturing requires something fundamentally different.
+                summarizing meetings, searching corporate documents. Equipment
+                service requires something fundamentally different.
               </P>
               <P>
-                Manufacturing intelligence demands{" "}
+                Technical service intelligence demands{" "}
                 <Bold>structured, safety-critical output</Bold>: spec tables
                 with exact values, procedural steps in mandatory sequences,
                 parts lists with real SKUs, system diagrams with labeled
@@ -457,7 +449,7 @@ export default function WhitePaperPage() {
                 This isn&apos;t email drafting.
               </P>
               <P>
-                Generic AI draws from public training data. Manufacturing
+                Generic AI draws from public training data. Technical service
                 intelligence requires <Bold>your</Bold> documentation,{" "}
                 <Bold>your</Bold> telemetry, <Bold>your</Bold> parts catalog.
                 And manufacturers can&apos;t upload proprietary documentation to
@@ -536,7 +528,7 @@ export default function WhitePaperPage() {
 
               {/* Four Application Areas */}
               <P>
-                Purpose-built AI in equipment manufacturing falls into four
+                Purpose-built AI in equipment service falls into four
                 application areas that map directly to the value chain gaps
                 above.
               </P>
@@ -603,17 +595,17 @@ export default function WhitePaperPage() {
 
               <SubHeading title="Fleet-Wide Intelligence" />
               <P>
-                At scale, the data flowing through a documentation intelligence
-                platform reveals patterns invisible to individual dealers or
-                technicians. Which failure modes are most common across a model
-                line? Which documentation sections generate the most queries?
-                Which dealers are seeing unusual service patterns?
+                At scale, the data flowing through a technical service
+                intelligence platform reveals patterns invisible to individual
+                dealers or technicians. Which failure modes are most common
+                across a model line? Which documentation sections generate the
+                most queries? Which dealers are seeing unusual service patterns?
               </P>
               <P>
-                This is the feedback loop that connects field experience back to
-                product development, quality assurance, and documentation
-                improvement. <Bold>
-                  Not just a tool &mdash; an intelligence system that improves
+                This is the feedback loop that connects technical service
+                experience back to product development, quality assurance, and
+                documentation improvement. <Bold>
+                  Not just a tool &mdash; a closed-loop system that improves
                   your products.
                 </Bold>
               </P>
@@ -682,9 +674,9 @@ export default function WhitePaperPage() {
               />
 
               <P>
-                Organizations evaluating AI-powered manufacturing intelligence
-                face a strategic choice. You don&apos;t have to wait for vendor
-                cooperation to start.
+                Organizations evaluating AI-powered technical service
+                intelligence face a strategic choice. You don&apos;t have to
+                wait for vendor cooperation to start.
               </P>
               <P>
                 Most manufacturers use vendor-licensed software they can&apos;t
@@ -703,7 +695,7 @@ export default function WhitePaperPage() {
               <P>
                 <Bold>
                   Both paths run on the same platform: the same documentation
-                  pipeline, the same telemetry connections, the same RAG
+                  pipeline, the same telemetry connections, the same retrieval
                   architecture. Start with whichever path has the lowest
                   friction. Add the other when the ROI justifies it.
                 </Bold>
@@ -720,7 +712,7 @@ export default function WhitePaperPage() {
               />
 
               <P>
-                Manufacturing intelligence is not an all-or-nothing
+                Technical service intelligence is not an all-or-nothing
                 transformation. The most successful implementations follow a
                 phased approach that proves value incrementally and builds
                 organizational confidence before scaling.
@@ -863,7 +855,7 @@ export default function WhitePaperPage() {
                     Planara
                   </p>
                   <p className="text-xs text-white/20 mt-0.5">
-                    Manufacturing Intelligence
+                    Technical Service Intelligence
                   </p>
                 </div>
               </div>
