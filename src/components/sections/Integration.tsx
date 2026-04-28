@@ -1,171 +1,228 @@
-"use client";
-
-import { useState } from "react";
 import {
   ArrowRight,
-  PlugsConnected,
-  HardDrives,
-  Wrench,
-  Storefront,
+  ChatText,
+  Anchor,
   ChartLineUp,
-} from "@phosphor-icons/react";
-import { cn } from "@/lib/utils";
+  BookOpen,
+} from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 
-const tabs = [
+const outcomes = [
   {
-    id: "service",
-    label: "Service Ops",
-    icon: Wrench,
-    headline: "Instant answers backed by your documentation.",
-    description:
-      "Technicians get instant answers backed by your documentation. Parts are identified, work orders pre-filled, safety warnings surfaced — all from a single question. Manufacturing intelligence doesn't end at the answer — it starts there.",
-    flow: [
-      { step: "Technician asks a question", detail: "Natural language query about a specific symptom, procedure, or spec" },
-      { step: "Planara retrieves from docs + telemetry", detail: "RAG pipeline searches manuals, cross-references live engine data from Siren Marine" },
-      { step: "Surfaces parts with live inventory", detail: "Relevant parts identified with real-time stock from your existing catalog system" },
-      { step: "Creates work order in their existing DMS", detail: "Pre-populated work order pushed to CDK, Lightspeed, or DealerSocket — no re-keying" },
-    ],
-    integrations: ["CDK Global", "Lightspeed", "DealerSocket", "Siren Marine", "OEM Parts Catalogs"],
+    audience: "Field technicians",
+    headline: "Cited answers in seconds, not search trips.",
+    body:
+      "Specs, parts, procedures — pulled from your manuals, not invented. Every answer cites the page. Safety warnings come through verbatim.",
+    example: "What oil does the F300 require? · 7.1 L YAMALUBE 4-M FC-W · cited",
+    cta: { label: "Try the technician demo", href: "/demo/service" },
+    Mock: TechnicianMock,
   },
   {
-    id: "dealer",
-    label: "Dealer Network",
-    icon: Storefront,
+    audience: "Dealer service operations",
     headline: "Owner questions become service revenue.",
-    description:
-      "Dealers offer a branded self-service portal that turns owner questions into service appointments and parts orders. New revenue channel, zero additional staff.",
-    flow: [
-      { step: "Owner asks about their boat", detail: "Self-service portal with their vessel, their dealer, their service history" },
-      { step: "Planara answers in plain language", detail: "Conversational responses sourced from manufacturer documentation — not generic AI" },
-      { step: "Every answer includes a dealer CTA", detail: "Schedule service, order parts, call the dealer — branded for their specific dealership" },
-      { step: "Dealer captures the revenue", detail: "Appointments, parts orders, and service requests flow directly into dealer DMS" },
-    ],
-    integrations: ["Dealer-branded portal", "DMS scheduling", "Parts ordering", "Customer CRM", "Service reminders"],
+    body:
+      "A dealer-branded surface answers owner questions in plain language and routes the relevant conversation back to the dealership for booking, parts, or follow-up.",
+    example: "When is my next service due? · 153 hrs to next interval · book",
+    cta: { label: "Try the owner demo", href: "/demo/owner" },
+    Mock: OwnerMock,
   },
   {
-    id: "oem",
-    label: "OEM Intelligence",
-    icon: ChartLineUp,
-    headline: "Fleet-wide intelligence that feeds product development.",
-    description:
-      "See what your fleet is actually experiencing. Failure patterns, documentation gaps, warranty validation — intelligence that feeds back into product development.",
-    flow: [
-      { step: "Fleet-wide failure pattern analysis", detail: "Identify recurring issues across models, years, and operating conditions" },
-      { step: "Warranty claim validation", detail: "Cross-reference claims against documentation and telemetry to flag anomalies" },
-      { step: "Documentation gap identification", detail: "Surface the questions your docs don't answer — the most valuable feedback loop" },
-      { step: "Product improvement feedback", detail: "Structured data on what breaks, what confuses, and what works — by model and region" },
-    ],
-    integrations: ["Fleet telemetry", "Warranty systems", "Quality management", "Product engineering", "Technical writing"],
+    audience: "OEM product teams",
+    headline: "See what your fleet is actually experiencing.",
+    body:
+      "Failure patterns, documentation gaps, recurring questions — by model, by region. The questions Conduit can't answer are the documentation you need to write.",
+    example: "Top 10 unanswered questions · F300 · last 30 days",
+    cta: null,
+    Mock: OEMMock,
   },
 ];
 
 export function Integration() {
-  const [activeTab, setActiveTab] = useState("service");
-  const active = tabs.find((t) => t.id === activeTab)!;
-
   return (
-    <section id="integration" className="py-16 md:py-22 bg-white border-b border-planara-border">
+    <section
+      id="three-outcomes"
+      className="py-16 md:py-22 bg-white border-b border-planara-border"
+    >
       <div className="container mx-auto px-6 max-w-5xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-          Three Outcomes, One Platform
+          Three outcomes
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-          What your teams actually get.
+          Three audiences. One platform.
         </h2>
         <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
-          One platform serves three audiences. Each gets intelligence shaped
-          for how they actually work.
+          The same Conduit deployment serves the technician on the bench, the
+          owner at the dock, and the product team back at HQ — each with the
+          surface that fits how they actually work.
         </p>
 
-        {/* Tabs */}
-        <div className="flex gap-1 border-b border-planara-border mb-8">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={cn(
-                "flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 -mb-px transition-colors",
-                activeTab === tab.id
-                  ? "border-planara-teal text-planara-dark"
-                  : "border-transparent text-planara-muted hover:text-planara-dark"
-              )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {outcomes.map((o) => (
+            <div
+              key={o.audience}
+              className="flex flex-col rounded-lg overflow-hidden border border-planara-border bg-white"
             >
-              <tab.icon className="w-4 h-4" weight="duotone" />
-              <span className="hidden sm:inline">{tab.label}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Active tab content */}
-        <div className="mb-12">
-          <h3 className="text-xl font-bold text-planara-dark mb-2">
-            {active.headline}
-          </h3>
-          <p className="text-base text-planara-muted leading-relaxed mb-8 max-w-2xl">
-            {active.description}
-          </p>
-
-          {/* Workflow steps */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {active.flow.map((item, i) => (
-              <div key={item.step} className="relative">
-                <div className="border border-planara-border rounded-sm p-4 h-full">
-                  <span className="text-xs font-mono text-planara-teal mb-2 block">
-                    {i + 1}
+              <o.Mock />
+              <div className="px-5 py-5 flex flex-col flex-1">
+                <p className="text-[10px] font-mono uppercase tracking-wider text-planara-muted/70 mb-2">
+                  {o.audience}
+                </p>
+                <h3 className="text-base font-semibold text-planara-dark mb-2 leading-snug">
+                  {o.headline}
+                </h3>
+                <p className="text-sm text-planara-muted leading-relaxed mb-4">
+                  {o.body}
+                </p>
+                <p className="text-[11px] font-mono text-planara-muted/60 leading-relaxed mb-4 mt-auto">
+                  {o.example}
+                </p>
+                {o.cta ? (
+                  <Link
+                    href={o.cta.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-planara-blue hover:text-planara-blue/80 transition-colors"
+                  >
+                    {o.cta.label}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <span className="text-sm text-planara-muted/40 font-mono">
+                    Backoffice surface
                   </span>
-                  <p className="text-sm font-semibold text-planara-dark mb-1">
-                    {item.step}
-                  </p>
-                  <p className="text-xs text-planara-muted leading-relaxed">
-                    {item.detail}
-                  </p>
-                </div>
-                {i < active.flow.length - 1 && (
-                  <ArrowRight
-                    className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-planara-border z-10"
-                  />
                 )}
               </div>
-            ))}
-          </div>
-
-          {/* Connected systems */}
-          <div className="flex flex-wrap gap-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-planara-muted/60 mr-2 self-center">
-              Connects to
-            </span>
-            {active.integrations.map((name) => (
-              <span
-                key={name}
-                className="text-xs font-mono px-2.5 py-1 bg-planara-light border border-planara-border rounded-sm text-planara-muted"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Technical footnote */}
-        <div className="border-t border-planara-border pt-8">
-          <div className="flex items-start gap-4">
-            <div className="flex items-center gap-2 shrink-0">
-              <PlugsConnected className="w-4 h-4 text-planara-muted/40" />
-              <HardDrives className="w-4 h-4 text-planara-muted/40" weight="duotone" />
             </div>
-            <div>
-              <p className="text-xs font-mono uppercase tracking-wider text-planara-muted/50 mb-1">
-                Technical Architecture
-              </p>
-              <p className="text-sm text-planara-muted/70 leading-relaxed">
-                Document parsing, chunking, and semantic embedding. Contextual
-                retrieval with telemetry fusion. Citation-tracked responses with
-                structured output for UI rendering. Built for manufacturer-scale
-                documentation libraries.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+/* W5 will swap each Mock for the captured screenshot.
+   Each mock is a faithful skeleton of the real surface so the page reads
+   correctly even if the PNG is missing. */
+
+function TechnicianMock() {
+  return (
+    <div className="bg-[#0B0E14] aspect-[4/3] relative overflow-hidden">
+      <div className="px-4 pt-3 pb-2 border-b border-white/[0.06] flex items-center gap-2">
+        <div className="w-5 h-5 rounded-full bg-planara-teal/20 flex items-center justify-center">
+          <BookOpen className="w-3 h-3 text-planara-teal" weight="duotone" />
+        </div>
+        <span className="text-[10px] font-semibold text-white/80">Conduit</span>
+        <span className="text-[9px] font-mono text-white/30 ml-auto">F300 · 847 hrs</span>
+      </div>
+      <div className="px-4 py-3 space-y-2">
+        <div className="ml-auto max-w-[75%] bg-planara-teal/10 border border-planara-teal/20 rounded-xl rounded-tr-sm px-3 py-1.5">
+          <p className="text-[10px] text-white/85">What oil does the F300 require?</p>
+        </div>
+        <div className="bg-white/[0.03] border border-white/10 rounded-xl rounded-tl-sm px-3 py-2">
+          <div className="space-y-0.5 mb-2">
+            {[
+              ["Type", "YAMALUBE 4-M FC-W"],
+              ["Viscosity", "SAE 10W-30"],
+              ["Capacity", "7.1L"],
+            ].map(([k, v]) => (
+              <div key={k} className="flex items-center justify-between text-[9px]">
+                <span className="font-mono text-white/35">{k}</span>
+                <span className="text-white/80 font-medium">{v}</span>
+              </div>
+            ))}
+          </div>
+          <div className="flex items-center gap-1 pt-1.5 border-t border-white/[0.06]">
+            <BookOpen className="w-2.5 h-2.5 text-white/25" weight="duotone" />
+            <span className="text-[8px] font-mono text-white/30">
+              F300 OM · Lubrication · p.42
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#0B0E14] to-transparent" />
+    </div>
+  );
+}
+
+function OwnerMock() {
+  return (
+    <div className="bg-white aspect-[4/3] relative overflow-hidden border-b border-planara-border">
+      <div className="px-4 pt-3 pb-2 border-b border-planara-border flex items-center gap-2">
+        <div className="w-5 h-5 rounded-full bg-planara-navy flex items-center justify-center">
+          <Anchor className="w-3 h-3 text-white" weight="duotone" />
+        </div>
+        <div>
+          <p className="text-[10px] font-semibold text-planara-dark leading-tight">
+            Newport Marine
+          </p>
+          <p className="text-[8px] text-planara-muted leading-tight">
+            Your certified dealer
+          </p>
+        </div>
+      </div>
+      <div className="px-4 py-3">
+        <div className="mb-2">
+          <p className="text-[10px] font-semibold text-planara-dark">Reel Therapy</p>
+          <p className="text-[8px] text-planara-muted">
+            2023 Grady-White Canyon 326
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-1">
+          {[
+            "When is my next service due?",
+            "What does the warning light mean?",
+            "How do I winterize?",
+            "Book service",
+          ].map((q) => (
+            <span
+              key={q}
+              className="text-[9px] px-2 py-1.5 bg-planara-light border border-planara-border rounded-md text-planara-muted"
+            >
+              {q}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent" />
+    </div>
+  );
+}
+
+function OEMMock() {
+  return (
+    <div className="bg-planara-dark aspect-[4/3] relative overflow-hidden">
+      <div className="px-4 pt-3 pb-2 border-b border-white/[0.06] flex items-center gap-2">
+        <ChartLineUp className="w-3.5 h-3.5 text-planara-teal" weight="duotone" />
+        <span className="text-[10px] font-semibold text-white/80">
+          Fleet analytics · F300
+        </span>
+        <span className="text-[9px] font-mono text-white/30 ml-auto">last 30d</span>
+      </div>
+      <div className="px-4 py-3">
+        <p className="text-[9px] font-mono uppercase tracking-wider text-white/35 mb-2">
+          Top unanswered questions
+        </p>
+        <div className="space-y-1.5">
+          {[
+            { q: "Idle hunting at warm start", count: 47 },
+            { q: "Trim sensor calibration", count: 31 },
+            { q: "ECU update procedure (2024)", count: 22 },
+            { q: "Smart Craft pairing failure", count: 18 },
+          ].map((row) => (
+            <div
+              key={row.q}
+              className="flex items-center justify-between gap-2 px-2 py-1 bg-white/[0.02] border border-white/[0.06] rounded-sm"
+            >
+              <ChatText className="w-2.5 h-2.5 text-planara-teal/60 shrink-0" weight="duotone" />
+              <span className="text-[9px] text-white/70 flex-1 truncate">
+                {row.q}
+              </span>
+              <span className="text-[9px] font-mono text-white/40">
+                {row.count}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-planara-dark to-transparent" />
+    </div>
   );
 }

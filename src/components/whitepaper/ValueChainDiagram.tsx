@@ -14,7 +14,7 @@ const handoffs = [
     from: "OEM",
     to: "Dealer",
     friction: "Documentation distributed as static PDFs",
-    opportunity: "Queryable intelligence layer for dealer network",
+    opportunity: "Queryable TSI platform for the dealer network",
   },
   {
     from: "Dealer",

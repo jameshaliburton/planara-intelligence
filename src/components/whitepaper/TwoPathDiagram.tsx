@@ -61,8 +61,8 @@ export function TwoPathDiagram() {
               Path B: Embedded Intelligence
             </h4>
             <p className="text-sm text-white/30 leading-relaxed mb-5">
-              Intelligence layer embedded via API into existing DMS, service
-              tools, and customer portals. Requires vendor cooperation.
+              Conduit embedded via API into existing DMS, service tools, and
+              customer portals. Requires vendor cooperation.
             </p>
             <div className="space-y-2">
               <div className="flex items-start gap-2">
@@ -93,11 +93,11 @@ export function TwoPathDiagram() {
             Both paths run on the same platform &mdash;
           </p>
           <p className="text-sm font-semibold text-planara-teal/60 mt-1">
-            Planara Intelligence Platform
+            Planara Conduit
           </p>
           <p className="text-[10px] text-white/20 mt-1">
-            Same documentation pipeline. Same telemetry connections. Same RAG
-            architecture.
+            Same documentation pipeline. Same telemetry connections. Same
+            retrieval architecture.
           </p>
         </div>
       </div>

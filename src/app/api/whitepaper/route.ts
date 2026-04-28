@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { readFile } from "fs/promises";
 import { join } from "path";
+import { rateLimit, clientIp } from "@/lib/ratelimit";
+import { verifyTurnstile } from "@/lib/verify-turnstile";
 
 export async function POST(req: NextRequest) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -12,7 +14,16 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  let body: { email?: string };
+  // Rate limit: 10 downloads per IP per 10 minutes.
+  const ip = clientIp(req.headers);
+  if (!rateLimit(`whitepaper:${ip}`, 10, 10 * 60 * 1000)) {
+    return NextResponse.json(
+      { error: "Too many requests. Try again in a few minutes." },
+      { status: 429 }
+    );
+  }
+
+  let body: { email?: string; cfToken?: string };
   try {
     body = await req.json();
   } catch {
@@ -27,18 +38,29 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const turnstile = await verifyTurnstile(body.cfToken, ip);
+  if (!turnstile.ok) {
+    return NextResponse.json(
+      { error: "Could not verify the request. Please refresh and try again." },
+      { status: 400 }
+    );
+  }
+
   try {
     const pdfPath = join(
       process.cwd(),
       "public",
-      "PLANARA_manufacturing_intelligence_whitepaper.pdf"
+      "planara-conduit-whitepaper.pdf"
     );
     const pdfBuffer = await readFile(pdfPath);
 
     const resend = new Resend(apiKey);
+    const fromAddress = process.env.EMAIL_FROM ?? "hello@planara.com";
+    const fromName = process.env.EMAIL_FROM_NAME ?? "Planara";
+    const fromHeader = `${fromName} <${fromAddress}>`;
 
     await resend.emails.send({
-      from: "Planara <hello@planara.com>",
+      from: fromHeader,
       to: email,
       subject: "The Intelligence Gap — Your Copy",
       html: `
@@ -51,9 +73,9 @@ export async function POST(req: NextRequest) {
               Thanks for your interest. Your copy of <strong>The Intelligence Gap</strong> is attached.
             </p>
             <p style="font-size: 14px; line-height: 1.6; color: #627084; margin: 0 0 24px;">
-              This paper covers the $100B documentation problem in equipment manufacturing
-              and how purpose-built intelligence changes the economics of service operations,
-              dealer networks, and OEM product development.
+              This paper covers the documentation gap in equipment manufacturing
+              and how purpose-built technical service intelligence changes the economics of
+              service operations, dealer networks, and OEM product development.
             </p>
             <a href="https://intelligence.planara.com" style="display: inline-block; padding: 10px 20px; background-color: #131820; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none; border-radius: 3px;">
               See the live demo
@@ -61,7 +83,7 @@ export async function POST(req: NextRequest) {
           </div>
           <div style="padding: 20px 0; border-top: 1px solid #E2E5EA;">
             <p style="font-size: 12px; color: #627084; margin: 0;">
-              Planara &middot; Manufacturing Intelligence
+              Planara &middot; Technical Service Intelligence
             </p>
           </div>
         </div>

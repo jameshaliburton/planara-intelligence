@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { IntegrationToastProvider } from "@/components/IntegrationToast";
+import { Nav } from "@/components/Nav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,13 +19,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Planara Manufacturing Intelligence",
+  title: "Planara Conduit — Technical Service Intelligence",
   description:
-    "Turn equipment manuals and connected telemetry into actionable intelligence for service operations and equipment owners.",
+    "Planara Conduit turns manufacturer manuals, standards, and service bulletins into cited, safety-validated answers for the people who service the equipment.",
   openGraph: {
-    title: "Planara Manufacturing Intelligence",
+    title: "Planara Conduit — Technical Service Intelligence",
     description:
-      "Nobody reads the manual. Planara turns documentation and telemetry into intelligence.",
+      "Cited, safety-validated answers for the people who service the equipment.",
     type: "website",
   },
 };
@@ -38,6 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
         <IntegrationToastProvider>
+          <Nav />
           {children}
         </IntegrationToastProvider>
       </body>
