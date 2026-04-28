@@ -61,12 +61,14 @@ export function Nav() {
           >
             hello@planara.com
           </Link>
-          <Link
-            href="/demo/service"
+          <a
+            href="https://demo.planara.com/demo"
+            target="_blank"
+            rel="noreferrer"
             className="text-sm font-semibold px-4 py-2 bg-planara-teal text-planara-dark rounded-sm hover:bg-planara-teal/90 transition-colors"
           >
             See the demo
-          </Link>
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -110,13 +112,15 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link
-            href="/demo/service"
+          <a
+            href="https://demo.planara.com/demo"
+            target="_blank"
+            rel="noreferrer"
             onClick={() => setOpen(false)}
             className="mt-4 inline-flex items-center justify-center px-4 py-2.5 bg-planara-teal text-planara-dark text-sm font-semibold rounded-sm"
           >
             See the demo
-          </Link>
+          </a>
         </div>
       </div>
     </header>

@@ -29,6 +29,16 @@ const vertical: DesignPartnerVertical = {
     "A heavy-equipment Conduit deployment ingests the platform service manuals, the live TSB and warranty bulletin feed, and the parts catalog. Dealer technicians ask in plain language. The OEM service ops director sees what dealers are asking, where the answers are weak, and which bulletins are landing — across the dealer network. Buyer is typically a dealer principal at a multi-store group or an OEM service ops director.",
   applicationFormHints:
     "Tell us what platforms, how many dealers, and what's breaking down — warranty consistency, dealer answer quality, or technician onboarding. Five fields. We read every one. If we think there's a fit, we'll come back to you within a week.",
+  dashboardMock: {
+    hero: { eyebrow: "Last 30 days", primary: "23 dealers active · 1,412 platform queries" },
+    chartLabel: "Queries by platform · 30 days",
+    metrics: [
+      { label: "Dealers active", value: "23 / 27", delta: "+3", icon: "techs" as const },
+      { label: "TSBs surfaced", value: "147", delta: "+12 this wk", icon: "citations" as const },
+      { label: "Multi-platform", value: "62%", delta: "of queries", icon: "queries" as const },
+      { label: "Warranty cite rate", value: "0.91", delta: "verified", icon: "confidence" as const },
+    ],
+  },
   heroMock: {
     question: "Service interval at 2,000 hours on the D6T?",
     specs: [

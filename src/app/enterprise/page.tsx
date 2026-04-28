@@ -73,13 +73,13 @@ const ENTERPRISE_GETS: Array<{
   },
   {
     icon: Cloud,
-    title: "Deployment in your cloud or ours",
-    body: "Default is our managed deployment. VPC-isolated and customer-owned cloud deployments are available for enterprise contracts.",
+    title: "Flexible deployment",
+    body: "Managed by default. Isolated and customer-cloud options scoped per enterprise contract.",
   },
   {
     icon: Globe,
-    title: "Regional data residency",
-    body: "Document storage and processing pinned to the region of your choice for tenants with data residency requirements.",
+    title: "Data residency options",
+    body: "Storage and processing region scoped per contract for tenants with residency requirements.",
   },
   {
     icon: UserCircle,
@@ -103,7 +103,7 @@ const PROCUREMENT_ROWS: Array<{ title: string; body: string }> = [
   },
   {
     title: "Tenancy model",
-    body: "Logical multi-tenancy by default with namespace isolation at the storage and retrieval layer. Single-tenant and customer-cloud deployments available for enterprise contracts.",
+    body: "Logical multi-tenancy by default with namespace isolation at the storage and retrieval layer. Single-tenant and customer-cloud deployments scoped per enterprise contract.",
   },
   {
     title: "Security posture",
@@ -111,7 +111,7 @@ const PROCUREMENT_ROWS: Array<{ title: string; body: string }> = [
   },
   {
     title: "Service level",
-    body: "Standard tier targets 99.5% monthly availability. Enterprise tier with custom SLAs, regional residency, and dedicated capacity is available — terms negotiated against the contract.",
+    body: "Enterprise SLAs — uptime targets, response times, dedicated capacity, residency — negotiated against the contract. We don&apos;t publish a one-size-fits-all number; the right answer depends on your tier and your operation.",
   },
   {
     title: "IP ownership",
@@ -164,13 +164,12 @@ export default function EnterprisePage() {
           </h1>
           <p className="text-xl text-white/65 leading-relaxed max-w-2xl mb-10">
             Multi-tenant by design. Namespace-isolated. Audit-trailed. SSO,
-            RBAC, regional data residency, deployment in your cloud or ours.
-            Built for the procurement desk and the dealer network at the same
-            time.
+            RBAC, deployment options scoped to your operation. Built for the
+            procurement desk and the dealer network at the same time.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="mailto:hello@planara.com?subject=Enterprise%20deployment"
+              href="mailto:hello@planara.com?subject=Enterprise%20deployment%20%E2%80%94%20Conduit"
               className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
             >
               Talk to us about an enterprise deployment
@@ -386,7 +385,7 @@ export default function EnterprisePage() {
 
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="mailto:hello@planara.com?subject=Enterprise%20deployment"
+              href="mailto:hello@planara.com?subject=Enterprise%20deployment%20%E2%80%94%20Conduit"
               className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
             >
               hello@planara.com

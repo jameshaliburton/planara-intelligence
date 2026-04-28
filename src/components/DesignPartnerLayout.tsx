@@ -51,6 +51,20 @@ export type DesignPartnerVertical = {
     citation: string;
     equipmentLabel: string;
   };
+  /**
+   * Optional vertical-specific console dashboard. Falls back to the marine
+   * F300 reference if not provided.
+   */
+  dashboardMock?: {
+    hero: { eyebrow?: string; primary: string };
+    chartLabel?: string;
+    metrics: {
+      label: string;
+      value: string;
+      delta?: string;
+      icon?: "queries" | "techs" | "citations" | "confidence";
+    }[];
+  };
 };
 
 type Props = { vertical: DesignPartnerVertical };
@@ -257,6 +271,9 @@ function DeploymentLook({ vertical }: Props) {
             <div className="p-3">
               <AdoptionDashboardMock
                 tenantLabel={`${vertical.label} pilot`}
+                hero={vertical.dashboardMock?.hero}
+                chartLabel={vertical.dashboardMock?.chartLabel}
+                metrics={vertical.dashboardMock?.metrics}
               />
             </div>
             <figcaption className="px-5 py-3 text-[11px] font-mono text-white/55 leading-relaxed border-t border-white/[0.06]">

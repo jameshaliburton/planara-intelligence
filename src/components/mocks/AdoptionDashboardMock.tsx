@@ -10,6 +10,10 @@ export type AdoptionMetric = {
 export type AdoptionDashboardMockProps = {
   tenantLabel?: string;
   metrics?: AdoptionMetric[];
+  /** Hero metric shown above the KPI grid. */
+  hero?: { eyebrow?: string; primary: string };
+  /** Bar chart caption — defaults to "Query volume · 14 days". */
+  chartLabel?: string;
   theme?: "dark" | "light";
 };
 
@@ -20,13 +24,15 @@ const ICON_MAP = {
   confidence: Gauge,
 } as const;
 
-const DEFAULTS: Required<Omit<AdoptionDashboardMockProps, "theme">> = {
+const DEFAULTS = {
   tenantLabel: "F300 dealer network",
+  hero: { eyebrow: "This week", primary: "847 queries · 31 techs active" },
+  chartLabel: "Query volume · 14 days",
   metrics: [
-    { label: "Queries today", value: "847", delta: "+12%", icon: "queries" },
-    { label: "Active techs", value: "31", delta: "+3", icon: "techs" },
-    { label: "Citations served", value: "2,104", delta: "+18%", icon: "citations" },
-    { label: "Avg confidence", value: "0.86", delta: "verified", icon: "confidence" },
+    { label: "Queries today", value: "847", delta: "+12%", icon: "queries" as const },
+    { label: "Active techs", value: "31", delta: "+3", icon: "techs" as const },
+    { label: "Citations served", value: "2,104", delta: "+18%", icon: "citations" as const },
+    { label: "Avg confidence", value: "0.86", delta: "verified", icon: "confidence" as const },
   ],
 };
 
@@ -39,6 +45,8 @@ const BAR_HEIGHTS = [32, 44, 38, 56, 48, 64, 52, 70, 58, 66, 74, 60, 68, 82];
 export function AdoptionDashboardMock({
   tenantLabel = DEFAULTS.tenantLabel,
   metrics = DEFAULTS.metrics,
+  hero = DEFAULTS.hero,
+  chartLabel = DEFAULTS.chartLabel,
   theme = "dark",
 }: AdoptionDashboardMockProps) {
   const isDark = theme === "dark";
@@ -74,10 +82,10 @@ export function AdoptionDashboardMock({
         {/* Hero metric */}
         <div className={`${heroBg} border rounded-sm px-3 py-2.5`}>
           <p className={`text-[8px] font-mono uppercase tracking-wider text-planara-teal mb-1`}>
-            This week
+            {hero.eyebrow ?? "This week"}
           </p>
           <p className={`text-sm font-bold ${valueText} leading-tight`}>
-            847 queries · 31 techs active
+            {hero.primary}
           </p>
         </div>
 
@@ -115,7 +123,7 @@ export function AdoptionDashboardMock({
         <div>
           <div className="flex items-center justify-between mb-1.5">
             <p className={`text-[8px] font-mono uppercase tracking-wider ${monoMuted}`}>
-              Query volume · 14 days
+              {chartLabel}
             </p>
             <p className={`text-[8px] font-mono ${subText}`}>+12% wk/wk</p>
           </div>

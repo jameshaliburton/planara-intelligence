@@ -24,7 +24,6 @@ export default function MarinePage() {
       <ReferenceDeployment />
       <ThermostatExample />
       <Integration />
-      <ActiveConversations />
       <MarineCTA />
       <Footer />
     </main>
@@ -73,13 +72,15 @@ function MarineHero() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/demo/service"
+              <a
+                href="https://demo.planara.com/demo"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
               >
                 See the demo
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
               <Link
                 href="#why-marine-fits"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
@@ -303,13 +304,13 @@ function ThermostatExample() {
   );
 }
 
-/* ─────────────────── Active conversations ─────────────────── */
+/* ─────────────────────────── CTA ─────────────────────────── */
 
-function ActiveConversations() {
+function MarineCTA() {
   return (
     <section
-      id="active-conversations"
-      className="py-16 md:py-22 bg-planara-dark"
+      id="marine-cta"
+      className="py-16 md:py-22 bg-planara-dark border-b border-white/[0.06]"
     >
       <div className="container mx-auto px-6 max-w-3xl">
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
@@ -320,59 +321,29 @@ function ActiveConversations() {
         </h2>
         <p className="text-lg text-white/65 leading-relaxed mb-4">
           Currently in active conversations with marine OEMs about deeper
-          reference deployments.
+          reference deployments. We&apos;re not going to name names — if
+          you&apos;re a marine OEM or dealer network and want to talk
+          specifics, the door is open.
         </p>
-        <p className="text-lg text-white/65 leading-relaxed">
-          We&apos;re not going to name names. If you&apos;re a marine OEM and
-          want to talk specifics, email{" "}
-          <a
-            href="mailto:hello@planara.com"
-            className="text-planara-teal hover:text-planara-teal/80 transition-colors underline underline-offset-4 decoration-planara-teal/40"
-          >
-            hello@planara.com
-          </a>
-          .
-        </p>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────── CTA ─────────────────────────── */
-
-function MarineCTA() {
-  return (
-    <section
-      id="marine-cta"
-      className="py-16 md:py-22 bg-white border-b border-planara-border"
-    >
-      <div className="container mx-auto px-6 max-w-3xl">
-        <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
-          Get involved
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6">
-          Apply for the marine reference cohort.
-        </h2>
-        <p className="text-lg text-planara-muted max-w-2xl leading-relaxed mb-10">
-          We&apos;re working with a small number of marine OEMs and dealer
-          networks on the next round of reference deployments. If you ship
-          documentation alongside engines, dealer-distributed, and want a
-          working prototype on your corpus in 1–2 weeks — talk to us.
+        <p className="text-lg text-white/65 leading-relaxed mb-10">
+          Working prototype on your corpus in 1–2 weeks. Pilot in 4–8.
         </p>
         <div className="flex flex-wrap items-center gap-4">
           <a
-            href="mailto:hello@planara.com?subject=Marine%20pilot%20—%20Conduit"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-planara-dark text-white font-semibold rounded-sm hover:bg-planara-dark/90 transition-colors"
+            href="mailto:hello@planara.com?subject=Marine%20pilot%20%E2%80%94%20Conduit"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
           >
             Talk to us about a marine pilot
             <ArrowRight className="w-4 h-4" />
           </a>
-          <Link
-            href="/demo/service"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-planara-border text-planara-dark font-semibold rounded-sm hover:border-planara-teal/40 hover:bg-planara-light transition-colors"
+          <a
+            href="https://demo.planara.com/demo"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
           >
             Try the technician demo
-          </Link>
+          </a>
         </div>
       </div>
     </section>

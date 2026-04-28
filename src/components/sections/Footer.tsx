@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const PRODUCT_LINKS = [
   { label: "Platform", href: "/platform" },
-  { label: "See the demo", href: "/demo/service" },
+  { label: "See the demo", href: "https://demo.planara.com/demo", external: true },
   { label: "White paper", href: "/whitepaper" },
 ];
 
@@ -99,7 +99,7 @@ function FooterColumn({
   links,
 }: {
   title: string;
-  links: { label: string; href: string }[];
+  links: { label: string; href: string; external?: boolean }[];
 }) {
   return (
     <div>
@@ -109,12 +109,23 @@ function FooterColumn({
       <ul className="space-y-2.5">
         {links.map((l) => (
           <li key={l.href}>
-            <Link
-              href={l.href}
-              className="text-sm text-white/70 hover:text-planara-teal transition-colors"
-            >
-              {l.label}
-            </Link>
+            {l.external ? (
+              <a
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm text-white/70 hover:text-planara-teal transition-colors"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                href={l.href}
+                className="text-sm text-white/70 hover:text-planara-teal transition-colors"
+              >
+                {l.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

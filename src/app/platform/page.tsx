@@ -9,7 +9,6 @@ import {
   Headset,
   ChartBar,
   Buildings,
-  Factory,
   CheckCircle,
   Flag,
   Eye,
@@ -24,7 +23,6 @@ import {
   OwnerSurfaceMock,
   AdoptionDashboardMock,
   OEMAnalyticsMock,
-  KnowledgeGapMock,
 } from "@/components/mocks";
 import type { ReactNode } from "react";
 
@@ -84,7 +82,9 @@ function Hero() {
 
         <div className="flex flex-wrap items-center gap-4">
           <Link
-            href="/demo/service"
+            href="https://demo.planara.com/demo"
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
           >
             See the demo
@@ -254,10 +254,10 @@ const ROLES: Role[] = [
   },
   {
     slug: "service-leader",
-    name: "Service leader / dealer principal",
+    name: "Service leader / operations leader",
     icon: ChartBar,
     description:
-      "The person responsible for shop throughput, warranty exposure, and tech retention. They see which jobs are taking longest, which questions are stalling the floor, and where the documentation is failing the team — patterns that were invisible when answers lived in PDFs and tribal knowledge.",
+      "The person responsible for throughput, warranty exposure, and tech retention — whether that's a dealer principal looking across the bay floor or a manufacturing ops director looking across the line. They see which jobs are taking longest, which questions are stalling the floor, and where the documentation is failing the team. Same role, two contexts: dealer service network and internal manufacturing operations.",
     outcome:
       "The signal to fix a process — or escalate a documentation gap to the OEM — arrives in days, not quarters.",
     mock: <AdoptionDashboardMock />,
@@ -272,51 +272,6 @@ const ROLES: Role[] = [
       "Documentation evolves from a static asset to a feedback-driven product, with measured impact downstream.",
     mock: <OEMAnalyticsMock />,
   },
-  {
-    slug: "ops-director",
-    name: "Manufacturer operations director",
-    icon: Factory,
-    description:
-      "The person responsible for line uptime on the factory floor. They get the same Conduit pattern applied to internal equipment manuals, standard work, and standard operating procedures — so a line tech facing an unfamiliar fault code reaches the right corrective action without paging a senior engineer.",
-    outcome:
-      "Mean-time-to-repair drops because the answer arrives at the line, not after a 20-minute walk to the engineering office.",
-    mock: (
-      <KnowledgeGapMock
-        topQuestions={[
-          {
-            q: "Bagger 12 stuck — fault E-204",
-            count: 38,
-            confidence: "low",
-            section: "Plant SOP · Bagger 12 § 7",
-          },
-          {
-            q: "Auger torque after motor swap",
-            count: 27,
-            confidence: "medium",
-            section: "OEM SM · Drive Train",
-          },
-          {
-            q: "PLC calibration after firmware push",
-            count: 19,
-            confidence: "low",
-            section: "TSB 2024-03",
-          },
-          {
-            q: "Conveyor tension setpoint",
-            count: 14,
-            confidence: "high",
-            section: "Plant SOP · Line 4 § 2",
-          },
-          {
-            q: "Bearing replacement interval",
-            count: 11,
-            confidence: "medium",
-            section: "OEM OM · Maintenance",
-          },
-        ]}
-      />
-    ),
-  },
 ];
 
 function Roles() {
@@ -327,7 +282,7 @@ function Roles() {
           What each role gets
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
-          One platform. Five jobs to be done.
+          One platform. Four roles. Two contexts.
         </h2>
         <p className="text-lg text-planara-muted max-w-2xl mb-16 leading-relaxed">
           Conduit isn&apos;t a chat window bolted on the side of a service
@@ -749,7 +704,9 @@ function PlatformFAQ() {
 
         <div className="mt-16 pt-10 border-t border-white/[0.08] flex flex-wrap items-center gap-4">
           <Link
-            href="/demo/service"
+            href="https://demo.planara.com/demo"
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
           >
             See the demo

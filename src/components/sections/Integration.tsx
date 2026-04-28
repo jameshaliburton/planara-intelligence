@@ -14,7 +14,7 @@ const outcomes = [
     body:
       "Specs, parts, procedures — pulled from your manuals, not invented. Every answer cites the page. Safety warnings come through verbatim.",
     example: "What oil does the F300 require? · 7.1 L YAMALUBE 4-M FC-W · cited",
-    cta: { label: "Try the technician demo", href: "/demo/service" },
+    cta: { label: "Try the technician demo", href: "https://demo.planara.com/demo", external: true },
     Mock: TechnicianMock,
   },
   {
@@ -23,7 +23,7 @@ const outcomes = [
     body:
       "A dealer-branded surface answers owner questions in plain language and routes the relevant conversation back to the dealership for booking, parts, or follow-up.",
     example: "When is my next service due? · 153 hrs to next interval · book",
-    cta: { label: "Try the owner demo", href: "/demo/owner" },
+    cta: { label: "Try the owner demo", href: "https://demo.planara.com/demo", external: true },
     Mock: OwnerMock,
   },
   {
@@ -77,13 +77,15 @@ export function Integration() {
                   {o.example}
                 </p>
                 {o.cta ? (
-                  <Link
+                  <a
                     href={o.cta.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-planara-blue hover:text-planara-blue/80 transition-colors"
                   >
                     {o.cta.label}
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </a>
                 ) : (
                   <span className="text-sm text-planara-muted/40 font-mono">
                     Backoffice surface

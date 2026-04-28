@@ -36,11 +36,12 @@ export function Proof() {
           Proof
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 max-w-3xl">
-          Built by people who&apos;ve shipped at scale.
+          Conduit is early. The team is not.
         </h2>
         <p className="text-lg text-white/50 max-w-2xl mb-16 leading-relaxed">
-          Conduit is early. The team is not. We&apos;re in active conversations
-          with marine OEMs and a global manufacturing operator.
+          We&apos;ve shipped products used by billions before. Now we&apos;re
+          applying that experience to equipment service. Currently in active
+          conversations with marine OEMs and a global manufacturing operator.
         </p>
 
         {/* Stats */}
@@ -95,12 +96,14 @@ export function Proof() {
           <div className="flex items-start justify-between gap-8 flex-wrap">
             <div className="max-w-xl">
               <p className="text-xs font-mono uppercase tracking-wider text-white/30 mb-2">
-                Read the thesis
+                Deep dive — aftermarket economics
               </p>
               <p className="text-base text-white/70 leading-relaxed">
-                The white paper covers the structural problem, why it took until
-                now to be solvable, and what changes when authoritative
-                documentation becomes queryable infrastructure.
+                A separate piece of long-form on a specific question: why
+                aftermarket service is where the manufacturing margin actually
+                lives, and the documentation gap that&apos;s keeping OEMs from
+                capturing it. Optional reading — not the foundation of the
+                product.
               </p>
             </div>
             <WhitePaperCTA variant="dark" />

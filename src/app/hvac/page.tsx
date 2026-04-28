@@ -29,6 +29,16 @@ const vertical: DesignPartnerVertical = {
     "An HVAC Conduit deployment ingests the equipment libraries you actually service, your internal SOPs, and the regional code references your inspectors use. Technicians ask from the truck. Service managers see callback patterns, parts-trip patterns, and where the documentation is failing the field. Buyer is typically a regional service company or commercial mechanical contractor — not just an OEM.",
   applicationFormHints:
     "Tell us what brands you service, how many technicians you dispatch, and what's costing you the most callbacks. Five fields. We read every one. If we think there's a fit, we'll come back to you within a week.",
+  dashboardMock: {
+    hero: { eyebrow: "Today", primary: "187 trucks dispatched · 14% callback rate" },
+    chartLabel: "First-visit fix rate · 14 days",
+    metrics: [
+      { label: "Trucks dispatched", value: "187", delta: "+9%", icon: "techs" as const },
+      { label: "First-visit fix", value: "86%", delta: "+4 pp", icon: "confidence" as const },
+      { label: "Parts trips avoided", value: "23", delta: "this wk", icon: "queries" as const },
+      { label: "Code cites served", value: "412", delta: "EPA · ASHRAE", icon: "citations" as const },
+    ],
+  },
   heroMock: {
     question: "Refrigerant charge for the 5-ton on the rooftop?",
     specs: [

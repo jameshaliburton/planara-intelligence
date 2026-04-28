@@ -29,6 +29,16 @@ const vertical: DesignPartnerVertical = {
     "A power-generation Conduit deployment ingests the genset OEM manuals, the control panel and ATS documentation, the switchgear and paralleling configurations, and the relevant NFPA / NEC references. Field technicians ask before and during the call. Service ops sees uptime patterns, technician knowledge gaps, and where the documentation is failing the most critical customers.",
   applicationFormHints:
     "Tell us what platforms you service, what your customer mix looks like (data center, healthcare, telecom, commercial), and where reliability is being lost. Five fields. We read every one. If we think there's a fit, we'll come back to you within a week.",
+  dashboardMock: {
+    hero: { eyebrow: "Last 30 days", primary: "47 sites · 0 missed transfers" },
+    chartLabel: "Site queries · 30 days",
+    metrics: [
+      { label: "Sites covered", value: "47", delta: "+6", icon: "queries" as const },
+      { label: "Maintenance windows", value: "138", delta: "completed", icon: "techs" as const },
+      { label: "After-hours calls", value: "9", delta: "−3 wk/wk", icon: "techs" as const },
+      { label: "NFPA cites served", value: "284", delta: "70 / 110 / 37", icon: "citations" as const },
+    ],
+  },
   heroMock: {
     question: "ATS won't transfer — diagnostic ladder?",
     specs: [

@@ -585,18 +585,20 @@ export default function ServiceLeadersPage() {
 
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="mailto:hello@planara.com?subject=Service%20pilot%20-%20one%20bay"
+              href="mailto:hello@planara.com?subject=Service%20pilot%20%E2%80%94%20one%20bay"
               className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
             >
               Pilot this on one bay
               <ArrowRight className="w-4 h-4" />
             </a>
-            <Link
-              href="/demo/service"
+            <a
+              href="https://demo.planara.com/demo"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
             >
               See the technician demo first
-            </Link>
+            </a>
           </div>
         </div>
       </section>

@@ -29,6 +29,16 @@ const vertical: DesignPartnerVertical = {
     "A manufacturing Conduit deployment ingests the OEM equipment manuals, the corporate safety SOPs, and the troubleshooting bulletins. The technician asks in plain language; the answer cites the page. The reliability lead sees what's being asked, what's not being answered well, and where the documentation gap is.",
   applicationFormHints:
     "Tell us what plant, what equipment, and what you're losing to downtime or knowledge transfer. Five fields. We read every one. If we think there's a fit, we'll come back to you within a week.",
+  dashboardMock: {
+    hero: { eyebrow: "Last 7 days", primary: "Bagger 12 · 38h since last handoff fault" },
+    chartLabel: "Queries by line · 14 days",
+    metrics: [
+      { label: "Lines covered", value: "4 / 6", delta: "+2", icon: "queries" as const },
+      { label: "Shifts handed off", value: "21", delta: "+5", icon: "techs" as const },
+      { label: "TSBs ingested", value: "28", delta: "live", icon: "citations" as const },
+      { label: "First-fix rate", value: "0.78", delta: "vs 0.61", icon: "confidence" as const },
+    ],
+  },
   heroMock: {
     question: "What's the LOTO procedure on the 4-roller?",
     specs: [

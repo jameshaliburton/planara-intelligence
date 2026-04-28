@@ -21,10 +21,10 @@ export function WhitePaperCTA({ variant = "dark" }: { variant?: "dark" | "light"
         />
         <div className="text-left">
           <p className={isDark ? "text-sm font-medium text-white" : "text-sm font-medium text-planara-dark"}>
-            Read the white paper
+            White paper: aftermarket economics
           </p>
           <p className={isDark ? "text-xs text-white/40" : "text-xs text-planara-muted"}>
-            Why authoritative documentation needs to be queryable
+            Why aftermarket is 2.5× more profitable — and the gap holding it back
           </p>
         </div>
         <ArrowRight
