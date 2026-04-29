@@ -1,13 +1,17 @@
+import Link from "next/link";
 import {
   Lightning,
   Bell,
   ShieldWarning,
   CheckCircle,
+  ArrowRight,
 } from "@phosphor-icons/react/dist/ssr";
 import {
   DesignPartnerLayout,
   type DesignPartnerVertical,
+  HeroAccent,
 } from "@/components/DesignPartnerLayout";
+import { TechnicianChatMock } from "@/components/mocks";
 
 export const metadata = {
   title: "Conduit for power generation — Planara",
@@ -65,7 +69,131 @@ const vertical: DesignPartnerVertical = {
 
 export default function PowerGenerationPage() {
   return (
-    <DesignPartnerLayout vertical={vertical} spotlight={<AfterHoursWalkthrough />} />
+    <DesignPartnerLayout
+      vertical={vertical}
+      heroOverride={<PowerGenHero />}
+      spotlight={<AfterHoursWalkthrough />}
+    />
+  );
+}
+
+/* Power Gen hero — copy left + alarm-feed strip pinned above the H1.
+ * Reads like a NOC dashboard: the alarm timeline IS the hero element. */
+function PowerGenHero() {
+  const feed = [
+    { time: "02:14", label: "Alarm", body: "Bldg 4 ATS won't transfer", tone: "alert" as const },
+    { time: "02:18", label: "Conduit", body: "ASCO 7000 ladder · cited", tone: "info" as const },
+    { time: "02:34", label: "Action", body: "NFPA 110 manual transfer", tone: "neutral" as const },
+    { time: "02:51", label: "Captured", body: "Saved for next 2 a.m. call", tone: "ok" as const },
+  ];
+  return (
+    <section
+      id="vertical-hero"
+      className="relative min-h-screen flex items-center bg-planara-dark overflow-hidden"
+    >
+      <HeroAccent variant="dots" />
+      <div className="relative container mx-auto px-6 py-24 md:py-32 max-w-6xl">
+        <div className="grid lg:grid-cols-[1.6fr_1fr] gap-12 lg:gap-12 items-start">
+          {/* LEFT: alarm feed + headline */}
+          <div>
+            {/* Alarm feed — sits ABOVE the H1, sets the page tone */}
+            <div className="border border-white/[0.08] rounded-lg bg-white/[0.02] p-4 mb-10">
+              <div className="flex items-center gap-2 mb-3 pb-3 border-b border-white/[0.06]">
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inline-flex w-full h-full rounded-full bg-amber-400 opacity-70 animate-ping" />
+                  <span className="relative inline-flex w-2 h-2 rounded-full bg-amber-400" />
+                </span>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-white/55">
+                  Live alarm feed · hospital site
+                </span>
+                <span className="text-[10px] font-mono text-white/30 ml-auto">
+                  illustrative
+                </span>
+              </div>
+              <ol className="space-y-1.5">
+                {feed.map((f) => {
+                  const dot =
+                    f.tone === "alert"
+                      ? "bg-amber-400"
+                      : f.tone === "ok"
+                      ? "bg-emerald-400"
+                      : f.tone === "info"
+                      ? "bg-planara-teal"
+                      : "bg-white/40";
+                  return (
+                    <li
+                      key={f.time}
+                      className="grid grid-cols-[auto_auto_auto_1fr] gap-3 items-baseline"
+                    >
+                      <span className="text-[11px] font-mono text-planara-teal">
+                        {f.time}
+                      </span>
+                      <span className={`w-1.5 h-1.5 rounded-full ${dot}`} />
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+                        {f.label}
+                      </span>
+                      <span className="text-xs text-white/65 truncate">
+                        {f.body}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+
+            <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-6 inline-flex items-center gap-2">
+              <Lightning className="w-4 h-4" weight="duotone" />
+              Planara Conduit · Power generation
+            </p>
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {(vertical.heroBadges ?? []).map((b) => (
+                <span
+                  key={b}
+                  className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 border border-white/15 text-white/60 rounded-sm"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.05] mb-8">
+              Conduit for the gensets that can&apos;t fail.
+            </h1>
+            <p className="text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
+              A genset is one part of a larger reliability promise. Conduit
+              makes sure the technician shows up with the right manual before
+              the customer&apos;s UPS runs out.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="#apply"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
+              >
+                Apply to deploy with us
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="#why-fits"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
+              >
+                Why this vertical fits
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT: smaller iPad mock */}
+          <div className="relative mx-auto w-full max-w-[320px] lg:max-w-none">
+            <TechnicianChatMock
+              aspect="portrait"
+              question={vertical.heroMock?.question}
+              specs={vertical.heroMock?.specs}
+              safetyText={vertical.heroMock?.safetyText}
+              citation={vertical.heroMock?.citation}
+              equipmentLabel={vertical.heroMock?.equipmentLabel}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

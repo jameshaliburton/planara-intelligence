@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Factory,
   ArrowRight,
@@ -7,7 +8,9 @@ import {
 import {
   DesignPartnerLayout,
   type DesignPartnerVertical,
+  HeroAccent,
 } from "@/components/DesignPartnerLayout";
+import { TechnicianChatMock } from "@/components/mocks";
 
 export const metadata = {
   title: "Conduit for manufacturing — Planara",
@@ -65,7 +68,121 @@ const vertical: DesignPartnerVertical = {
 
 export default function ManufacturingPage() {
   return (
-    <DesignPartnerLayout vertical={vertical} spotlight={<ShiftHandoff />} />
+    <DesignPartnerLayout
+      vertical={vertical}
+      heroOverride={<ManufacturingHero />}
+      spotlight={<ShiftHandoff />}
+    />
+  );
+}
+
+/* Manufacturing hero — STACKED layout. Headline centered, plant-floor
+ * status strip below, landscape mock as a wide banner. Reads like
+ * standing in front of a control-room display. */
+function ManufacturingHero() {
+  const lines = [
+    { id: "Line 4", asset: "Bagger 12", state: "Fault E-204", tone: "alert" as const },
+    { id: "Line 5", asset: "Filler 7", state: "Running", tone: "ok" as const },
+    { id: "Line 6", asset: "Conveyor 3", state: "Running", tone: "ok" as const },
+    { id: "Line 7", asset: "Capper 9", state: "Maintenance", tone: "warn" as const },
+  ];
+  return (
+    <section
+      id="vertical-hero"
+      className="relative bg-planara-dark overflow-hidden"
+    >
+      <HeroAccent variant="lines" />
+      <div className="relative container mx-auto px-6 py-24 md:py-32 max-w-5xl">
+        {/* Centered headline block */}
+        <div className="text-center max-w-3xl mx-auto">
+          <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-6 inline-flex items-center gap-2 justify-center">
+            <Factory className="w-4 h-4" weight="duotone" />
+            Planara Conduit · Manufacturing
+          </p>
+          <div className="flex flex-wrap gap-1.5 mb-8 justify-center">
+            {(vertical.heroBadges ?? []).map((b) => (
+              <span
+                key={b}
+                className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 border border-white/15 text-white/60 rounded-sm"
+              >
+                {b}
+              </span>
+            ))}
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.05] mb-8">
+            Conduit for the maintenance team that keeps the line running.
+          </h1>
+          <p className="text-xl text-white/70 leading-relaxed mb-8">
+            Production line uptime is the metric. Conduit gives the maintenance
+            technician the answer before the line goes down.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 justify-center mb-12">
+            <Link
+              href="#apply"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
+            >
+              Apply to deploy with us
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="#why-fits"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
+            >
+              Why this vertical fits
+            </Link>
+          </div>
+        </div>
+
+        {/* Plant floor status strip — full width */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-10">
+          {lines.map((l) => {
+            const dot =
+              l.tone === "alert"
+                ? "bg-amber-400"
+                : l.tone === "warn"
+                ? "bg-yellow-400"
+                : "bg-emerald-400";
+            const ring =
+              l.tone === "alert"
+                ? "border-amber-400/30"
+                : l.tone === "warn"
+                ? "border-yellow-400/30"
+                : "border-white/10";
+            return (
+              <div
+                key={l.id}
+                className={`border ${ring} rounded-sm bg-white/[0.02] p-3`}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <span className={`w-1.5 h-1.5 rounded-full ${dot}`} />
+                  <p className="text-[10px] font-mono uppercase tracking-wider text-white/40">
+                    {l.id}
+                  </p>
+                </div>
+                <p className="text-sm font-semibold text-white mb-1">
+                  {l.asset}
+                </p>
+                <p className="text-[11px] font-mono text-white/55">
+                  {l.state}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Landscape mock as wide banner */}
+        <div className="border border-white/10 rounded-lg overflow-hidden bg-[#0B0E14] max-w-3xl mx-auto">
+          <TechnicianChatMock
+            aspect="landscape"
+            question={vertical.heroMock?.question}
+            specs={vertical.heroMock?.specs}
+            safetyText={vertical.heroMock?.safetyText}
+            citation={vertical.heroMock?.citation}
+            equipmentLabel={vertical.heroMock?.equipmentLabel}
+          />
+        </div>
+      </div>
+    </section>
   );
 }
 

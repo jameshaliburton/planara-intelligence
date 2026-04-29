@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Tractor,
   ArrowRight,
@@ -6,7 +7,9 @@ import {
 import {
   DesignPartnerLayout,
   type DesignPartnerVertical,
+  HeroAccent,
 } from "@/components/DesignPartnerLayout";
+import { TechnicianChatMock } from "@/components/mocks";
 
 export const metadata = {
   title: "Conduit for heavy & agricultural equipment — Planara",
@@ -64,9 +67,112 @@ const vertical: DesignPartnerVertical = {
 
 export default function HeavyEquipmentPage() {
   return (
-    <DesignPartnerLayout vertical={vertical} spotlight={<MultiPlatform />} />
+    <DesignPartnerLayout
+      vertical={vertical}
+      heroOverride={<HeavyHero />}
+      spotlight={<MultiPlatform />}
+    />
   );
 }
+
+/* Heavy & ag hero — REVERSED 50/50 layout (mock left, copy right) with a
+ * platform ticker pinned above the mock. Reads like an open file cabinet
+ * across multiple OEM platforms. */
+function HeavyHero() {
+  const platforms = [
+    "Caterpillar D6T",
+    "John Deere 988K",
+    "Komatsu PC360",
+    "AGCO Massey 8s",
+    "Kubota M7",
+  ];
+  return (
+    <section
+      id="vertical-hero"
+      className="relative min-h-screen flex items-center bg-planara-dark overflow-hidden"
+    >
+      <HeroAccent variant="topo" />
+      <div className="relative container mx-auto px-6 py-24 md:py-32 max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* MOCK LEFT */}
+          <div className="order-2 lg:order-1">
+            {/* Platform ticker */}
+            <div className="mb-4 overflow-hidden">
+              <p className="text-[10px] font-mono uppercase tracking-wider text-white/35 mb-2">
+                Indexed platforms
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {platforms.map((p) => (
+                  <span
+                    key={p}
+                    className="text-[11px] font-mono px-2 py-1 border border-white/10 bg-white/[0.02] rounded-sm text-white/55"
+                  >
+                    {p}
+                  </span>
+                ))}
+                <span className="text-[11px] font-mono px-2 py-1 text-white/30">
+                  + your fleet
+                </span>
+              </div>
+            </div>
+            <div className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
+              <TechnicianChatMock
+                aspect="portrait"
+                question={vertical.heroMock?.question}
+                specs={vertical.heroMock?.specs}
+                safetyText={vertical.heroMock?.safetyText}
+                citation={vertical.heroMock?.citation}
+                equipmentLabel={vertical.heroMock?.equipmentLabel}
+              />
+            </div>
+          </div>
+
+          {/* COPY RIGHT */}
+          <div className="order-1 lg:order-2">
+            <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-6 inline-flex items-center gap-2">
+              <Tractor className="w-4 h-4" weight="duotone" />
+              Planara Conduit · Heavy & ag
+            </p>
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {(vertical.heroBadges ?? []).map((b) => (
+                <span
+                  key={b}
+                  className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 border border-white/15 text-white/60 rounded-sm"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05] mb-8">
+              Conduit for dealer-network OEMs and the bays they answer to.
+            </h1>
+            <p className="text-xl text-white/70 leading-relaxed mb-10">
+              Equipment in the field. Hours on the meter. Service window in the
+              off-season. Conduit makes every dealer answer the same question
+              the same way.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="#apply"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
+              >
+                Apply to deploy with us
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="#why-fits"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
+              >
+                Why this vertical fits
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 function MultiPlatform() {
   const platforms = [

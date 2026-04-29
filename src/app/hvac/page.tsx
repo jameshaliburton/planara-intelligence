@@ -1,8 +1,17 @@
-import { Wind, Truck, Wrench, Receipt } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import {
+  Wind,
+  Truck,
+  Wrench,
+  Receipt,
+  ArrowRight,
+} from "@phosphor-icons/react/dist/ssr";
 import {
   DesignPartnerLayout,
   type DesignPartnerVertical,
+  HeroAccent,
 } from "@/components/DesignPartnerLayout";
+import { TechnicianChatMock } from "@/components/mocks";
 
 export const metadata = {
   title: "Conduit for HVAC — Planara",
@@ -16,8 +25,6 @@ const vertical: DesignPartnerVertical = {
   icon: Wind,
   heroAccent: "curves",
   heroBadges: ["EPA 608", "ASHRAE", "ASE"],
-  heroSubBody:
-    "Multi-OEM library, code references that change at the city line, and a dispatcher trying to send the right truck to the right roof. Conduit puts the answer in the cab.",
   headline: "Conduit for HVAC service operations.",
   hookSentence:
     "Service trucks roll. The right answer needs to be in the cab before the tech climbs onto the roof.",
@@ -59,9 +66,113 @@ const vertical: DesignPartnerVertical = {
 };
 
 export default function HvacPage() {
-  return <DesignPartnerLayout vertical={vertical} spotlight={<CallbackEconomics />} />;
+  return (
+    <DesignPartnerLayout
+      vertical={vertical}
+      heroOverride={<HvacHero />}
+      spotlight={<CallbackEconomics />}
+    />
+  );
 }
 
+/* HVAC hero — copy left, iPad mock right (60/40), with a "live dispatch
+ * ticker" strip pinned above the H1. Reads as a service-ops console. */
+function HvacHero() {
+  return (
+    <section
+      id="vertical-hero"
+      className="relative min-h-screen flex items-center bg-planara-dark overflow-hidden"
+    >
+      <HeroAccent variant="curves" />
+      <div className="relative container mx-auto px-6 py-24 md:py-32 max-w-6xl">
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
+          <div>
+            {/* Live dispatch ticker */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 border border-white/10 bg-white/[0.03] rounded-full text-[11px] font-mono text-white/60">
+              <span className="relative flex w-2 h-2">
+                <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-400 opacity-70 animate-ping" />
+                <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400" />
+              </span>
+              Live · 187 trucks dispatched · 14% callback rate
+            </div>
+
+            <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-6 inline-flex items-center gap-2">
+              <Wind className="w-4 h-4" weight="duotone" />
+              Planara Conduit · HVAC
+            </p>
+
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {(vertical.heroBadges ?? []).map((b) => (
+                <span
+                  key={b}
+                  className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 border border-white/15 text-white/60 rounded-sm"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.05] mb-8">
+              Conduit for HVAC service operations.
+            </h1>
+            <p className="text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
+              Service trucks roll. The right answer needs to be in the cab
+              before the tech climbs onto the roof.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 mb-10">
+              <Link
+                href="#apply"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-planara-teal text-planara-dark font-semibold rounded-sm hover:bg-planara-teal/90 transition-colors"
+              >
+                Apply to deploy with us
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="#why-fits"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-colors"
+              >
+                Why this vertical fits
+              </Link>
+            </div>
+
+            {/* Inline 3-stat strip below CTAs */}
+            <div className="grid grid-cols-3 gap-4 max-w-lg pt-6 border-t border-white/[0.08]">
+              <HvacHeroStat label="First-visit fix" value="86%" />
+              <HvacHeroStat label="Avg callback cost" value="~$340" />
+              <HvacHeroStat label="Parts trips avoided" value="6 / truck / mo" />
+            </div>
+          </div>
+
+          {/* iPad mock right */}
+          <div className="relative mx-auto w-full max-w-[360px] lg:max-w-none lg:w-full">
+            <TechnicianChatMock
+              aspect="portrait"
+              question={vertical.heroMock?.question}
+              specs={vertical.heroMock?.specs}
+              safetyText={vertical.heroMock?.safetyText}
+              citation={vertical.heroMock?.citation}
+              equipmentLabel={vertical.heroMock?.equipmentLabel}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HvacHeroStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="text-[10px] font-mono uppercase tracking-wider text-white/40 mb-1">
+        {label}
+      </p>
+      <p className="text-base font-bold text-white tracking-tight">{value}</p>
+    </div>
+  );
+}
+
+/* Spotlight section (between WhyFits and DeploymentLook) */
 function CallbackEconomics() {
   const stats = [
     {

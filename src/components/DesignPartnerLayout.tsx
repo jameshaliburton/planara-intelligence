@@ -82,12 +82,18 @@ type Props = {
    * a search-and-replace template.
    */
   spotlight?: React.ReactNode;
+  /**
+   * Replaces the default Hero entirely. Each vertical owns its own
+   * composition so flipping between vertical pages reads as visibly
+   * different layouts, not search-and-replace templates.
+   */
+  heroOverride?: React.ReactNode;
 };
 
-export function DesignPartnerLayout({ vertical, spotlight }: Props) {
+export function DesignPartnerLayout({ vertical, spotlight, heroOverride }: Props) {
   return (
     <main className="min-h-screen bg-white">
-      <Hero vertical={vertical} />
+      {heroOverride ?? <Hero vertical={vertical} />}
       <WhyFits vertical={vertical} />
       {spotlight}
       <DeploymentLook vertical={vertical} />
@@ -97,6 +103,7 @@ export function DesignPartnerLayout({ vertical, spotlight }: Props) {
     </main>
   );
 }
+
 
 /* ─────────────────────────── Hero ─────────────────────────── */
 
@@ -175,7 +182,7 @@ function Hero({ vertical }: Props) {
  * subtle (low opacity, monochrome) — distinguishable when toggling between
  * pages without competing with the H1.
  */
-function HeroAccent({ variant }: { variant: "lines" | "curves" | "topo" | "dots" }) {
+export function HeroAccent({ variant }: { variant: "lines" | "curves" | "topo" | "dots" }) {
   if (variant === "curves") {
     return (
       <div
