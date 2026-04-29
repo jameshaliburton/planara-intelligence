@@ -71,13 +71,17 @@ export function AIComparison() {
     <section id="comparison" className="py-16 md:py-22 bg-planara-dark">
       <div className="container mx-auto px-6 max-w-5xl" ref={ref}>
         <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
-          Not Another Chatbot
+          Not another chatbot
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 max-w-3xl">
-          Generic AI vs. Manufacturing Intelligence
+          Generic AI vs. Technical Service Intelligence
         </h2>
-        <p className="text-lg text-white/50 max-w-2xl mb-12 leading-relaxed">
+        <p className="text-lg text-white/50 max-w-2xl mb-4 leading-relaxed">
           Same question. Radically different output.
+        </p>
+        <p className="text-sm text-white/35 max-w-2xl mb-12 italic">
+          Illustrative example. Generic AI responses vary; the comparison shows
+          the structural difference, not a benchmarked head-to-head.
         </p>
 
         {/* Query bar */}
@@ -118,7 +122,7 @@ export function AIComparison() {
             <div className="bg-planara-teal/[0.06] border-b border-planara-teal/20 px-4 py-2.5 flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-planara-teal/40" />
               <span className="text-[11px] font-mono text-planara-teal/70">
-                Planara Service Intelligence
+                Planara Conduit
               </span>
             </div>
             <div className="bg-[#0B0E14] px-5 py-5 flex-1">
@@ -219,9 +223,10 @@ export function AIComparison() {
                 Full context, not general knowledge.
               </p>
               <p className="text-sm text-white/40 leading-relaxed">
-                Planara queries your actual documentation library, cross-referenced
-                with live telemetry and service history. Generic AI draws from
-                public training data.
+                Conduit queries your actual documentation library — manuals,
+                standards, service bulletins. When telemetry is connected, it&apos;s
+                cross-referenced into the answer. Generic AI draws from public
+                training data.
               </p>
             </div>
           </div>
