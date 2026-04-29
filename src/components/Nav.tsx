@@ -31,9 +31,11 @@ export function Nav() {
           className="flex items-center gap-2 shrink-0"
           onClick={() => setOpen(false)}
         >
-          <span className="text-sm font-bold tracking-tight text-white">
-            Planara
-          </span>
+          <img
+            src="/planara-logo.png"
+            alt="Planara"
+            className="h-5 w-auto"
+          />
           <span className="hidden sm:inline text-[11px] font-mono uppercase tracking-wider text-planara-teal/80">
             Conduit
           </span>

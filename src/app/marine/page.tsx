@@ -6,7 +6,6 @@ import {
   GearSix,
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
-import { Integration } from "@/components/sections/Integration";
 import { Footer } from "@/components/sections/Footer";
 import { TechnicianChatMock } from "@/components/mocks";
 
@@ -24,7 +23,6 @@ export default function MarinePage() {
       <ReferenceDeployment />
       <ProcedureProof />
       <ThermostatExample />
-      <Integration />
       <MarineCTA />
       <Footer />
     </main>

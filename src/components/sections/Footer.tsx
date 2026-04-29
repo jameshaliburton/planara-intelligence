@@ -27,7 +27,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1.4fr_1fr_1fr] gap-8 md:gap-10 mb-14">
           {/* Brand block */}
           <div>
-            <p className="text-base font-bold text-white mb-1">Planara</p>
+            <img
+              src="/planara-logo.png"
+              alt="Planara"
+              className="h-7 w-auto mb-1"
+            />
             <p className="text-xs font-mono uppercase tracking-wider text-planara-teal/80 mb-4">
               Conduit
             </p>
