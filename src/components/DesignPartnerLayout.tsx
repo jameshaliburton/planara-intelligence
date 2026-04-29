@@ -26,6 +26,13 @@ export type DesignPartnerVertical = {
   icon: PhosphorIcon;
   /** Optional hand-written H1. Falls back to "Conduit for {label}." */
   headline?: string;
+  /** Background pattern in the Hero. Different per vertical so the four pages
+   *  read as visibly distinct when flipping between them. */
+  heroAccent?: "lines" | "curves" | "topo" | "dots";
+  /** Small standard-name badges shown above the H1 in the Hero. */
+  heroBadges?: string[];
+  /** Optional second paragraph in the Hero. If omitted, only hookSentence renders. */
+  heroSubBody?: string;
   /** One-line hook. Sits as hero subhead. */
   hookSentence: string;
   paragraphs: {
@@ -67,13 +74,22 @@ export type DesignPartnerVertical = {
   };
 };
 
-type Props = { vertical: DesignPartnerVertical };
+type Props = {
+  vertical: DesignPartnerVertical;
+  /**
+   * Vertical-specific spotlight section rendered between WhyFits and
+   * DeploymentLook. One per vertical so the four pages don't read as
+   * a search-and-replace template.
+   */
+  spotlight?: React.ReactNode;
+};
 
-export function DesignPartnerLayout({ vertical }: Props) {
+export function DesignPartnerLayout({ vertical, spotlight }: Props) {
   return (
     <main className="min-h-screen bg-white">
       <Hero vertical={vertical} />
       <WhyFits vertical={vertical} />
+      {spotlight}
       <DeploymentLook vertical={vertical} />
       <PartnerOffer />
       <ApplicationForm vertical={vertical} />
@@ -91,23 +107,28 @@ function Hero({ vertical }: Props) {
       id="vertical-hero"
       className="relative min-h-screen flex items-center bg-planara-dark overflow-hidden"
     >
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-        aria-hidden="true"
-      />
+      <HeroAccent variant={vertical.heroAccent ?? "lines"} />
 
       <div className="relative container mx-auto px-6 py-24 md:py-32 max-w-6xl">
         <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
           <div>
-            <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-8 inline-flex items-center gap-2">
+            <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-6 inline-flex items-center gap-2">
               <Icon className="w-4 h-4" weight="duotone" />
               Planara Conduit · {vertical.label}
             </p>
+
+            {vertical.heroBadges && vertical.heroBadges.length > 0 ? (
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {vertical.heroBadges.map((b) => (
+                  <span
+                    key={b}
+                    className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 border border-white/15 text-white/60 rounded-sm"
+                  >
+                    {b}
+                  </span>
+                ))}
+              </div>
+            ) : null}
 
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-[1.05] mb-8">
               {vertical.headline ?? `Conduit for ${vertical.label}.`}
@@ -117,12 +138,13 @@ function Hero({ vertical }: Props) {
               {vertical.hookSentence}
             </p>
 
-            <p className="text-lg text-white/55 max-w-2xl leading-relaxed mb-10">
-              Conduit turns manufacturer manuals, standards, and service
-              bulletins into cited, safety-validated answers — for the
-              technician at the equipment, the dispatcher at the desk, and the
-              service ops leader watching the metric.
-            </p>
+            {vertical.heroSubBody ? (
+              <p className="text-lg text-white/55 max-w-2xl leading-relaxed mb-10">
+                {vertical.heroSubBody}
+              </p>
+            ) : (
+              <div className="mb-10" />
+            )}
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
@@ -145,6 +167,80 @@ function Hero({ vertical }: Props) {
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * Per-vertical Hero background accent. Each variant is intentionally
+ * subtle (low opacity, monochrome) — distinguishable when toggling between
+ * pages without competing with the H1.
+ */
+function HeroAccent({ variant }: { variant: "lines" | "curves" | "topo" | "dots" }) {
+  if (variant === "curves") {
+    return (
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="curves" x="0" y="0" width="220" height="120" patternUnits="userSpaceOnUse">
+              <path d="M0 90 Q 55 30, 110 90 T 220 90" stroke="white" strokeWidth="1" fill="none" />
+              <path d="M0 60 Q 55 0, 110 60 T 220 60" stroke="white" strokeWidth="1" fill="none" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#curves)" />
+        </svg>
+      </div>
+    );
+  }
+  if (variant === "topo") {
+    return (
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="topo" x="0" y="0" width="180" height="40" patternUnits="userSpaceOnUse">
+              <path d="M0 20 L 180 20" stroke="white" strokeWidth="0.6" />
+              <path d="M0 8 L 180 8" stroke="white" strokeWidth="0.6" strokeDasharray="3 6" />
+              <path d="M0 32 L 180 32" stroke="white" strokeWidth="0.6" strokeDasharray="6 12" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#topo)" />
+        </svg>
+      </div>
+    );
+  }
+  if (variant === "dots") {
+    return (
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="white" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots)" />
+        </svg>
+      </div>
+    );
+  }
+  // default = lines (the original grid)
+  return (
+    <div
+      className="absolute inset-0 opacity-[0.03] pointer-events-none"
+      style={{
+        backgroundImage:
+          "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+        backgroundSize: "60px 60px",
+      }}
+      aria-hidden="true"
+    />
   );
 }
 

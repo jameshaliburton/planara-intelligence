@@ -1,4 +1,8 @@
-import { Tractor } from "@phosphor-icons/react/dist/ssr";
+import {
+  Tractor,
+  ArrowRight,
+  BookOpen,
+} from "@phosphor-icons/react/dist/ssr";
 import {
   DesignPartnerLayout,
   type DesignPartnerVertical,
@@ -14,6 +18,10 @@ const vertical: DesignPartnerVertical = {
   slug: "heavy-equipment",
   label: "Heavy & agricultural equipment",
   icon: Tractor,
+  heroAccent: "topo",
+  heroBadges: ["Hours-based", "Tier 4 / Stage V", "ROPS / FOPS"],
+  heroSubBody:
+    "Multi-platform fleets, dealer-network distribution, warranty consistency that lives or dies on whether every dealer answers the same way. Conduit is the layer that makes that consistent.",
   headline: "Conduit for dealer-network OEMs and the bays they answer to.",
   hookSentence:
     "Equipment in the field. Hours on the meter. Service window in the off-season. Conduit makes every dealer answer the same question the same way.",
@@ -55,5 +63,87 @@ const vertical: DesignPartnerVertical = {
 };
 
 export default function HeavyEquipmentPage() {
-  return <DesignPartnerLayout vertical={vertical} />;
+  return (
+    <DesignPartnerLayout vertical={vertical} spotlight={<MultiPlatform />} />
+  );
+}
+
+function MultiPlatform() {
+  const platforms = [
+    { oem: "Caterpillar", model: "D6T dozer", manual: "SEBU 14897", note: "2,000-hr service" },
+    { oem: "John Deere", model: "988K loader", manual: "OMT-227134", note: "Final drive seal" },
+    { oem: "Komatsu", model: "PC360 excavator", manual: "WEAM004500", note: "Hydraulic pressure check" },
+  ];
+  return (
+    <section className="py-16 md:py-22 bg-white border-b border-planara-border">
+      <div className="container mx-auto px-6 max-w-5xl">
+        <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
+          Three platforms, one query
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
+          The dealer technician doesn&rsquo;t pick a manual. They pick a machine.
+        </h2>
+        <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
+          A multi-OEM fleet means a multi-OEM service bench. Conduit indexes
+          every platform corpus, keyed to model and serial — so the right
+          page lands no matter whose manual it lives in.
+        </p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_auto_1fr] gap-6 lg:gap-4 items-stretch">
+          {/* Three platform cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {platforms.map((p) => (
+              <div
+                key={p.oem}
+                className="border border-planara-border rounded-lg p-4 bg-planara-light flex flex-col"
+              >
+                <p className="text-[10px] font-mono uppercase tracking-wider text-planara-muted/70 mb-1">
+                  {p.oem}
+                </p>
+                <p className="text-sm font-semibold text-planara-dark mb-1">
+                  {p.model}
+                </p>
+                <p className="text-[11px] font-mono text-planara-muted/80 mb-2">
+                  {p.manual}
+                </p>
+                <p className="text-xs text-planara-muted leading-relaxed mt-auto">
+                  {p.note}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Arrow */}
+          <div className="hidden lg:flex items-center justify-center">
+            <ArrowRight className="w-7 h-7 text-planara-teal/70" weight="bold" />
+          </div>
+          <div className="flex lg:hidden items-center justify-center text-planara-teal/70">
+            <ArrowRight className="w-6 h-6 rotate-90" weight="bold" />
+          </div>
+
+          {/* Unified Conduit answer */}
+          <div className="border border-planara-teal/40 rounded-lg p-5 bg-planara-teal/[0.04]">
+            <p className="text-[10px] font-mono uppercase tracking-wider text-planara-teal mb-2">
+              Conduit
+            </p>
+            <p className="text-base font-semibold text-planara-dark mb-3 leading-snug">
+              One cited answer for the machine in front of the tech.
+            </p>
+            <p className="text-sm text-planara-muted leading-relaxed mb-4">
+              Tech selects the unit. Conduit routes to the right OEM corpus,
+              the right service interval, the right TSB stack — and serves
+              the answer with a citation back to the page that authorized
+              it.
+            </p>
+            <div className="flex items-center gap-1.5 pt-3 border-t border-planara-border">
+              <BookOpen className="w-3.5 h-3.5 text-planara-teal" weight="duotone" />
+              <span className="text-[11px] font-mono text-planara-muted">
+                Cited to the platform manual the tech chose, every time
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

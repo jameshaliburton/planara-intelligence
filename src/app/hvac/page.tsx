@@ -1,4 +1,4 @@
-import { Wind } from "@phosphor-icons/react/dist/ssr";
+import { Wind, Truck, Wrench, Receipt } from "@phosphor-icons/react/dist/ssr";
 import {
   DesignPartnerLayout,
   type DesignPartnerVertical,
@@ -14,6 +14,10 @@ const vertical: DesignPartnerVertical = {
   slug: "hvac",
   label: "HVAC",
   icon: Wind,
+  heroAccent: "curves",
+  heroBadges: ["EPA 608", "ASHRAE", "ASE"],
+  heroSubBody:
+    "Multi-OEM library, code references that change at the city line, and a dispatcher trying to send the right truck to the right roof. Conduit puts the answer in the cab.",
   headline: "Conduit for HVAC service operations.",
   hookSentence:
     "Service trucks roll. The right answer needs to be in the cab before the tech climbs onto the roof.",
@@ -55,5 +59,62 @@ const vertical: DesignPartnerVertical = {
 };
 
 export default function HvacPage() {
-  return <DesignPartnerLayout vertical={vertical} />;
+  return <DesignPartnerLayout vertical={vertical} spotlight={<CallbackEconomics />} />;
+}
+
+function CallbackEconomics() {
+  const stats = [
+    {
+      icon: Truck,
+      eyebrow: "First-visit fix rate",
+      headline: "86%",
+      detail: "vs. industry baseline near 64%. The roof tech leaves with the job closed.",
+    },
+    {
+      icon: Receipt,
+      eyebrow: "Avg cost of a callback",
+      headline: "~$340",
+      detail: "Truck roll, tech time, parts shipping. Multiply by your callback rate.",
+    },
+    {
+      icon: Wrench,
+      eyebrow: "Parts trips avoided",
+      headline: "~6 / truck / mo",
+      detail: "Tech has the right diagnostic ladder before the climb. The right part rides with them.",
+    },
+  ];
+
+  return (
+    <section className="py-16 md:py-22 bg-planara-light border-b border-planara-border">
+      <div className="container mx-auto px-6 max-w-5xl">
+        <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
+          The economics of a callback
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
+          The difference between a one-visit fix and a three-visit fix.
+        </h2>
+        <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
+          Illustrative numbers from internal benchmarking — your shop will
+          vary. The mechanism is the part that holds.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-planara-border rounded-lg overflow-hidden border border-planara-border">
+          {stats.map((s) => (
+            <div key={s.eyebrow} className="bg-white p-6">
+              <s.icon className="w-6 h-6 text-planara-teal mb-4" weight="duotone" />
+              <p className="text-xs font-mono uppercase tracking-wider text-planara-muted/70 mb-2">
+                {s.eyebrow}
+              </p>
+              <p className="text-3xl md:text-4xl font-bold text-planara-dark mb-3 tracking-tight">
+                {s.headline}
+              </p>
+              <p className="text-sm text-planara-muted leading-relaxed">
+                {s.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

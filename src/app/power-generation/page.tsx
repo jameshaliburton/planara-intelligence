@@ -1,4 +1,9 @@
-import { Lightning } from "@phosphor-icons/react/dist/ssr";
+import {
+  Lightning,
+  Bell,
+  ShieldWarning,
+  CheckCircle,
+} from "@phosphor-icons/react/dist/ssr";
 import {
   DesignPartnerLayout,
   type DesignPartnerVertical,
@@ -14,6 +19,10 @@ const vertical: DesignPartnerVertical = {
   slug: "power-generation",
   label: "Power generation",
   icon: Lightning,
+  heroAccent: "dots",
+  heroBadges: ["NFPA 70 (NEC)", "NFPA 110", "NFPA 37"],
+  heroSubBody:
+    "Hospitals, data centers, telecom huts. Runtime-based maintenance for the planned visits, and a 2am call when the ATS doesn't transfer. Conduit is the layer behind both.",
   headline: "Conduit for the gensets that can't fail.",
   hookSentence:
     "A genset is one part of a larger reliability promise. Conduit makes sure the technician shows up with the right manual before the customer's UPS runs out.",
@@ -55,5 +64,105 @@ const vertical: DesignPartnerVertical = {
 };
 
 export default function PowerGenerationPage() {
-  return <DesignPartnerLayout vertical={vertical} />;
+  return (
+    <DesignPartnerLayout vertical={vertical} spotlight={<AfterHoursWalkthrough />} />
+  );
+}
+
+function AfterHoursWalkthrough() {
+  const steps = [
+    {
+      time: "02:14",
+      title: "Customer page: hospital ATS won&rsquo;t transfer.",
+      body:
+        "Building 4, 1.25 MW Cummins QSK60. Re-transfer delay setting is the suspect — but the tech hasn&rsquo;t worked an ASCO 7000 in months.",
+      tone: "alert" as const,
+    },
+    {
+      time: "02:18",
+      title: "Tech opens Conduit on phone in the truck.",
+      body: "Asks: &ldquo;ATS won&rsquo;t transfer — diagnostic ladder?&rdquo;",
+      tone: "neutral" as const,
+    },
+    {
+      time: "02:18",
+      title: "Conduit returns the ASCO 7000 ladder.",
+      body:
+        "Cited to the IOM § 7.2, p. 88. Re-transfer delay setting, manual transfer procedure, NFPA 110 verification step — all preserved verbatim.",
+      tone: "info" as const,
+    },
+    {
+      time: "02:34",
+      title: "Tech executes manual transfer per NFPA 110.",
+      body:
+        "Verifies utility is dead. Genset starts in 10 s. ATS returns to auto. Customer comes back online before the UPS dropout.",
+      tone: "neutral" as const,
+    },
+    {
+      time: "02:51",
+      title: "Tech captures the resolution.",
+      body:
+        "Submits the diagnostic path as a correction. The next 2am call on an ASCO 7000 starts with the answer this tech just learned.",
+      tone: "ok" as const,
+    },
+  ];
+
+  return (
+    <section className="py-16 md:py-22 bg-planara-dark border-b border-white/[0.06]">
+      <div className="container mx-auto px-6 max-w-5xl">
+        <p className="text-sm font-mono uppercase tracking-wider text-planara-teal mb-4">
+          A 2 a.m. call, walked through
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6 max-w-3xl">
+          The tech showing up to the hospital is the difference. Conduit is what they show up with.
+        </h2>
+        <p className="text-lg text-white/55 max-w-2xl mb-12 leading-relaxed">
+          One real after-hours call, narrated against a clock. Illustrative
+          — your customer mix and your platforms vary.
+        </p>
+
+        <ol className="relative border-l-2 border-white/[0.08] ml-3 space-y-8">
+          {steps.map((s, i) => {
+            const Icon =
+              s.tone === "alert"
+                ? Bell
+                : s.tone === "ok"
+                ? CheckCircle
+                : s.tone === "info"
+                ? ShieldWarning
+                : undefined;
+            const dot =
+              s.tone === "alert"
+                ? "bg-amber-400"
+                : s.tone === "ok"
+                ? "bg-planara-teal"
+                : "bg-white/40";
+            return (
+              <li key={i} className="pl-8 relative">
+                <span
+                  className={`absolute -left-[9px] top-1.5 w-4 h-4 rounded-full ${dot} border-2 border-planara-dark`}
+                />
+                <div className="flex flex-wrap items-baseline gap-3 mb-1">
+                  <span className="text-xs font-mono text-planara-teal">
+                    {s.time}
+                  </span>
+                  {Icon ? (
+                    <Icon className="w-3.5 h-3.5 text-white/40" weight="duotone" />
+                  ) : null}
+                </div>
+                <h3
+                  className="text-base font-semibold text-white mb-1"
+                  dangerouslySetInnerHTML={{ __html: s.title }}
+                />
+                <p
+                  className="text-sm text-white/60 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: s.body }}
+                />
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
+  );
 }
