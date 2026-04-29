@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
       { source: "/demo", destination: DEMO_URL, permanent: false, basePath: false },
       { source: "/demo/service", destination: DEMO_URL, permanent: false, basePath: false },
       { source: "/demo/owner", destination: DEMO_URL, permanent: false, basePath: false },
+      // /about was folded into the homepage Proof section.
+      { source: "/about", destination: "/", permanent: true },
     ];
   },
 };

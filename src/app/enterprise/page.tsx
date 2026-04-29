@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -18,6 +19,19 @@ import {
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import { Footer } from "@/components/sections/Footer";
+
+export const metadata: Metadata = {
+  title: "Conduit at OEM scale",
+  description:
+    "Multi-tenant by design. Namespace-isolated. Audit-trailed. SSO, RBAC, deployment options scoped to your operation. Built for the procurement desk and the dealer network at the same time.",
+  alternates: { canonical: "/enterprise" },
+  openGraph: {
+    title: "Conduit at OEM scale — Planara",
+    description:
+      "Multi-tenant, namespace-isolated, audit-trailed. Deployment options scoped to your operation.",
+    url: "/enterprise",
+  },
+};
 
 // ──────────────────────────────────────────────────────────────────────────────
 // /enterprise — for OEM execs, manufacturer ops directors, large-fleet buyers.

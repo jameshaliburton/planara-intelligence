@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -25,6 +26,19 @@ import {
   CorrectionQueueMock,
 } from "@/components/mocks";
 import type { ReactNode } from "react";
+
+export const metadata: Metadata = {
+  title: "For service leaders",
+  description:
+    "Three problems you deal with every week. Each one has a labor-rate number behind it. Conduit is the layer that moves them.",
+  alternates: { canonical: "/service-leaders" },
+  openGraph: {
+    title: "Conduit for service leaders — Planara",
+    description:
+      "Three problems you deal with every week. Each one has a labor-rate number behind it.",
+    url: "/service-leaders",
+  },
+};
 
 // ──────────────────────────────────────────────────────────────────────────────
 // /service-leaders — for service ops directors and dealer principals.
