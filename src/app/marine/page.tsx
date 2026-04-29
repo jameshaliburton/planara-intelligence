@@ -317,7 +317,7 @@ function MarineCTA() {
           Where we are
         </p>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
-          Active design conversations.
+          Where we are.
         </h2>
         <p className="text-lg text-white/65 leading-relaxed mb-4">
           Currently in active conversations with marine OEMs about deeper

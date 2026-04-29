@@ -18,7 +18,7 @@ const verticals = [
     blurb:
       "Production line uptime, OSHA 1910, lockout-tagout, shift-handoff knowledge loss.",
     href: "/manufacturing",
-    status: "Design partner",
+    status: "Open for pilots",
   },
   {
     slug: "hvac",
@@ -27,7 +27,7 @@ const verticals = [
     blurb:
       "EPA 608, ASHRAE, ASE. Dispatch-based field workforces, commercial and residential.",
     href: "/hvac",
-    status: "Design partner",
+    status: "Open for pilots",
   },
   {
     slug: "heavy-equipment",
@@ -36,7 +36,7 @@ const verticals = [
     blurb:
       "Hours-based service intervals, multi-engine vehicles, dealer-network OEMs.",
     href: "/heavy-equipment",
-    status: "Design partner",
+    status: "Open for pilots",
   },
   {
     slug: "power-generation",
@@ -45,7 +45,7 @@ const verticals = [
     blurb:
       "Genset maintenance, runtime-based intervals, distributed service networks.",
     href: "/power-generation",
-    status: "Design partner",
+    status: "Open for pilots",
   },
 ];
 
@@ -60,8 +60,9 @@ export function Verticals() {
           One platform. Configured per vertical.
         </h2>
         <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
-          Marine is our reference deployment. The other four are open to design
-          partners — early pricing, custom configuration, named on the platform.
+          Marine is our reference deployment. The other four are open to early
+          pilots — your documentation, your terminology, your standards, on
+          your timeline.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

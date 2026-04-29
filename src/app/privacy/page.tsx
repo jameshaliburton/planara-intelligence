@@ -5,7 +5,7 @@ import { Footer } from "@/components/sections/Footer";
 export const metadata: Metadata = {
   title: "Privacy — Planara Conduit",
   description:
-    "What Planara collects when you visit, fill out a form, or apply as a design partner — and what we do with it.",
+    "What Planara collects when you visit, fill out a form, or apply for a pilot — and what we do with it.",
 };
 
 export default function PrivacyPage() {
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
 
         <Section title="What we collect">
           <p>
-            When you fill out a form on this site (design-partner application,
+            When you fill out a form on this site (pilot application or
             white-paper download), we collect what you give us — typically your
             name, email, company, role, and a description of what you&apos;re
             trying to solve. We don&apos;t collect anything you don&apos;t enter.

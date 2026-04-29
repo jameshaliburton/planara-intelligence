@@ -68,7 +68,7 @@ export function Footer() {
                 >
                   pilots@planara.com
                 </a>
-                <p className="text-[11px] text-white/35 mt-0.5">Pilot &amp; design-partner applications</p>
+                <p className="text-[11px] text-white/35 mt-0.5">Pilot applications</p>
               </li>
             </ul>
           </div>

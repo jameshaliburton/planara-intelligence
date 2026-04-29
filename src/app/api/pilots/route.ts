@@ -108,7 +108,7 @@ export async function POST(req: NextRequest) {
       subject: `[Pilot] ${vertical} — ${company}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 640px; color: #131820;">
-          <h2 style="font-size: 16px; margin: 0 0 16px;">New design-partner application</h2>
+          <h2 style="font-size: 16px; margin: 0 0 16px;">New pilot application</h2>
           <table style="font-size: 14px; border-collapse: collapse; width: 100%;">
             <tr><td style="padding: 6px 12px 6px 0; color: #627084; vertical-align: top;">Vertical</td><td style="padding: 6px 0;">${escape(vertical)}</td></tr>
             <tr><td style="padding: 6px 12px 6px 0; color: #627084; vertical-align: top;">Name</td><td style="padding: 6px 0;">${escape(name)}</td></tr>
@@ -139,7 +139,7 @@ export async function POST(req: NextRequest) {
               Thanks, ${escape(name.split(" ")[0])}.
             </p>
             <p style="font-size: 14px; line-height: 1.6; color: #627084; margin: 0 0 16px;">
-              We received your application for a ${escape(vertical)} design-partner deployment. We read every one. If we think there&rsquo;s a fit, we&rsquo;ll come back to you within a week with next steps.
+              We received your application for a ${escape(vertical)} pilot deployment. We read every one. If we think there&rsquo;s a fit, we&rsquo;ll come back to you within a week with next steps.
             </p>
             <p style="font-size: 14px; line-height: 1.6; color: #627084; margin: 0 0 24px;">
               In the meantime, the marine reference deployment gives you a feel for what Conduit looks like once it&rsquo;s running on real documentation.

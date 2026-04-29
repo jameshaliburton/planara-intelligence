@@ -17,7 +17,7 @@ import { PilotApplicationForm } from "@/components/PilotApplicationForm";
 /**
  * Vertical config consumed by DesignPartnerLayout.
  *
- * Each design-partner page builds one of these and passes it in.
+ * Each vertical pilot page builds one of these and passes it in.
  * The layout component owns all structural rendering, voice, and design tokens.
  */
 export type DesignPartnerVertical = {
@@ -294,7 +294,7 @@ function PartnerOffer() {
     "Custom configuration: terminology, standards, and role surfaces tuned to how your techs work",
     "Locked-in early pricing for the life of the contract",
     "A direct line to the team building the platform — your feedback shapes the next release",
-    "Named publicly as a launch partner when you're ready, kept private until then",
+    "Named publicly as an early customer when you're ready, kept private until then",
   ];
   const weNeed = [
     "Access to your equipment documentation (PDFs are fine — manuals, bulletins, internal SOPs)",
@@ -317,8 +317,8 @@ function PartnerOffer() {
         </h2>
         <p className="text-lg text-planara-muted max-w-3xl mb-4 leading-relaxed">
           The reference deployment is in marine. We&apos;re working with a small
-          number of design partners — companies who want Conduit running on
-          their documentation now and are willing to shape it as we go.
+          number of early pilot customers — companies who want Conduit running
+          on their documentation now and are willing to shape it as we go.
         </p>
         <p className="text-base text-planara-muted/85 max-w-3xl mb-12 leading-relaxed">
           That&apos;s a real deployment for you, with real tradeoffs. Here&apos;s
