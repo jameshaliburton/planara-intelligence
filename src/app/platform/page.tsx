@@ -19,8 +19,6 @@ import {
 import { FieldIntelligenceDiagram } from "@/components/FieldIntelligenceDiagram";
 import { Footer } from "@/components/sections/Footer";
 import {
-  TechnicianChatMock,
-  OwnerSurfaceMock,
   AdoptionDashboardMock,
   OEMAnalyticsMock,
 } from "@/components/mocks";
@@ -240,7 +238,14 @@ const ROLES: Role[] = [
       "The person at the bench, with the engine open, holding a torque wrench. They get specs, parts, and procedures pulled directly from the manual — never invented. Citations are tappable to the source page so the tech can verify before turning a fastener.",
     outcome:
       "Time on tool goes up because time hunting through PDFs goes down.",
-    mock: <TechnicianChatMock aspect="landscape" />,
+    mock: (
+      <img
+        src="/screenshots/technician-chat.png"
+        alt="Conduit technician chat — P0505 fuel-fault answer with cited sources, follow-up questions, and a vessel context panel."
+        loading="lazy"
+        className="block w-full h-auto"
+      />
+    ),
   },
   {
     slug: "service-writer",
@@ -250,7 +255,14 @@ const ROLES: Role[] = [
       "The person taking the customer call and translating it into a work order. They get a plain-language interpreter that turns owner symptoms into the right diagnostic procedure, the right parts list, and the right service interval — backed by the same documentation the technician will use.",
     outcome:
       "Work orders get scoped correctly the first time, before the boat hits the lift.",
-    mock: <OwnerSurfaceMock />,
+    mock: (
+      <img
+        src="/screenshots/job-queue.png"
+        alt="Conduit job queue — five active work orders across the dealer fleet, each with WO number, equipment, and complaint summary."
+        loading="lazy"
+        className="block w-full h-auto"
+      />
+    ),
   },
   {
     slug: "service-leader",
@@ -432,51 +444,6 @@ function CorrectionPipeline() {
  * 6. Standards integration
  * ──────────────────────────────────────────────────────────── */
 
-const STANDARDS = [
-  {
-    code: "ABYC",
-    name: "American Boat & Yacht Council",
-    domains: ["Marine"],
-    detail:
-      "Wiring, fuel systems, and safety standards referenced wherever marine procedures touch them.",
-  },
-  {
-    code: "ANSI Z535",
-    name: "Safety signs and labels",
-    domains: ["Marine", "Manufacturing", "HVAC", "Heavy & agricultural equipment"],
-    detail:
-      "Severity levels (DANGER / WARNING / CAUTION / NOTICE) preserved verbatim through every answer.",
-  },
-  {
-    code: "OSHA 1910",
-    name: "Occupational Safety and Health",
-    domains: ["Manufacturing", "HVAC", "Heavy & agricultural equipment"],
-    detail:
-      "General industry standards surfaced inline whenever a procedure crosses a regulated activity.",
-  },
-  {
-    code: "ASHRAE",
-    name: "Refrigeration and HVAC&R",
-    domains: ["HVAC"],
-    detail:
-      "Charging, recovery, and ventilation standards referenced alongside equipment-specific service steps.",
-  },
-  {
-    code: "ASE",
-    name: "Automotive Service Excellence",
-    domains: ["Powersports", "Heavy & agricultural equipment"],
-    detail:
-      "Diagnostic and repair certification language used so technicians see standards they recognize.",
-  },
-  {
-    code: "EPA 608",
-    name: "Refrigerant handling",
-    domains: ["HVAC"],
-    detail:
-      "Federal handling and recovery requirements referenced anywhere a procedure touches refrigerant.",
-  },
-];
-
 function Standards() {
   return (
     <section className="py-20 md:py-24 bg-white">
@@ -487,49 +454,30 @@ function Standards() {
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
           The standards live inside the answers, not in a separate binder.
         </h2>
-        <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
+        <p className="text-lg text-planara-muted max-w-3xl mb-4 leading-relaxed">
           Conduit indexes the relevant industry standards alongside the OEM
           documentation so the safety language a technician needs is part of
-          the answer — not a separate lookup. Standards are tagged by vertical
-          so a marine reader sees marine standards highlighted, an HVAC reader
-          sees HVAC standards.
+          the answer — not a separate lookup.
+        </p>
+        <p className="text-base text-planara-muted/85 max-w-3xl mb-12 leading-relaxed">
+          ABYC for marine wiring and fuel; ANSI Z535 for safety signs and
+          labels; OSHA 1910 for general industry; ASHRAE and EPA 608 for HVAC
+          and refrigerant handling; ASE for technician credentials. Standards
+          are tagged by vertical so the right set surfaces inline.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {STANDARDS.map((s) => (
-            <div
-              key={s.code}
-              className="border border-planara-border rounded-lg p-5 bg-white hover:border-planara-teal/40 transition-colors"
-            >
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <div>
-                  <p className="text-base font-semibold text-planara-dark font-mono">
-                    {s.code}
-                  </p>
-                  <p className="text-xs text-planara-muted mt-0.5">{s.name}</p>
-                </div>
-                <div className="flex flex-wrap gap-1 justify-end max-w-[55%]">
-                  {s.domains.map((d) => (
-                    <span
-                      key={d}
-                      className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-sm bg-planara-teal/[0.08] text-planara-teal border border-planara-teal/20"
-                    >
-                      {d}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <p className="text-sm text-planara-muted leading-relaxed mt-3">
-                {s.detail}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-xs font-mono text-planara-muted/60 mt-6">
-          Additional standards integrated per vertical at deployment. List
-          shown reflects current reference deployments.
-        </p>
+        <figure className="rounded-lg border border-planara-border overflow-hidden bg-white">
+          <img
+            src="/screenshots/compliance-ckl.png"
+            alt="Backoffice safety and compliance configuration — ABYC E-11 and H-2 entries with trigger terms and a Fetch from URL importer."
+            loading="lazy"
+            className="block w-full h-auto"
+          />
+          <figcaption className="px-5 py-3 text-[11px] font-mono text-planara-muted/80 leading-relaxed border-t border-planara-border bg-planara-light/40">
+            Marine standards shown — your deployment configures the standards
+            relevant to your vertical.
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

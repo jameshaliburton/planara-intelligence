@@ -22,6 +22,7 @@ export default function MarinePage() {
       <MarineHero />
       <WhyMarineFits />
       <ReferenceDeployment />
+      <ProcedureProof />
       <ThermostatExample />
       <Integration />
       <MarineCTA />
@@ -250,18 +251,71 @@ function ReferenceDeployment() {
           </div>
         </div>
 
-        {/* Deployment surface — styled mock, not a captured screenshot */}
-        <div className="rounded-lg border border-planara-border overflow-hidden bg-planara-dark">
-          <div className="p-6 max-w-md mx-auto">
-            <TechnicianChatMock aspect="landscape" />
-          </div>
-          <div className="px-5 py-3 border-t border-white/[0.06]">
-            <p className="text-[11px] font-mono text-white/55">
-              Technician chat · F300 oil change · cited to LIT-18626-12-51
-              p.42
-            </p>
-          </div>
+        {/* Deployment surfaces — real product captures */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <figure className="rounded-lg border border-planara-border overflow-hidden bg-planara-dark">
+            <img
+              src="/screenshots/technician-chat.png"
+              alt="Conduit technician chat — P0505 fuel-fault answer with cited sources, follow-up questions, and a vessel context panel."
+              loading="lazy"
+              className="block w-full h-auto"
+            />
+            <figcaption className="px-5 py-3 text-[11px] font-mono text-white/55 leading-relaxed border-t border-white/[0.06]">
+              Technician surface · F350A in the Repair tab · cited answer
+              with vessel context.
+            </figcaption>
+          </figure>
+          <figure className="rounded-lg border border-planara-border overflow-hidden bg-planara-dark">
+            <img
+              src="/screenshots/backoffice-overview.png"
+              alt="Conduit backoffice overview — eval score, query volume, adoption metrics for a marine reference tenant."
+              loading="lazy"
+              className="block w-full h-auto"
+            />
+            <figcaption className="px-5 py-3 text-[11px] font-mono text-white/55 leading-relaxed border-t border-white/[0.06]">
+              Backoffice console · Newport Marine reference tenant ·
+              honest about active-user count at this stage.
+            </figcaption>
+          </figure>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────── Procedure-side proof (between deployment + thermostat) ─────────── */
+
+function ProcedureProof() {
+  return (
+    <section
+      id="procedure-proof"
+      className="py-16 md:py-22 bg-white border-b border-planara-border"
+    >
+      <div className="container mx-auto px-6 max-w-5xl">
+        <p className="text-sm font-mono uppercase tracking-wider text-planara-muted mb-4">
+          The doing side
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-planara-dark mb-6 max-w-3xl">
+          Cited procedures, not paragraphs.
+        </h2>
+        <p className="text-lg text-planara-muted max-w-2xl mb-12 leading-relaxed">
+          When the tech is in the repair, the answer is a step-by-step
+          procedure with the source page image attached. Every safety warning
+          stays verbatim. Every step traces to the page that authorized it.
+        </p>
+
+        <figure className="rounded-lg border border-planara-border overflow-hidden bg-planara-dark">
+          <img
+            src="/screenshots/procedure-repair.png"
+            alt="Conduit repair view — Step 1 of 6 of an oil pressure sensor procedure with WARNING chip and tappable manual page image."
+            loading="lazy"
+            className="block w-full h-auto"
+          />
+          <figcaption className="px-5 py-3 text-[11px] font-mono text-white/55 leading-relaxed border-t border-white/[0.06]">
+            Step-by-step repair with cited page image — F300 oil pressure
+            sensor procedure.
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
