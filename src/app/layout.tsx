@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { PlanaraFonts } from "@planara/design-system";
+import { PlanaraFonts, PlausibleAnalytics } from "@planara/design-system";
 import "./globals.css";
 import { IntegrationToastProvider } from "@/components/IntegrationToast";
 import { Nav } from "@/components/Nav";
@@ -86,6 +86,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <PlanaraFonts />
+        <PlausibleAnalytics domain="intelligence.planara.com" />
         <script {...jsonLdScriptProps(organizationJsonLd)} />
         <script {...jsonLdScriptProps(websiteJsonLd)} />
       </head>
