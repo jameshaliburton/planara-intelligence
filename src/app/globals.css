@@ -1,25 +1,19 @@
 @import "tailwindcss";
+@import "@planara/design-system/tokens.css";
+@source "../../node_modules/@planara/design-system/dist/**/*.{js,mjs}";
 
 /*
- * Planara Design System
- * Source of truth: planara.com + reference-site design tokens
- * Colors stored as HSL for composability with opacity modifiers
+ * Conduit-specific theme extensions.
+ * Brand palette + typography + radius come from @planara/design-system/tokens.css.
+ * Only Conduit-specific tokens live here: light-theme bg/fg, semantic aliases,
+ * safety colors used by the service demo.
  */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Planara brand */
-  --color-planara-dark: #131820;
-  --color-planara-navy: #0F1729;
-  --color-planara-teal: #43CED6;
-  --color-planara-blue: #2E95F5;
-  --color-planara-muted: #627084;
-  --color-planara-light: #F8FAFC;
-  --color-planara-border: #E2E5EA;
-
-  /* Semantic aliases */
+  /* Semantic aliases — Conduit's light theme */
   --color-primary: #131820;
   --color-primary-foreground: #FFFFFF;
   --color-accent: #43CED6;
@@ -31,19 +25,10 @@
   --color-border: #E2E5EA;
   --color-destructive: #EF4444;
 
-  /* Safety levels (service demo) */
+  /* Safety levels (service demo only — Conduit-specific) */
   --color-safety-caution: #F59E0B;
   --color-safety-warning: #F97316;
   --color-safety-danger: #EF4444;
-
-  /* Typography */
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-
-  /* Border radius — tight, modern */
-  --radius: 0.375rem;
-  --radius-sm: 0.25rem;
-  --radius-lg: 0.5rem;
 }
 
 :root {
