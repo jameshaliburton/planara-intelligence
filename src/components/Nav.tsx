@@ -101,7 +101,7 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <p className="text-[10px] font-mono uppercase tracking-wider text-white/30 mt-4 mb-1">
+          <p className="text-[10px] font-mono uppercase tracking-wider text-white/50 mt-4 mb-1">
             Verticals
           </p>
           {VERTICAL_LINKS.map((l) => (
